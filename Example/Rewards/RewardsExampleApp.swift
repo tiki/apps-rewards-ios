@@ -1,9 +1,18 @@
 //
-//  RewardsExampleApp.swift
-//  Rewards_Example
+//  RewardsExampleAppApp.swift
+//  RewardsExampleApp
 //
-//  Created by Jesse Monteiro Ferreira on 31/10/23.
-//  Copyright © 2023 CocoaPods. All rights reserved.
+//  Created by Jesse Monteiro Ferreira on 27/10/23.
 //
 
-import Foundation
+import SwiftUI
+import Rewards
+
+@main
+struct RewardsExampleApp: App {
+    var body: some Scene {
+        WindowGroup {
+            SheetView()
+        }
+    }
+}

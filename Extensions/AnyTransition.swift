@@ -1,8 +1,18 @@
-//
-//  AnyTransition.swift
-//  Rewards
-//
-//  Created by Jesse Monteiro Ferreira on 31/10/23.
-//
+/*
+ * Copyright (c) TIKI Inc.
+ * MIT license. See LICENSE file in root directory.
+ */
+import SwiftUI
 
-import Foundation
+public extension AnyTransition {
+    static var navigate: AnyTransition {
+        AnyTransition.asymmetric(
+            insertion: .move(edge: .trailing),
+            removal: .move(edge: .trailing))}
+    
+    
+    static var bottomSheet: AnyTransition {
+        AnyTransition.asymmetric(
+            insertion: .move(edge: .bottom),
+            removal: .move(edge: .bottom))}
+}

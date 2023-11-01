@@ -11,7 +11,7 @@ import SwiftUI
 struct RewardsApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            SheetView()
         }
     }
 }

@@ -9,7 +9,10 @@ import SwiftUI
 import Foundation
 
 public struct SheetView: View {
-    public init() {}
+    
+    public init(){
+        UIFont.registerSpaceGrotesk()
+    }
     
     @State var showSheet: Bool? = false
     
@@ -18,10 +21,10 @@ public struct SheetView: View {
         Button(action: { showSheet = true }) {
             
             HStack (spacing: 5) {
-                
+                Text("Hello Google").font(.custom("SpaceGrotesk", size: 40))
                 Image(systemName: "hand.tap.fill")
                     .font(.system(size: 20, weight: .regular, design: .rounded))
-                
+
                 Text("Click to open Tiki BottomSheet")
                     .font(.system(size: 20, weight: .regular, design: .rounded)).clipShape(RoundedRectangle(cornerRadius: 10))
             }
@@ -73,19 +76,6 @@ public struct SheetView: View {
             .edgesIgnoringSafeArea(.bottom)
         } onDismiss: {
             print("sheet dismissed")
-        }
-    }
-}
-
-public struct ContentView: View {
-    @State private var showingSheet = false
-
-    public var body: some View {
-        Button("Show Sheet") {
-            showingSheet.toggle()
-        }
-        .sheet(isPresented: $showingSheet) {
-            SheetView()
         }
     }
 }

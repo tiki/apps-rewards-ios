@@ -1,27 +1,16 @@
 PODS:
-  - FBSnapshotTestCase (2.1.4):
-    - FBSnapshotTestCase/SwiftSupport (= 2.1.4)
-  - FBSnapshotTestCase/Core (2.1.4)
-  - FBSnapshotTestCase/SwiftSupport (2.1.4):
-    - FBSnapshotTestCase/Core
   - Rewards (0.1.0)
 
 DEPENDENCIES:
-  - FBSnapshotTestCase (~> 2.1.4)
   - Rewards (from `../`)
-
-SPEC REPOS:
-  trunk:
-    - FBSnapshotTestCase
 
 EXTERNAL SOURCES:
   Rewards:
     :path: "../"
 
 SPEC CHECKSUMS:
-  FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
-  Rewards: 44d84373f84014ecfad1029df9d21a9f15482290
+  Rewards: 7a073ba6ba23befece08d9415713bfc4b15a9372
 
-PODFILE CHECKSUM: 92733ff5cb4ff0a16ab5a6789a4fb55394efa788
+PODFILE CHECKSUM: e3258cdb4d160d79c1bd90e7efc4df563fe7fae8
 
-COCOAPODS: 1.14.2
+COCOAPODS: 1.12.1

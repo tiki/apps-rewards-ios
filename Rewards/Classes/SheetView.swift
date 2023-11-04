@@ -11,17 +11,16 @@ import Foundation
 public struct SheetView: View {
     
     public init(){
-        UIFont.registerSpaceGrotesk()
+        Font.registerSpaceGrotesk()
     }
     
     @State var showSheet: Bool? = false
     
     public var body: some View {
-        
         Button(action: { showSheet = true }) {
             
             HStack (spacing: 5) {
-                Text("Hello Google").font(.custom("SpaceGrotesk", size: 40))
+               
                 Image(systemName: "hand.tap.fill")
                     .font(.system(size: 20, weight: .regular, design: .rounded))
 
@@ -41,8 +40,7 @@ public struct SheetView: View {
                     VStack(alignment: .leading) {
                         HStack{
                             Text("CASHBACK CONNECTIONS")
-                                .font(Font.custom("SpaceGrotesk", size: 22))
-//                                .padding(.trailing, 16)
+                                .font(SpaceGrotesk.regular(size: 22))
                             Image(systemName: "xmark.circle").font(.system(size: 25, weight: .light, design: .rounded))
                                 .foregroundColor(.gray)
                         }.padding(.leading, 24)

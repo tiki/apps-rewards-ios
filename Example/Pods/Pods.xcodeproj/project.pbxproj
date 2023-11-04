@@ -15,7 +15,7 @@
 		57C33909943D2BEDFBD71DA41B67C0EE /* SheetUi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9AF98240F4A82E76BA929EC28B8DB14 /* SheetUi.swift */; };
 		67E96A035FB64A599213EE8AF95A723F /* Pods-Rewards_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D7B41B98B2399AFC56D50F5948ADF7E4 /* Pods-Rewards_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6FC546A03E97AF61FBB9A695D8D7CEBD /* Rewards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EEB53144F22C8EC176770F1ACD6172A /* Rewards.swift */; };
-		802EF50312BC433A1055DA76DB01F574 /* CustomFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5EB0A021CB53A4C2E7F7E2D60AE154 /* CustomFont.swift */; };
+		802EF50312BC433A1055DA76DB01F574 /* SpaceGrotesk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5EB0A021CB53A4C2E7F7E2D60AE154 /* SpaceGrotesk.swift */; };
 		862AFCD29D60CA64E9F0738C504951C9 /* Pods-Rewards_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F6F4B180E341B5BE91B882F8A49B9A4 /* Pods-Rewards_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8DDBC1562874C117407DF23907BF0B65 /* SheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C800358D54D9FB5B6F76580F361CF9 /* SheetView.swift */; };
 		A694629412A7E837A5DD41DFDF938050 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
@@ -50,8 +50,8 @@
 
 /* Begin PBXFileReference section */
 		0CE27B53E0013B6318EBA3BC22985E54 /* Rewards-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Rewards-Info.plist"; sourceTree = "<group>"; };
-		0DDA92799CD06349ED7E8A3DEAE8C307 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
-		1C5EB0A021CB53A4C2E7F7E2D60AE154 /* CustomFont.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CustomFont.swift; path = Rewards/Classes/CustomFont.swift; sourceTree = "<group>"; };
+		0DDA92799CD06349ED7E8A3DEAE8C307 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		1C5EB0A021CB53A4C2E7F7E2D60AE154 /* SpaceGrotesk.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SpaceGrotesk.swift; path = Rewards/Classes/SpaceGrotesk.swift; sourceTree = "<group>"; };
 		1F038BDADFAD6499EF3C25230343A681 /* Rewards-RewardsFont */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "Rewards-RewardsFont"; path = RewardsFont.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F6F4B180E341B5BE91B882F8A49B9A4 /* Pods-Rewards_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Rewards_Example-umbrella.h"; sourceTree = "<group>"; };
 		2561EFDD5AD855B1AF318BD6CA02547D /* Pods-Rewards_Example */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-Rewards_Example"; path = Pods_Rewards_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -61,7 +61,7 @@
 		427CFAF96A3E2A342E480651FF66C4E7 /* Pods-Rewards_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Rewards_Example.release.xcconfig"; sourceTree = "<group>"; };
 		4322E28EF727C139C46AB79128343DB1 /* Pods-Rewards_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Rewards_Tests-dummy.m"; sourceTree = "<group>"; };
 		4FC603989F3A57315FB85E2BD0A4F1EB /* Pods-Rewards_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Rewards_Example-dummy.m"; sourceTree = "<group>"; };
-		5FEC8C1605FC99BC7BA3FB46B815455A /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		5FEC8C1605FC99BC7BA3FB46B815455A /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		61A9A4A1331D26CAE69B67A370253FCC /* Rewards-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Rewards-dummy.m"; sourceTree = "<group>"; };
 		680CB01C4D4B9F1103D49F418002F368 /* Pods-Rewards_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Rewards_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		6ABC55D17555A850C7CD11E933EAE505 /* Pods-Rewards_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Rewards_Example-frameworks.sh"; sourceTree = "<group>"; };
@@ -69,9 +69,9 @@
 		78541FC49C0CF679738059C7F8F3A54A /* Pods-Rewards_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Rewards_Example-Info.plist"; sourceTree = "<group>"; };
 		7FF60AC25C5D4225083C3831E8301310 /* Pods-Rewards_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Rewards_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		8038C5C6B031F14B99D2CDA281609B81 /* Rewards.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Rewards.debug.xcconfig; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A9AF98240F4A82E76BA929EC28B8DB14 /* SheetUi.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SheetUi.swift; path = Rewards/Classes/SheetUi.swift; sourceTree = "<group>"; };
-		AB1517C61205369F9A05E73E24FBD657 /* SpaceGrotesk.ttf */ = {isa = PBXFileReference; includeInIndex = 1; name = SpaceGrotesk.ttf; path = Rewards/Assets/SpaceGrotesk.ttf; sourceTree = "<group>"; };
+		AB1517C61205369F9A05E73E24FBD657 /* SpaceGrotesk.ttf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = SpaceGrotesk.ttf; path = Rewards/Assets/SpaceGrotesk.ttf; sourceTree = "<group>"; };
 		B090FDCEF99B9DBF423EFF35BDE24E11 /* Pods-Rewards_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Rewards_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		B3CD2E4B19D51506E0DBCF17FC33D41E /* ResourceBundle-RewardsFont-Rewards-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-RewardsFont-Rewards-Info.plist"; sourceTree = "<group>"; };
 		B7881A1B53E3EBA043BF68770AB6031F /* Rewards */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Rewards; path = Rewards.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -87,7 +87,7 @@
 		E550C71F31129CD0AF14289DF3BC6E99 /* Pods-Rewards_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Rewards_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		E6C2D856B23888A2C21A5856B5E2FE51 /* Pods-Rewards_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Rewards_Example.modulemap"; sourceTree = "<group>"; };
 		E889D954E169E037AF824600CA9F63DC /* Rewards-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Rewards-umbrella.h"; sourceTree = "<group>"; };
-		F271AD1B65115F581DB9831CFE43F890 /* Rewards.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = Rewards.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		F271AD1B65115F581DB9831CFE43F890 /* Rewards.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = Rewards.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,7 +161,7 @@
 		6710021E8461E71F2CF4D6BB88BCB131 /* Rewards */ = {
 			isa = PBXGroup;
 			children = (
-				1C5EB0A021CB53A4C2E7F7E2D60AE154 /* CustomFont.swift */,
+				1C5EB0A021CB53A4C2E7F7E2D60AE154 /* SpaceGrotesk.swift */,
 				3EEB53144F22C8EC176770F1ACD6172A /* Rewards.swift */,
 				A9AF98240F4A82E76BA929EC28B8DB14 /* SheetUi.swift */,
 				29C800358D54D9FB5B6F76580F361CF9 /* SheetView.swift */,
@@ -449,7 +449,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				802EF50312BC433A1055DA76DB01F574 /* CustomFont.swift in Sources */,
+				802EF50312BC433A1055DA76DB01F574 /* SpaceGrotesk.swift in Sources */,
 				6FC546A03E97AF61FBB9A695D8D7CEBD /* Rewards.swift in Sources */,
 				AD2D47C5DEB5FCE62226956DD4EADDEF /* Rewards-dummy.m in Sources */,
 				57C33909943D2BEDFBD71DA41B67C0EE /* SheetUi.swift in Sources */,
@@ -687,8 +687,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
 			};

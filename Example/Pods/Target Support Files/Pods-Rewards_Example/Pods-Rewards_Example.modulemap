@@ -1,6 +1,0 @@
-framework module Pods_Rewards_Example {
-  umbrella header "Pods-Rewards_Example-umbrella.h"
-
-  export *
-  module * { export * }
-}

@@ -1,8 +1,11 @@
+/*
+ * Copyright (c) TIKI Inc.
+ * MIT license. See LICENSE file in the root directory.
+ */
+     
 import SwiftUI
 
-// Custom Half Sheet Modifier....
 extension View {
-    //binding show bariable...
     func halfSheet<Content: View>(
         showSheet: Binding<Bool?>,
         @ViewBuilder content: @escaping () -> Content,
@@ -15,7 +18,6 @@ extension View {
     }
 }
 
-// UIKit integration
 struct HalfSheetHelper<Content: View>: UIViewControllerRepresentable {
     
     var sheetView: Content
@@ -33,13 +35,14 @@ struct HalfSheetHelper<Content: View>: UIViewControllerRepresentable {
     }
     
     func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
-        if let showSheet: Bool = showSheet {
-            if showSheet {
-                let sheetController = CustomHostingController(rootView: sheetView)
-                sheetController.presentationController?.delegate = context.coordinator
-                uiViewController.present(sheetController, animated: true)
-            }
-        }
+        if showSheet! {
+                        let sheetController = CustomHostingController(rootView: sheetView)
+                        sheetController.presentationController?.delegate = context.coordinator
+                        uiViewController.present(sheetController, animated: true)
+                    } else {
+                        uiViewController.dismiss(animated: true)
+                    }
+
     }
     
     //on dismiss...
@@ -68,7 +71,7 @@ final class CustomHostingController<Content: View>: UIHostingController<Content>
             ]
             
             //MARK: - sheet grabber visbility
-            presentationController.prefersGrabberVisible = false // i wanted to design my own grabber hehehe
+            presentationController.prefersGrabberVisible = false 
             
             // this allows you to scroll even during medium detent
             presentationController.prefersScrollingExpandsWhenScrolledToEdge = false

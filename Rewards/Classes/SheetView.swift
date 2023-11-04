@@ -39,7 +39,7 @@ public struct SheetView: View {
                         VStack(alignment: .leading){
                             HStack(){
                                 Text("CASHBACK CONNECTIONS")
-                                    .font(SpaceGrotesk(size: 22))
+                                    .font(SpaceGrotesk.regular(size: 22))
                                     .foregroundColor(.black).bold()
                                 Button(action: { showSheet?.toggle() }) {
                                     Image(systemName: "xmark.circle").font(.system(size: 25, weight: .semibold, design: .rounded))

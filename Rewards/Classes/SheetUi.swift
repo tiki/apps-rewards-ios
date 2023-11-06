@@ -71,7 +71,7 @@ final class CustomHostingController<Content: View>: UIHostingController<Content>
             ]
             
             //MARK: - sheet grabber visbility
-            presentationController.prefersGrabberVisible = false 
+            presentationController.prefersGrabberVisible = false
             
             // this allows you to scroll even during medium detent
             presentationController.prefersScrollingExpandsWhenScrolledToEdge = false

@@ -27,7 +27,7 @@ public struct SheetView: View {
                     .font(.system(size: 20, weight: .regular, design: .rounded)).clipShape(RoundedRectangle(cornerRadius: 10))
             }
             
-        }.navigationTitle("Modal Sheet")
+        }
         .halfSheet(showSheet: $showSheet) {
             ZStack {
                 
@@ -39,40 +39,39 @@ public struct SheetView: View {
                         VStack(alignment: .leading){
                             HStack(){
                                 Text("CASHBACK CONNECTIONS")
-                                    .font(SpaceGrotesk.regular(size: 22))
-                                    .foregroundColor(.black).bold()
+                                    .font(SpaceGrotesk.bold(size: 22))
+                                    .foregroundColor(ColorExtension.BlackTiki()).frame(maxWidth: .infinity, alignment: .leading)
                                 Button(action: { showSheet?.toggle() }) {
-                                    Image(systemName: "xmark.circle").font(.system(size: 25, weight: .semibold, design: .rounded))
+                                    Image(systemName: "xmark.circle").font(.system(size: 30, weight: .light, design: .rounded))
                                         .foregroundColor(.black)
                                 }
-                            }
+                            }.frame(minWidth: 342, maxWidth: 450, minHeight: 28, maxHeight: 28)
                             HStack() {
                                 Text("Share data. Earn cash.")
-                                    .font(.system(size: 16, weight: .semibold, design: .rounded))
-                                    .foregroundColor(.gray.opacity(0.90))
+                                    .font(SpaceGrotesk.medium(size: 16))                            .foregroundColor(ColorExtension.DarkGrayTiki())
                             }
-  
-                        }.padding(.top, 24)
+                        }.padding (.top, 24)
                             .padding(.bottom, 32)
+                            .padding(.horizontal, 24)
 
                         VStack() {
                             VStack(alignment: .center) {
-                                Text("Earn monthly").font(.system(size: 20, weight: .regular, design: .rounded))
-                                    .foregroundColor(.black)
-                                Text("$5 - $15").font(.system(size: 42, weight: .bold, design: .rounded))
-                                    .foregroundColor(.green)
-                                Text("for your shopping habits").font(.system(size: 20, weight: .regular, design: .rounded))
-                                    .foregroundColor(.black)
-                            }.padding().padding(.horizontal, 15).frame(width: 360,height: 201,alignment: .center).background(){
+                                Text("Earn monthly").font(SpaceGrotesk.medium(size: 20))
+                                    .foregroundColor(ColorExtension.BlackTiki())
+                                Text("$5 - $15").font(SpaceGrotesk.bold(size: 42))
+                                    .foregroundColor(ColorExtension.GreenTiki())
+                                Text("for your shopping habits").font(SpaceGrotesk.medium(size: 20))
+                                    .foregroundColor(ColorExtension.BlackTiki())
+                            }.frame(minWidth: 360, maxWidth: 450, minHeight: 200,alignment: .center).background(){
                                 ZStack(alignment: .top) {
                                     RoundedRectangle(cornerRadius: 10)
                                         .stroke(Color.black)
-                                        .frame(width: 360, height: 211)
-                                }
+                                        .frame(minWidth: 100, maxWidth: .infinity, minHeight: 200, maxHeight: 250)
+                                }.padding(.horizontal, 15)
 
                             }
                             HStack(){
-                                Text("Estimate based on similar users spending habits and market price for shopping data.").font(Font.custom("SpaceGrotesk-Bold", size: 14))
+                                Text("Estimate based on similar users spending habits and market price for shopping data.").font(SpaceGrotesk.medium(size: 14)).foregroundColor(ColorExtension.DarkGrayTiki())
                             }.padding(.horizontal, 15).padding(.top, 40)
                         }.padding(.leading, 15)
                             .padding(.top, 7)
@@ -84,7 +83,7 @@ public struct SheetView: View {
                                 HStack {
                                     Text("Get estimate")
                                         .foregroundColor(.white)
-                                        .font(.system(size: 20, weight: .bold))
+                                        .font(SpaceGrotesk.medium(size: 20))
                                         .lineLimit(1)
                                 }
                                 .frame(minWidth: 360, maxWidth: .infinity, minHeight: 54, maxHeight: .infinity)

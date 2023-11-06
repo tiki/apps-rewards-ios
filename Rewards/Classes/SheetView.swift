@@ -62,14 +62,13 @@ public struct SheetView: View {
                                     .foregroundColor(ColorExtension.GreenTiki())
                                 Text("for your shopping habits").font(SpaceGrotesk.medium(size: 20))
                                     .foregroundColor(ColorExtension.BlackTiki())
-                            }.frame(minWidth: 360, maxWidth: 450, minHeight: 200,alignment: .center).background(){
-                                ZStack(alignment: .top) {
-                                    RoundedRectangle(cornerRadius: 10)
-                                        .stroke(Color.black)
-                                        .frame(minWidth: 100, maxWidth: .infinity, minHeight: 200, maxHeight: 250)
-                                }.padding(.horizontal, 15)
+                            }.frame(minWidth: 360, maxWidth: 450, minHeight: 200, alignment: .center).background(RoundedRectangle(cornerRadius: 10)
+                                .foregroundColor(.white)
+                                .shadow(color: .gray, radius: 10, x: 5, y: 5)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 10).stroke(.black))
+                            )
 
-                            }
                             HStack(){
                                 Text("Estimate based on similar users spending habits and market price for shopping data.").font(SpaceGrotesk.medium(size: 14)).foregroundColor(ColorExtension.DarkGrayTiki())
                             }.padding(.horizontal, 15).padding(.top, 40)

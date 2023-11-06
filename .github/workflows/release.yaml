@@ -1,0 +1,94 @@
+name: Release
+
+on:
+  pull_request:
+    branches:
+      - main
+    types:
+      - closed
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: ${{ github.ref }}-${{ github.workflow }}
+  cancel-in-progress: true
+
+jobs:
+  docs:
+    if: false    
+    runs-on: macos-latest
+    steps:
+      - name: Setup Xcode
+        uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: '14.2'
+
+      - name: Checkout TIKI SDK iOS
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
+
+      - name: Build Docs
+        id: build_docs
+        run: |
+          export TEMP_DIR=$(mktemp -d)
+          echo "TEMP_DIR=$TEMP_DIR" >> $GITHUB_OUTPUT 
+          xcodebuild docbuild -scheme Rewards -derivedDataPath $TEMP_DIR -destination generic/platform=iOS
+
+      - name: Convert to Static
+        run: |
+          mkdir -p doc/static
+          ls ${{steps.build_docs.outputs.TEMP_DIR}}/Build/Products/Debug-iphoneos/Rewards.doccarchive
+          $(xcrun --find docc) process-archive transform-for-static-hosting ${{steps.build_docs.outputs.TEMP_DIR}}/Build/Products/Debug-iphoneos/Rewards.doccarchive --output-path doc/static
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: './doc/static'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2
+
+  release:
+    if: github.event.pull_request.merged == true && startsWith(github.head_ref, 'release/')
+    environment: Production
+    outputs:
+      tag: ${{ steps.semver.outputs.nextStrict }}
+    runs-on: macos-latest
+    steps:
+      - name: Checkout TIKI SDK iOS
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Get Version
+        id: semver
+        uses: ietf-tools/semver-action@v1
+        with:
+          token: ${{ github.token }}
+
+      - name: Create a new tag
+        run: |
+          git tag ${{ steps.semver.outputs.nextStrict }}
+          git push origin ${{ steps.semver.outputs.nextStrict }}
+
+      - name: Deploy to Cocoapods
+        run: |
+          set -eo pipefail
+          pod lib lint --allow-warnings
+          pod trunk push Rewards.podspec --allow-warnings
+        env:
+          COCOAPODS_TRUNK_TOKEN: ${{ secrets.COCOAPODS_TRUNK_TOKEN }}
+
+      - name: Create a Release
+        continue-on-error: true
+        uses: ncipollo/release-action@v1
+        with:
+          tag: ${{ steps.semver.outputs.nextStrict }}

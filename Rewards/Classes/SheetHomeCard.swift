@@ -19,22 +19,22 @@ public struct SheetHomeCard: View {
                 VStack(alignment: .leading) {
                     VStack(alignment: .leading){
                         Text("Month").font(SpaceGrotesk.medium(size: 14))
-                            .foregroundColor(ColorExtension.BlackTiki()).padding(.bottom, -3)
+                            .foregroundColor(Color.tikiBlack()).padding(.bottom, -3)
                         Text("$4.80 / $12.00").font(SpaceGrotesk.bold(size: 18))
-                            .foregroundColor(ColorExtension.GreenTiki())
+                            .foregroundColor(Color.tikiGreen())
                     }.padding(.bottom, 12)
                     VStack(alignment: .leading) {
                         Text("Lifetime").font(SpaceGrotesk.medium(size: 14))
-                            .foregroundColor(ColorExtension.BlackTiki()).padding(.bottom, -3)
+                            .foregroundColor(Color.tikiBlack()).padding(.bottom, -3)
                         Text("$34.30").font(SpaceGrotesk.bold(size: 18))
-                            .foregroundColor(ColorExtension.DarkGrayTiki())
+                            .foregroundColor(Color.tikiDarkGray())
                     }.padding(.bottom, 12)
                     Button {
                         progress += 1
                     } label: {
                         HStack {
                             Text("Show More")
-                                .foregroundColor(ColorExtension.GreenTiki())
+                                .foregroundColor(Color.tikiDarkGray())
                                 .font(SpaceGrotesk.bold(size: 18))
                                 .lineLimit(1)
                         }

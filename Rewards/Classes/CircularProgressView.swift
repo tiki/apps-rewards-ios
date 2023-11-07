@@ -19,7 +19,7 @@ struct CircularProgressView: View {
             Circle()
                 .trim(from: 0, to: progress)
                 .stroke(
-                    ColorExtension.GreenTiki(),
+                    Color.tikiGreen(),
                     style: StrokeStyle(
                         lineWidth: 20,
                         lineCap: .round

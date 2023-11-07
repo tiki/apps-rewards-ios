@@ -34,7 +34,7 @@ public struct SheetHomeCard: View {
                     } label: {
                         HStack {
                             Text("Show More")
-                                .foregroundColor(Color.tikiDarkGray())
+                                .foregroundColor(Color.tikiGreen())
                                 .font(SpaceGrotesk.bold(size: 18))
                                 .lineLimit(1)
                         }

@@ -5,15 +5,14 @@
  
 import SwiftUI
 
-public struct BottomSheet: ViewModifier {
-
-    @Environment(\.colorScheme) var colorScheme
+struct BottomSheet: ViewModifier {
+    
     @Binding var isShowing: Bool
     @Binding var offset: CGFloat
-        
+    
     var onDismiss: (() -> Void)?
-
-    public func body(content: Content) -> some View {
+    
+    func body(content: Content) -> some View {
         ZStack{
             Color.clear
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -27,13 +26,14 @@ public struct BottomSheet: ViewModifier {
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
                 .ignoresSafeArea()
                 .offset(y: offset)
-
         }
     }
 }
+
 extension View {
     func asBottomSheet(isShowing: Binding<Bool>, offset: Binding<CGFloat>, onDismiss: @escaping (() -> Void)) -> some View {
         modifier(BottomSheet(isShowing: isShowing, offset: offset, onDismiss: onDismiss))
     }
-
 }
+
+

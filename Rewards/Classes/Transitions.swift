@@ -2,10 +2,10 @@
  * Copyright (c) TIKI Inc.
  * MIT license. See LICENSE file in root directory.
  */
- 
+
 import SwiftUI
 
-public extension AnyTransition {
+extension AnyTransition {
     static var navigate: AnyTransition {
         AnyTransition.asymmetric(
             insertion: .move(edge: .trailing),

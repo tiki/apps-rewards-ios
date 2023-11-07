@@ -4,19 +4,21 @@
  */
 import SwiftUI
 
-public struct ColorExtension {
-    public static func BlackTiki() -> Color {
-        return Color(hex: "#1C0000")
+extension Color {
+    
+    public static func tikiBlack() -> Color {
+        return Color(hex: "1C0000")
     }
-    public static func DarkGrayTiki() -> Color {
+    public static func tikiDarkGray() -> Color {
         return Color(hex: "999999")
     }
-    public static func GreenTiki() -> Color {
-        return Color(hex: "#00B272")
+    public static func tikiLightGray() -> Color {
+        return Color(hex: "22000000")
     }
-}
-
-extension Color {
+    public static func tikiGreen() -> Color {
+        return Color(hex: "00B272")
+    }
+    
     init(hex: String) {
         let hex = hex.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
         var int: UInt64 = 0

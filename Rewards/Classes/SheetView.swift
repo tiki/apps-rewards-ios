@@ -40,7 +40,7 @@ public struct SheetView: View {
                             HStack(){
                                 Text("CASHBACK CONNECTIONS")
                                     .font(SpaceGrotesk.bold(size: 22))
-                                    .foregroundColor(ColorExtension.BlackTiki()).frame(maxWidth: .infinity, alignment: .leading)
+                                    .foregroundColor(.tikiBlack()).frame(maxWidth: .infinity, alignment: .leading)
                                 Button(action: { showSheet?.toggle() }) {
                                     Image(systemName: "xmark.circle").font(.system(size: 30, weight: .light, design: .rounded))
                                         .foregroundColor(.black)
@@ -48,7 +48,7 @@ public struct SheetView: View {
                             }.frame(minWidth: 342, maxWidth: 450, minHeight: 28, maxHeight: 28)
                             HStack() {
                                 Text("Share data. Earn cash.")
-                                    .font(SpaceGrotesk.medium(size: 16)).foregroundColor(ColorExtension.DarkGrayTiki())
+                                    .font(SpaceGrotesk.medium(size: 16))                            .foregroundColor(.tikiDarkGray())
                             }
                         }.padding (.top, 24)
                             .padding(.bottom, 32)
@@ -57,20 +57,20 @@ public struct SheetView: View {
                         VStack() {
                             VStack(alignment: .center) {
                                 Text("Earn monthly").font(SpaceGrotesk.medium(size: 20))
-                                    .foregroundColor(ColorExtension.BlackTiki())
+                                    .foregroundColor(.tikiBlack())
                                 Text("$5 - $15").font(SpaceGrotesk.bold(size: 42))
-                                    .foregroundColor(ColorExtension.GreenTiki())
+                                    .foregroundColor(.tikiGreen())
                                 Text("for your shopping habits").font(SpaceGrotesk.medium(size: 20))
-                                    .foregroundColor(ColorExtension.BlackTiki())
+                                    .foregroundColor(.tikiBlack())
                             }.frame(minWidth: 360, maxWidth: 450, minHeight: 200, alignment: .center).background(RoundedRectangle(cornerRadius: 10)
                                 .foregroundColor(.white)
-                                .shadow(color: .gray, radius: 10, x: 4, y: 4)
+                                .shadow(color: .tikiLightGray(), radius: 0, x: 5, y: 5)
                                 .overlay(
                                     RoundedRectangle(cornerRadius: 10).stroke(.black))
                             )
 
                             HStack(){
-                                Text("Estimate based on similar users spending habits and market price for shopping data.").font(SpaceGrotesk.medium(size: 14)).foregroundColor(ColorExtension.DarkGrayTiki())
+                                Text("Estimate based on similar users spending habits and market price for shopping data.").font(SpaceGrotesk.medium(size: 14)).foregroundColor(.tikiDarkGray())
                             }.padding(.horizontal, 15).padding(.top, 40)
                         }.padding(.leading, 15)
                             .padding(.top, 7)

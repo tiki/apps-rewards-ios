@@ -7,12 +7,13 @@
 
 import SwiftUI
 import Rewards
+import Pods_Rewards_Example
 
 @main
 struct RewardsExampleApp: App {
     var body: some Scene {
         WindowGroup {
-            SheetView()
+            SheetHomeCard()
         }
     }
 }

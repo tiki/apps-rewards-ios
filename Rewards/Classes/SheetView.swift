@@ -48,7 +48,7 @@ public struct SheetView: View {
                             }.frame(minWidth: 342, maxWidth: 450, minHeight: 28, maxHeight: 28)
                             HStack() {
                                 Text("Share data. Earn cash.")
-                                    .font(SpaceGrotesk.medium(size: 16))                            .foregroundColor(ColorExtension.DarkGrayTiki())
+                                    .font(SpaceGrotesk.medium(size: 16)).foregroundColor(ColorExtension.DarkGrayTiki())
                             }
                         }.padding (.top, 24)
                             .padding(.bottom, 32)
@@ -64,7 +64,7 @@ public struct SheetView: View {
                                     .foregroundColor(ColorExtension.BlackTiki())
                             }.frame(minWidth: 360, maxWidth: 450, minHeight: 200, alignment: .center).background(RoundedRectangle(cornerRadius: 10)
                                 .foregroundColor(.white)
-                                .shadow(color: .gray, radius: 10, x: 5, y: 5)
+                                .shadow(color: .gray, radius: 10, x: 4, y: 4)
                                 .overlay(
                                     RoundedRectangle(cornerRadius: 10).stroke(.black))
                             )

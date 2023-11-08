@@ -16,6 +16,10 @@ TIKI Rewards
   s.resource_bundles = {
     'RewardsFont' => [
       'Rewards/Assets/SpaceGrotesk.ttf'
+    ],
+    'RewardsIcons' => [
+      'Rewards/Assets/*.png'
     ]
   }
+  s.resources = 'Rewards/Assets/*.png'
 end

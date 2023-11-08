@@ -7,20 +7,22 @@ import SwiftUI
 import Foundation
 
 public struct SheetHomeCarousel : View {
-
-    public init() {}
-    
+    public var accountsList: [Account] = {
+        var acc = [Account]()
+        for account in AccountEnum.allCases {
+            acc.append(Account.init(accountCommon: .init(name: account, type: .RETAILER), status:  .notLinked))
+        }
+        return acc
+    }()
     public var body: some View {
-        VStack() {
-            ZStack() {
-                AsyncImage(url: URL(string: "https://raw.githubusercontent.com/tiki/capture-receipt-capacitor/main/src/account/images/walmart.png")).clipShape(RoundedRectangle(cornerRadius: 25))
-                Button(action: { print("algo") }) {
-                    Image(systemName: "plus.circle").background(Color.black.opacity(0.50).clipShape(Circle())).font(.system(size: 44,weight: .regular))
-                        .foregroundColor(.white)
+        ScrollView (.horizontal){
+            HStack(spacing: 20) {
+                ForEach(accountsList, id: \.accountCommon.name){ acc in
+                    SheetHomeCarouselIcon(provider: acc)
+
                 }
             }
-            Text("Add Walmart").font(.system(size: 12,weight: .regular))
+        }.frame(width: 390, height: 120)
 
-        }.frame(minWidth: 88, maxWidth: .infinity, minHeight: 120, maxHeight: .infinity)
     }
 }

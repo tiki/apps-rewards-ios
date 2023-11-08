@@ -12,7 +12,7 @@ public class Rewards{
         DispatchQueue.main.async {
             let viewController = UIApplication.shared.windows.first?.rootViewController
             let vc = UIHostingController(
-                rootView: HomeCard()
+                rootView: SheetHomeCarouselGrid()
             )
             vc.modalPresentationStyle = .overFullScreen
             vc.modalTransitionStyle = .crossDissolve

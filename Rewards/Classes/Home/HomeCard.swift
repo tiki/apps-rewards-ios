@@ -18,7 +18,7 @@ public struct HomeCard: View {
             Spacer()
             VStack(alignment: .leading){
                 Text("Month").font(SpaceGrotesk.medium(size: 14))
-                    .foregroundColor(Color.tikiBlack).padding(.top, 12)
+                    .foregroundColor(Color.tikiBlack)
                 Text("$4.80 / $12.00").font(SpaceGrotesk.bold(size: 18))
                     .foregroundColor(Color.tikiGreen)
                 Text("Lifetime").font(SpaceGrotesk.medium(size: 14))
@@ -34,13 +34,13 @@ public struct HomeCard: View {
                             .font(SpaceGrotesk.bold(size: 18))
                             .lineLimit(1)
                     }
-                }.padding(.top, 6).padding(.bottom, 12)
+                }.padding(.top, 6)
             }
             Spacer()
             CircularProgressView(progress: progress).frame(width: 100, height: 100)
             Spacer()
         }.frame(maxWidth: .infinity)
-        .asCard()
+        .asCard().padding(.all, 24)
     }
 }
 

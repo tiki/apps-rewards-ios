@@ -9,18 +9,18 @@ public struct CircularProgressView: View {
     
     public var body: some View {
         ZStack {
-            Circle().stroke(Color.black, lineWidth: 20)
+            Circle().stroke(Color.tikiDarkGray, lineWidth: 25)
             Circle()
                 .stroke(
                     Color.white,
-                    lineWidth: 19
+                    lineWidth: 23
                 )
             Circle()
-                .trim(from: 0.02, to: progress)
+                .trim(from: 0.03, to: progress)
                 .stroke(
                     Color.tikiGreen,
                     style: StrokeStyle(
-                        lineWidth: 20,
+                        lineWidth: 24,
                         lineCap: .round
                     )
                 )

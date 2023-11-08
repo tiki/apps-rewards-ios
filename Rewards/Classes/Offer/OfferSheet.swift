@@ -6,14 +6,14 @@
 import SwiftUI
 import Foundation
 
-public struct HomeSheet: View {
+public struct OfferSheet: View {
     
     let onDismiss: () -> Void
     @State var showSheet: Bool = true
     @State var offset: CGFloat = 0
     
     public init(_ onDismiss: @escaping () -> Void){
-        Font.registerSpaceGrotesk()
+        let _ = Font.registerSpaceGrotesk()
         self.onDismiss = onDismiss
     }
 
@@ -26,7 +26,7 @@ public struct HomeSheet: View {
                 })
                     .padding(.horizontal, 24)
                     .padding(.top, 16)
-                Card()
+                OfferCard()
                     .padding(.horizontal, 15)
                     .padding(.top, 48)
                 Text("Estimate based on similar users spending habits and market price for shopping data.")

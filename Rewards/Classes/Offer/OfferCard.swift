@@ -5,7 +5,7 @@
 
 import SwiftUI
 
-public struct Card: View{
+public struct OfferCard: View{
     
     public var body: some View {
         VStack{
@@ -18,15 +18,7 @@ public struct Card: View{
             Text("for your shopping habits")
                 .font(SpaceGrotesk.medium(size: 20))
                 .foregroundColor(.tikiBlack)
-        }
-        .frame(maxWidth: .infinity)
-        .padding(.vertical, 48)
-        .background(RoundedRectangle(cornerRadius: 10)
-        .foregroundColor(.white)
-        .shadow(color: .tikiLightGray, radius: 0, x: 4, y: 4)
-        .overlay(
-            RoundedRectangle(cornerRadius: 10).stroke(Color.tikiDarkGray))
-        )
+        }.asCard()
     }
     
 }

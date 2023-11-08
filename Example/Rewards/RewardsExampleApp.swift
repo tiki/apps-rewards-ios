@@ -1,9 +1,8 @@
-//
-//  RewardsExampleAppApp.swift
-//  RewardsExampleApp
-//
-//  Created by Jesse Monteiro Ferreira on 27/10/23.
-//
+/*
+ * Copyright (c) TIKI Inc.
+ * MIT license. See LICENSE file in root directory.
+ */
+
 
 import SwiftUI
 import Rewards
@@ -12,7 +11,16 @@ import Rewards
 struct RewardsExampleApp: App {
     var body: some Scene {
         WindowGroup {
-            SheetHomeCarousel()
+            Button(action: {
+                Rewards.start()
+            }) {
+                HStack (spacing: 5) {
+                    Image(systemName: "hand.tap.fill")
+                        .font(.system(size: 20, weight: .regular, design: .rounded))
+                    Text("Click to open Tiki BottomSheet")
+                        .font(.system(size: 20, weight: .regular, design: .rounded)).clipShape(RoundedRectangle(cornerRadius: 10))
+                }
+            }
         }
     }
 }

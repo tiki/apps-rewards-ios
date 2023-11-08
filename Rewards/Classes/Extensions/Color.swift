@@ -2,22 +2,18 @@
  * Copyright (c) TIKI Inc.
  * MIT license. See LICENSE file in the root directory.
  */
+
 import SwiftUI
 
-extension Color {
+public extension Color {
     
-    public static func tikiBlack() -> Color {
-        return Color(hex: "1C0000")
-    }
-    public static func tikiDarkGray() -> Color {
-        return Color(hex: "999999")
-    }
-    public static func tikiLightGray() -> Color {
-        return Color(hex: "22000000")
-    }
-    public static func tikiGreen() -> Color {
-        return Color(hex: "00B272")
-    }
+    static let tikiBlack: Color = Color(hex: "1C0000")
+    
+    static let tikiDarkGray:Color =  Color(hex: "666666")
+    
+    static let tikiLightGray:Color = Color(hex: "15000000")
+    
+    static let tikiGreen: Color = Color(hex: "00B272")
     
     init(hex: String) {
         let hex = hex.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)

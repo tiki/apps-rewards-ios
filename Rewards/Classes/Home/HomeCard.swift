@@ -37,7 +37,7 @@ public struct HomeCard: View {
                 }.padding(.top, 6)
             }
             Spacer()
-            CircularProgressView(progress: progress).frame(width: 100, height: 100)
+            CircularProgressView(progress: progress, progress2: nil, progress3: nil ).frame(width: 100, height: 100)
             Spacer()
         }.frame(maxWidth: .infinity)
         .asCard().padding(.all, 24)

@@ -10,5 +10,6 @@ public enum AccountStatus : String {
     case notLinked
     case verfied
     case unverify
+    case sync
     
 }

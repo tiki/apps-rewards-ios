@@ -7,25 +7,26 @@
 import Foundation
 
 public enum AccountEnum : String, CaseIterable{
+    case UberEats
+    case TacoBell
+    case DollarGeneral
     case Walmart
     case Walmart1
     case Walmart2
     case Walmart3
     case Walmart4
     case Walmart5
-    case Walmart6
-    case Walmart7
-    case Walmart8
-    case Walmart9
-    case Walmart10
-    case Walmart11
-    case Walmart12
-    case Walmart13
-    case Walmart14
-    case Walmart15
-    case UberEats
-    case TacoBell
-    case DollarGeneral
+//    case Walmart6
+//    case Walmart7
+//    case Walmart8
+//    case Walmart9
+//    case Walmart10
+//    case Walmart11
+//    case Walmart12
+//    case Walmart13
+//    case Walmart14
+//    case Walmart15
+
     
     public func toString() -> String{
         switch self {
@@ -47,26 +48,26 @@ public enum AccountEnum : String, CaseIterable{
             return "Walmart4"
         case .Walmart5:
             return "Walmart5"
-        case .Walmart6:
-            return "Walmart6"
-        case .Walmart7:
-            return "Walmart7"
-        case .Walmart8:
-            return "Walmart8"
-        case .Walmart9:
-            return "Walmart9"
-        case .Walmart10:
-            return "Walmart10"
-        case .Walmart11:
-            return "Walmart11"
-        case .Walmart12:
-            return "Walmart12"
-        case .Walmart13:
-            return "Walmart13"
-        case .Walmart14:
-            return "Walmart14"
-        case .Walmart15:
-            return "Walmart15"
+//        case .Walmart6:
+//            return "Walmart6"
+//        case .Walmart7:
+//            return "Walmart7"
+//        case .Walmart8:
+//            return "Walmart8"
+//        case .Walmart9:
+//            return "Walmart9"
+//        case .Walmart10:
+//            return "Walmart10"
+//        case .Walmart11:
+//            return "Walmart11"
+//        case .Walmart12:
+//            return "Walmart12"
+//        case .Walmart13:
+//            return "Walmart13"
+//        case .Walmart14:
+//            return "Walmart14"
+//        case .Walmart15:
+//            return "Walmart15"
         }
     }
 }

@@ -10,9 +10,10 @@ public class Rewards{
     
     public static func start() {
         DispatchQueue.main.async {
+            let _ = Font.registerSpaceGrotesk()
             let viewController = UIApplication.shared.windows.first?.rootViewController
             let vc = UIHostingController(
-                rootView: SheetHomeCarouselGrid()
+                rootView: Gmail()
             )
             vc.modalPresentationStyle = .overFullScreen
             vc.modalTransitionStyle = .crossDissolve

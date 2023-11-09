@@ -10,7 +10,7 @@ public struct SheetHomeCarousel : View {
     public var accountsList: [Account] = {
         var acc = [Account]()
         for account in AccountEnum.allCases {
-            acc.append(Account.init(accountCommon: .init(name: account, type: .RETAILER), status:  .notLinked))
+            acc.append(Account.init(accountCommon: .init(name: account, type: .RETAILER), status:  .notLinked, username: "Username"))
         }
         return acc
     }()
@@ -18,7 +18,11 @@ public struct SheetHomeCarousel : View {
         ScrollView (.horizontal){
             HStack(spacing: 20) {
                 ForEach(accountsList, id: \.accountCommon.name){ acc in
-                    SheetHomeCarouselIcon(provider: acc)
+                    VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/) {
+                        SheetHomeCarouselIcon(provider: acc)
+                        Text("Add").font(SpaceGrotesk.medium(size: 12)).foregroundColor(.tikiDarkGray)
+                        Text(acc.accountCommon.name.toString()).font(SpaceGrotesk.medium(size: 12)).foregroundColor(.tikiDarkGray)
+                    }
 
                 }
             }

@@ -5,14 +5,17 @@
 
 
 import Foundation
+import SwiftUI
 
 public class Account {
     public var accountCommon: AccountCommon
     public var status: AccountStatus
+    public var username: String?
     
-    public init(accountCommon: AccountCommon, status: AccountStatus) {
+    public init(accountCommon: AccountCommon, status: AccountStatus, username: String?) {
         self.accountCommon = accountCommon
         self.status = status
+        self.username = username
     }
     public static func iconStatus(status: AccountStatus) -> UIImage? {
         switch status {
@@ -26,6 +29,10 @@ public class Account {
             let bundle = Bundle(for: Rewards.self)
             print("bundle: \(bundle)")
             return UIImage(named: "ic_alert", in: bundle, compatibleWith: nil)!
+        case .sync:
+            let bundle = Bundle(for: Rewards.self)
+            print("bundle: \(bundle)")
+            return UIImage(named: "sync", in: bundle, compatibleWith: nil)!
         }
     }
 }

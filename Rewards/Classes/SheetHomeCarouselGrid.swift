@@ -23,7 +23,7 @@ public struct SheetHomeCarouselGrid: View{
                 LazyVGrid(columns: gridItemLayout, spacing: 20) {
                     ForEach(accountsList, id: \.accountCommon.name){ acc in
                         VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/) {
-                            SheetHomeCarouselIcon(provider: acc).padding(.bottom, -15)
+                            SheetHomeCarouselIcon(provider: acc, width: 77, height: 77).padding(.bottom, -15)
                         Text("Add").font(SpaceGrotesk.medium(size: 12)).foregroundColor(.tikiDarkGray)
                         Text(acc.accountCommon.name.toString()).font(SpaceGrotesk.medium(size: 12)).foregroundColor(.tikiDarkGray)
                         }

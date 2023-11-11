@@ -33,7 +33,7 @@ public struct MoreSheet: View{
                 LazyVGrid(columns: gridItemLayout, spacing: 20) {
                     ForEach(accountsList, id: \.accountCommon.name){ acc in
                         VStack() {
-                            SheetHomeCarouselIcon(provider: acc).padding(.bottom, -15)
+                            SheetHomeCarouselIcon(provider: acc, width: 77, height: 77).padding(.bottom, -15)
                             Text(acc.accountCommon.name.toString()).font(SpaceGrotesk.medium(size: 12)).foregroundColor(.tikiDarkGray)
                         }
 

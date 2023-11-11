@@ -19,7 +19,7 @@ public struct SheetHomeCarousel : View {
             HStack(spacing: 20) {
                 ForEach(accountsList, id: \.accountCommon.name){ acc in
                     VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/) {
-                        SheetHomeCarouselIcon(provider: acc)
+                        SheetHomeCarouselIcon(provider: acc, width: 77, height: 77)
                         Text("Add").font(SpaceGrotesk.medium(size: 12)).foregroundColor(.tikiDarkGray)
                         Text(acc.accountCommon.name.toString()).font(SpaceGrotesk.medium(size: 12)).foregroundColor(.tikiDarkGray)
                     }

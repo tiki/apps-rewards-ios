@@ -8,6 +8,7 @@ import SwiftUI
 public struct Gmail: View{
     @State public var username: String = ""
     @State public var password: String = ""
+    @State public var showAlert: Bool = false
     public var accountsList: [Account] = {
         var acc = [Account]()
         for account in AccountEnum.allCases {
@@ -20,8 +21,8 @@ public struct Gmail: View{
     
     
     public var body: some View {
-        ScrollView() {
-            VStack(){
+        ScrollView(.vertical) {
+            VStack(alignment: .center){
                 Spacer()
                 HStack(){
                     Image(systemName: "arrow.backward")
@@ -40,7 +41,7 @@ public struct Gmail: View{
                         Spacer()
                     }.padding(.vertical, 16)
                     HStack() {
-                        Text("When you connect your Gmail account, we auto-identify receipts and process available cashback rewards").font(SpaceGrotesk.medium(size: 14))
+                        Text("When you connect your Gmail account, we auto-identify receipts and process available cashback rewards").font(SpaceGrotesk.medium(size: 14)).foregroundColor(.tikiDarkGray)
                     }.padding(.horizontal, 24).padding(.bottom, 24).multilineTextAlignment(.center)
 
                 }.overlay(
@@ -52,20 +53,23 @@ public struct Gmail: View{
                 VStack(alignment: .leading){
                     ForEach(accountsList, id: \.accountCommon.name){ acc in
                         HStack(){
-                            SheetHomeCarouselIcon(provider: acc).padding(.leading, -10)
+                            SheetHomeCarouselIcon(provider: acc, width: 56, height: 56)
                             VStack(alignment: .leading){
-                                Text(acc.accountCommon.name.toString())
-                                Text(acc.username ?? "username")
-                            }.frame(maxWidth: .infinity, alignment: .leading).padding(.leading, -30)
-                            Image(uiImage: icon(icon: "minus")).resizable().frame(width: 36, height: 36).padding(.trailing, 29)
-                        }
+                                Text(acc.accountCommon.name.toString()).font(SpaceGrotesk.bold(size: 24)).foregroundStyle(Color.tikiDarkGray)
+                                Text(acc.username ?? "username").font(SpaceGrotesk.medium(size: 20)).foregroundStyle(Color.tikiDarkGray)
+                            }
+                            Spacer()
+                            Button(action: {print("TODO")}){
+                                Image(uiImage: icon(icon: "minus")).resizable().frame(width: 36, height: 36).padding(.trailing, 29)
+                            }
+                        }.frame(maxWidth: .infinity, alignment: .leading).padding(.leading, 21).padding(.bottom, 24)
                     }
                 }
                 HStack(){
                     Text("Add Account").font(SpaceGrotesk.bold(size: 28)).padding(.leading, 21)
                     Spacer()
                 }
-                Image(uiImage: icon(icon: "iosGoogle")).resizable().frame(width: 268, height: 58).padding(.bottom, 32).padding(.top, 20)
+                Image(uiImage: icon(icon: "iosGoogle")).resizable().frame(width: 268, height: 58, alignment: .leading).padding(.bottom, 32).padding(.top, 20)
                 HStack(){
                     VStack(){
                         Divider()
@@ -80,18 +84,45 @@ public struct Gmail: View{
                 }.padding(.horizontal, 21).padding(.bottom, 32)
                 VStack(alignment: .leading){
                     Text("Email").font(SpaceGrotesk.bold(size: 16)).foregroundColor(.tikiDarkGray)
-                    TextField("", text: $username).foregroundColor(.black).frame(width: 348, height: 50)
+                    TextField("", text: $username)
+                        .keyboardType(.emailAddress)
+                        .disableAutocorrection(true)
+                        .autocapitalization(.none)
+                        .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 6))
+                        .foregroundColor(.black)
+                        .frame(width: 348, height: 50)
                         .font(SpaceGrotesk.bold(size: 16))
                         .overlay(RoundedRectangle(cornerRadius: 10)
                         .stroke())
                 }.padding(.horizontal, 21 )
                 VStack(alignment: .leading){
                     Text("Password").font(SpaceGrotesk.bold(size: 16)).foregroundColor(.tikiDarkGray)
-                    SecureField("", text: $password).foregroundColor(.black).frame(width: 348, height: 50)
+                    SecureField("", text: $password).padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 6)).foregroundColor(.black).frame(width: 348, height: 50)
                         .font(SpaceGrotesk.bold(size: 16))
                         .overlay(RoundedRectangle(cornerRadius: 10)
                         .stroke())
                 }.padding(.horizontal, 21 )
+                Button {
+                    showAlert.toggle()
+                } label: {
+                    Text("Sign in")
+                        .foregroundColor(.white)
+                        .font(SpaceGrotesk.medium(size: 20))
+                        .lineLimit(1)
+                        .frame(width: 360, height: 54)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 8)
+                                .stroke(.gray.opacity(0.5), lineWidth: 1)
+                        )
+                }.background(Color.tikiGreen)
+                    .cornerRadius(8)
+                    .padding(.horizontal, 15)
+                    .padding(.top, 48)
+                    .padding(.bottom, 40)
+                    .alert("Error", isPresented: $showAlert) {
+                    } message: {
+                        Button("No one account match with this credentials", role: .cancel) { }
+                    }
 
             }
         }.background(.white)

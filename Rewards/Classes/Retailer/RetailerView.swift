@@ -27,8 +27,3 @@ public struct RetailerView: View{
     }
 }
 
-private func icon(icon: String) -> UIImage{
-    let bundle = Bundle(for: Rewards.self)
-        print("bundle: \(bundle)")
-        return UIImage(named: icon, in: bundle, compatibleWith: nil)!
-}

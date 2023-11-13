@@ -21,11 +21,7 @@ public struct More: View{
         ScrollView() {
             VStack(alignment: .leading){
                 Spacer()
-                HStack(){
-                    Image(systemName: "arrow.backward")
-                    Text("BACK").font(SpaceGrotesk.bold(size: 20))
-                    Spacer()
-                }.padding(.bottom, 28).padding(.horizontal, 15)
+                ScreenHeader("BACK")
                 Text("Monthly Estimate").font(SpaceGrotesk.bold(size: 28)).padding(.leading, 21)
                 LargestContribuitors().padding()
                 Text("Estimate calculated based on your spending history and available offers from eligible retailers.").font(SpaceGrotesk.medium(size: 14)).foregroundColor(Color.tikiDarkGray).padding(.horizontal, 21)

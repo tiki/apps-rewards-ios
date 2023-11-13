@@ -17,16 +17,12 @@ public struct Retailer: View{
     public var body: some View {
         ScrollView(.vertical) {
             VStack(alignment: .center){
-                HStack(){
-                    Image(systemName: "arrow.backward")
-                    Text("GMAIL").font(SpaceGrotesk.bold(size: 20)).foregroundColor(.tikiBlack)
-                    Spacer()
-                    Image(systemName: "xmark.circle").resizable().frame(width: 32, height: 32).foregroundColor(.tikiDarkGray)
-                }.padding(.vertical, 28).padding(.horizontal, 15)
+                ScreenHeader("GMAIL")
                 VStack(){
                     ZStack(){
                         Image(uiImage: icon(icon: account.accountCommon.name.toString())).resizable().frame(width: 100, height: 100).clipShape(RoundedRectangle(cornerRadius: 10)).foregroundColor(.white).shadow(color: .tikiLightGray, radius: 0, x: 4, y: 4)
                     }.frame(width: 100, height: 100).background(.white).padding(.top, 24)
+                    
                     HStack() {
                         Spacer()
                         Text(account.accountCommon.name.toString()).font(SpaceGrotesk.bold(size: 32))

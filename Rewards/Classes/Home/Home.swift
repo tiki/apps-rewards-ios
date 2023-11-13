@@ -8,6 +8,7 @@ import Foundation
 
 public struct Home: View {
     
+    @State var onDismiss: () -> Void
     @State var showSheet: Bool = true
     @State var offset: CGFloat = 0
     @State var accountsList = []
@@ -20,8 +21,12 @@ public struct Home: View {
     public var body: some View {
         if(showSheet){
             VStack(alignment: .center) {
-                Title(close: {
+                BottomSheetHeader(
+                  title: "CASHBACK CONNECTIONS",
+                  subtitle: "Share data. Earn cash.",
+                  close: {
                     showSheet = false
+                    onDismiss()
                 })
                   .padding(.horizontal, 24)
                   .padding(.top, 16)

@@ -20,7 +20,10 @@ public struct OfferSheet: View {
     public var body: some View {
         if(showSheet){
             VStack(alignment: .center) {
-                Title(close: {
+                BottomSheetHeader(
+                  title: "CASHBACK CONNECTIONS",
+                  subtitle: "Share data. Earn cash.",
+                  close: {
                     showSheet = false
                     onDismiss()
                 })

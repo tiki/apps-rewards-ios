@@ -26,20 +26,20 @@ struct MoreDetails: View {
             VStack(alignment: .leading){
                 HStack() {
                     HStack() {
-                        Image(uiImage: icon(icon: "purchases")).resizable().frame(width: 18, height: 18)
+                        TikiImages.purchases.resizable().frame(width: 18, height: 18)
                         Text("Purchases").font(SpaceGrotesk
                             .medium(size: 16)).foregroundColor(.tikiDarkGray)
                     }
                     Spacer()
                     HStack() {
-                        Image(uiImage: icon(icon: "receipts")).resizable().frame(width: 18, height: 18)
+                        TikiImages.receipts.resizable().frame(width: 18, height: 18)
                         Text("Receipts").font(SpaceGrotesk
                             .medium(size: 16)).foregroundColor(.tikiDarkGray)
                     }
 
                 }.padding(.trailing, 10).padding(.horizontal, 49)
                 HStack() {
-                    Image(uiImage: icon(icon: "userId")).resizable().frame(width: 18, height: 18)
+                    TikiImages.userId.resizable().frame(width: 18, height: 18)
                     Text("User ID").font(SpaceGrotesk
                         .medium(size: 16)).foregroundColor(.tikiDarkGray)
                 }.padding(.leading, 49)
@@ -47,17 +47,17 @@ struct MoreDetails: View {
             }.padding(.vertical, 24)
             Text("How is that data used?").font(SpaceGrotesk.bold(size: 18)).foregroundColor(.tikiDarkGray).padding(.vertical, 24)
             HStack() {
-                Image(uiImage: icon(icon: "dollar")).resizable().frame(width: 18, height: 18)
+                TikiImages.dollar.resizable().frame(width: 18, height: 18)
                 Text("Find cashback rewards").font(SpaceGrotesk
                     .medium(size: 16)).foregroundColor(.tikiDarkGray)
             }
             HStack() {
-                Image(uiImage: icon(icon: "discount")).resizable().frame(width: 18, height: 18)
+                TikiImages.discount.resizable().frame(width: 18, height: 18)
                 Text("Relevant ads and offers").font(SpaceGrotesk
                     .medium(size: 16)).foregroundColor(.tikiDarkGray)
             }
             HStack() {
-                Image(uiImage: icon(icon: "graphic")).resizable().frame(width: 18, height: 18)
+                TikiImages.graphic.resizable().frame(width: 18, height: 18)
                 Text("Create shopper insights").font(SpaceGrotesk
                     .medium(size: 16)).foregroundColor(.tikiDarkGray)
             }.padding(.bottom, 24)
@@ -65,20 +65,20 @@ struct MoreDetails: View {
             HStack() {
                 Text("Report an issue").font(SpaceGrotesk.medium(size: 16)).foregroundColor(.tikiDarkGray)
                 Spacer()
-                Image(uiImage: icon(icon: "grayAlert")).resizable().frame(width: 18, height: 18)
+                TikiImages.grayAlert.resizable().frame(width: 18, height: 18)
                 
             }.padding(.horizontal, 12).padding(.vertical, 5)
             Color.gray.frame(height: 4 / UIScreen.main.scale)
             HStack() {
                 Text("Data licensing agreement").font(SpaceGrotesk.medium(size: 16)).foregroundColor(.tikiDarkGray)
                 Spacer()
-                Image(uiImage: icon(icon: "handStop")).resizable().frame(width: 18, height: 18)
+                TikiImages.handStop.resizable().frame(width: 18, height: 18)
             }.padding(.horizontal, 12).padding(.vertical, 5)
             Color.gray.frame(height: 4 / UIScreen.main.scale)
             HStack() {
                 Text("Opt out of cashback connections").font(SpaceGrotesk.medium(size: 16)).foregroundColor(.red)
                 Spacer()
-                Image(uiImage: icon(icon: "redStop")).resizable().frame(width: 18, height: 18)
+                TikiImages.redStop.resizable().frame(width: 18, height: 18)
             }.padding(.horizontal, 12).padding(.top, 5)
         }.padding(.top, 24).padding(.bottom, 16).overlay(
             RoundedRectangle(cornerRadius: 10).stroke(Color.tikiDarkGray)).padding(.horizontal, 21)

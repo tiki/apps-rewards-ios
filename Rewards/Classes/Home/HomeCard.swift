@@ -42,6 +42,7 @@ public struct HomeCard: View {
             Spacer()
         }
         .frame(maxWidth: .infinity)
+        .padding(.vertical, 24)
         .asCard()
         .padding(.all, 24)
     }

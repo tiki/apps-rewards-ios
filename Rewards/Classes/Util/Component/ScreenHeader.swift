@@ -12,8 +12,8 @@ public struct ScreenHeader: View{
   public var body: some View {
     HStack{
       Image(systemName: "arrow.backward")
-      Text(title).font(SpaceGrotesk.bold(size: 20))
+        Text(title.uppercased()).font(SpaceGrotesk.bold(size: 20))
       Spacer()
-    }.padding(.bottom, 28).padding(.horizontal, 15)
+    }.padding(.horizontal, 15)
   }
 }

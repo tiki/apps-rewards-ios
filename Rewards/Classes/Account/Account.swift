@@ -16,22 +16,16 @@ public class Account {
         self.status = status
         self.username = username
     }
-    public static func iconStatus(status: AccountStatus) -> UIImage? {
+    public static func iconStatus(status: AccountStatus) -> Image? {
         switch status {
         case .notLinked:
-            let bundle = Bundle(for: Rewards.self)
-            print("bundle: \(bundle)")
-            return UIImage(named: "ic_add", in: bundle, compatibleWith: nil)!
+            return TikiImages.icAdd
         case .verfied:
             return nil
         case .unverify:
-            let bundle = Bundle(for: Rewards.self)
-            print("bundle: \(bundle)")
-            return UIImage(named: "ic_alert", in: bundle, compatibleWith: nil)!
+            return TikiImages.icAlert
         case .sync:
-            let bundle = Bundle(for: Rewards.self)
-            print("bundle: \(bundle)")
-            return UIImage(named: "sync", in: bundle, compatibleWith: nil)!
+            return TikiImages.sync
         }
     }
 }

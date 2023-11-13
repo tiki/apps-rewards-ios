@@ -10,7 +10,7 @@ public struct Card: ViewModifier {
     public func body(content: Content) -> some View {
         content
             .frame(maxWidth: .infinity)
-            .padding(.vertical, 48)
+//            .padding(.vertical, 48)
             .background(RoundedRectangle(cornerRadius: 10)
             .foregroundColor(.white)
             .shadow(color: .tikiLightGray, radius: 0, x: 4, y: 4)

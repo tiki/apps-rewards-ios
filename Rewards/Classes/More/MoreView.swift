@@ -22,14 +22,14 @@ public struct MoreView: View{
             VStack(alignment: .leading){
                 Spacer()
                 ScreenHeader(title: "BACK")
-                Text("Monthly Estimate").font(SpaceGrotesk.bold(size: 28)).padding(.leading, 21)
+                Text("Monthly Estimate").font(SpaceGrotesk.bold(size: 28)).padding(.leading, 21).padding(.top, 14)
                 MoreProgressView().padding()
                 Text("Estimate calculated based on your spending history and available offers from eligible retailers.").font(SpaceGrotesk.medium(size: 14)).foregroundColor(Color.tikiDarkGray).padding(.horizontal, 21)
                 Text("Accounts").font(SpaceGrotesk.bold(size: 28)).padding(.horizontal, 21).padding(.top, 24)
                 LazyVGrid(columns: gridItemLayout, spacing: 20) {
                     ForEach(accountsList, id: \.accountCommon.name){ acc in
                         VStack() {
-                            AccountIcon(provider: acc, width: 77, height: 77).padding(.bottom, -15)
+                            AccountIcon(provider: acc, width: 77, height: 77)
                             Text(acc.accountCommon.name.toString()).font(SpaceGrotesk.medium(size: 12)).foregroundColor(.tikiDarkGray)
                         }
 

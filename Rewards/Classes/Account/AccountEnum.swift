@@ -7,6 +7,7 @@
 import Foundation
 
 public enum AccountEnum : String, CaseIterable{
+    case Gmail
     case UberEats
     case TacoBell
     case DollarGeneral
@@ -30,6 +31,8 @@ public enum AccountEnum : String, CaseIterable{
     
     public func toString() -> String{
         switch self {
+        case .Gmail:
+            return "Gmail"
         case .Walmart:
             return "Walmart"
         case .UberEats:

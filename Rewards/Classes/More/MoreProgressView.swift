@@ -7,12 +7,12 @@ import Foundation
 import SwiftUI
 
 public struct MoreProgressView: View {
-    @State var progressTop1: Double = 0.25
+    @State var progressTop3: Double = 0.25
     @State var progressTop2: Double = 0.65
-    @State var progressTop3: Double = 0.80
-    @State var nameTop1: String = "Walmart"
+    @State var progressTop1: Double = 0.80
+    @State var nameTop3: String = "Walmart"
     @State var nameTop2: String = "Kroger"
-    @State var nameTop3: String = "Dollar General"
+    @State var nameTop1: String = "Dollar General"
     
     public init(){
         let _ = Font.registerSpaceGrotesk()
@@ -32,9 +32,9 @@ public struct MoreProgressView: View {
                     .foregroundColor(Color.tikiDarkGray)
             }
             Spacer()
-            CircularProgressView(progress: progressTop1, progress2: progressTop2, progress3: progressTop3).frame(width: 100, height: 100)
+            CircularProgressView(progress: progressTop3, progress2: progressTop2, progress3: progressTop1).frame(width: 100, height: 100)
             Spacer()
-        }.padding(.horizontal, 21).frame(maxWidth: .infinity).asCard()
+        }.padding(.horizontal, 21).padding(.vertical, 48).frame(maxWidth: .infinity).asCard()
     }
 }
 

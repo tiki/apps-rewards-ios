@@ -20,19 +20,20 @@ struct RetailerLogin: View {
                 .autocapitalization(.none)
                 .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 6))
                 .foregroundColor(.black)
-                .frame(width: 348, height: 50)
+                .frame(minWidth: 348, maxWidth: .infinity, minHeight: 50, maxHeight: .infinity)
                 .font(SpaceGrotesk.bold(size: 16))
                 .overlay(RoundedRectangle(cornerRadius: 10)
                     .stroke())
             
-        }.padding(.top, 12).padding(.horizontal, -50)
+        }.padding(.horizontal, 24)
         VStack(alignment: .leading){
             Text("Password").font(SpaceGrotesk.bold(size: 16)).foregroundColor(.tikiDarkGray)
-            SecureField("", text: $password).padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 6)).foregroundColor(.black).frame(width: 348, height: 50)
+            SecureField("", text: $password).padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 6)).foregroundColor(.black)
+                .frame(minWidth: 348, maxWidth: .infinity, minHeight: 50, maxHeight: .infinity)
                 .font(SpaceGrotesk.bold(size: 16))
                 .overlay(RoundedRectangle(cornerRadius: 10)
                     .stroke())
-        }
+        }.padding(.horizontal, 24)
         Button {
         showAlert.toggle()
         } label: {
@@ -40,14 +41,14 @@ struct RetailerLogin: View {
                 .foregroundColor(.white)
                 .font(SpaceGrotesk.medium(size: 20))
                 .lineLimit(1)
-                .frame(width: 360, height: 54)
+                .frame(minWidth: 360, maxWidth: .infinity, minHeight: 54, maxHeight: .infinity)
                 .overlay(
                     RoundedRectangle(cornerRadius: 8)
                         .stroke(.gray.opacity(0.5), lineWidth: 1)
                 )
         }.background(Color.tikiGreen)
             .cornerRadius(8)
-            .padding(.horizontal, 15)
+            .padding(.horizontal, 21)
             .padding(.top, 32)
             .alert("Error", isPresented: $showAlert) {
             } message: {

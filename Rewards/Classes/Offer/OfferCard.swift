@@ -18,7 +18,7 @@ public struct OfferCard: View{
             Text("for your shopping habits")
                 .font(SpaceGrotesk.medium(size: 20))
                 .foregroundColor(.tikiBlack)
-        }.asCard()
+        }.padding(.vertical, 48).asCard()
     }
     
 }

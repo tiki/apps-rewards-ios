@@ -11,7 +11,7 @@ public struct HomeCarousel : View {
     @Binding var accountsList: [Account];
 
     public var body: some View {
-        ScrollView (.horizontal){
+        ScrollView (.horizontal, showsIndicators: false){
             HStack(spacing: 20) {
                 ForEach(accountsList, id: \.accountCommon.name){ acc in
                     VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/) {

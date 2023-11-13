@@ -11,9 +11,9 @@ public struct HomeView: View {
     @State var onDismiss: () -> Void
     @State var showSheet: Bool = true
     @State var offset: CGFloat = 0
-    @State var accountsList: [Account] = []
+    @State var accountsList: [Account] = initAccounts()
     
-    public init(onDismiss: @escaping () -> Void){
+    public init(_ onDismiss: @escaping () -> Void){
         let _ = Font.registerSpaceGrotesk()
         self.accountsList = initAccounts()
         self.onDismiss = onDismiss
@@ -34,7 +34,6 @@ public struct HomeView: View {
                 HomeCard()
                 Text ("Increase Earnings")
                   .font(SpaceGrotesk.medium(size: 16))
-                  .padding(.bottom, 24)
                   .frame(maxWidth: .infinity, alignment: .leading)
                   .padding(.horizontal, 24)
                 HomeCarousel(accountsList: $accountsList)

@@ -15,13 +15,17 @@ public struct RetailerView: View{
         ScrollView(.vertical) {
             ScreenHeader(title: account.accountCommon.name.toString())
             RetailerCard(account: account, cashbackPercentage: 3)
-            .padding(.leading, 21).padding(.top, 24)
+            .padding(.horizontal, 21).padding(.top, 24)
+            HStack(){
+                Text("Account").font(SpaceGrotesk.bold(size: 28))
+                Spacer()
+            }.padding(.vertical, 24).padding(.horizontal, 24)
             if(!logged) {
                 RetailerLogin()
             }else{
                 AccountView(acc: account)
             }
-            RetailerScan()
+            RetailerScan(logged: $logged)
             RetailerOffers(account: account)
         }.background(.white)
     }

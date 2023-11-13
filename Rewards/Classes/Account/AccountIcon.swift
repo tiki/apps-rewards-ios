@@ -21,14 +21,14 @@ public struct AccountIcon : View {
     public var body: some View {
         VStack() {
             ZStack() {
-                TikiImages.from(provider.accountCommon.name.toString())
+                TikiImages.from(provider.accountCommon.name.rawValue)
                   .resizable()
                   .frame(width: width, height: height)
                   .clipShape(RoundedRectangle(cornerRadius: 10))
                   .shadow(color: .tikiLightGray, radius: 0, x: 2, y: 2)
                 Button(action: { print("TODO") }) {
                     if(Account.iconStatus(status: provider.status) != nil) {
-                        Image(uiImage: Account.iconStatus(status: provider.status)! )
+                        Account.iconStatus(status: provider.status)!
                           .resizable()
                           .frame(width: 32, height: 32)
                     }

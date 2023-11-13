@@ -9,7 +9,6 @@ import SwiftUI
 public class AccountCommon {
     public var icon: UIImage {
         let bundle = Bundle(for: Rewards.self)
-        print("bundle: \(bundle)")
         return UIImage(named: name.rawValue, in: bundle, compatibleWith: nil)!
     }
     public var name: AccountEnum

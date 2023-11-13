@@ -18,24 +18,23 @@ public struct SheetHomeCarouselIcon : View {
         
     }
 
-    
     public var body: some View {
         VStack() {
             ZStack() {
-                Image(uiImage: provider.accountCommon.icon).resizable().frame(width: width, height: height).clipShape(RoundedRectangle(cornerRadius: 10)).shadow(color: .tikiLightGray, radius: 0, x: 2, y: 2)
+                Image(uiImage: provider.accountCommon.icon)
+                  .resizable()
+                  .frame(width: width, height: height)
+                  .clipShape(RoundedRectangle(cornerRadius: 10))
+                  .shadow(color: .tikiLightGray, radius: 0, x: 2, y: 2)
                 Button(action: { print("TODO") }) {
                     if(Account.iconStatus(status: provider.status) != nil) {
-                        Image(uiImage: Account.iconStatus(status: provider.status)! ).resizable().frame(width: 32, height: 32)
+                        Image(uiImage: Account.iconStatus(status: provider.status)! )
+                          .resizable()
+                          .frame(width: 32, height: 32)
                     }
                 }
             }.frame(maxWidth: 80, maxHeight: 80)
 
         }
     }
-}
-
-public func images() -> Image{
-    let bundle = Bundle(for: Rewards.self)
-    let resourceBundle = Bundle(url: bundle.url(forResource: "RewardsIcons", withExtension: "bundle")!)!
-    return Image("walmart", bundle: bundle)
 }

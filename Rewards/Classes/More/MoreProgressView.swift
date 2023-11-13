@@ -6,7 +6,7 @@
 import Foundation
 import SwiftUI
 
-public struct LargestContribuitors: View {
+public struct MoreProgressView: View {
     @State var progressTop1: Double = 0.25
     @State var progressTop2: Double = 0.65
     @State var progressTop3: Double = 0.80

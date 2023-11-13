@@ -5,7 +5,7 @@
 
 import SwiftUI
 
-public struct MoreSheet: View{
+public struct More: View{
     public var accountsList: [Account] = {
         var acc = [Account]()
         for account in AccountEnum.allCases {
@@ -44,9 +44,12 @@ public struct MoreSheet: View{
                 
                 Text("Program Details").font(SpaceGrotesk.bold(size: 28)).padding(.horizontal, 21).padding(.top, 24)
                 VStack(alignment: .center){
-                    HStack(){
+                    HStack{
                         Spacer()
-                        Image(systemName: "person.circle").resizable().frame(width: 36, height: 36, alignment: .center).foregroundColor(.tikiGreen)
+                        Image(systemName: "person.circle")
+                            .resizable()
+                            .frame(width: 36, height: 36, alignment: .center)
+                            .foregroundColor(.tikiGreen)
                         Spacer()
                     }
                     VStack(alignment: .center) {

@@ -19,6 +19,6 @@ public struct TikiImages{
 
 private func icon(icon: String) -> UIImage{
     let bundle = Bundle(for: Rewards.self)
-        print("bundle: \(bundle)")
-        return UIImage(named: icon, in: bundle, compatibleWith: nil)!
+    let resourceBundle = Bundle(url: bundle.url(forResource: "RewardsAssets", withExtension: "bundle")!)!
+    return UIImage(named: "Assets/\(icon)", in: resourceBundle, compatibleWith: nil)!
 }

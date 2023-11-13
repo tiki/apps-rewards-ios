@@ -7,10 +7,6 @@ import Foundation
 import SwiftUI
 
 public class AccountCommon {
-    public var icon: UIImage {
-        let bundle = Bundle(for: Rewards.self)
-        return UIImage(named: name.rawValue, in: bundle, compatibleWith: nil)!
-    }
     public var name: AccountEnum
     public var type: AccountType
     

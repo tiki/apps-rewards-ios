@@ -12,7 +12,7 @@ public struct EmailView: View{
     public var body: some View {
         ScrollView(.vertical) {
             ScreenHeader(title: accountsList[0].accountCommon.name.toString())
-            EmailCard().asCard()
+//            EmailCard().asCard()
             Text("Accounts").font(SpaceGrotesk.bold(size: 28))
                 .padding(.leading, 21).padding(.top, 24)
             VStack(alignment: .leading){

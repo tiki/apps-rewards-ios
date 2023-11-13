@@ -13,7 +13,7 @@ public class Rewards{
             let _ = Font.registerSpaceGrotesk()
             let viewController = UIApplication.shared.windows.first?.rootViewController
             let vc = UIHostingController(
-                rootView: Retailer()
+                rootView: RetailerView()
             )
             vc.modalPresentationStyle = .overFullScreen
             vc.modalTransitionStyle = .crossDissolve

@@ -6,7 +6,7 @@
 import SwiftUI
 import Foundation
 
-public struct SheetHomeCarouselIcon : View {
+public struct AccountIcon : View {
     public var provider: Account
     public var width: CGFloat?
     public var height: CGFloat?

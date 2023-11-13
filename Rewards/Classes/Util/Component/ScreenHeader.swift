@@ -5,7 +5,7 @@
 
 import SwiftUI
 
-public struct BottomSheetHeader: View{
+public struct ScreenHeader: View{
     
   let title: String
 

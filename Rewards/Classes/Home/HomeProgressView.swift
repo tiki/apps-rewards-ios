@@ -2,6 +2,7 @@
  * Copyright (c) TIKI Inc.
  * MIT license. See LICENSE file in the root directory.
  */
+
 import SwiftUI
 
 public struct CircularProgressView: View {

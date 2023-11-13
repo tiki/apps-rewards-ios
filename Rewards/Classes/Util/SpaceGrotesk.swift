@@ -23,7 +23,7 @@ public struct SpaceGrotesk{
 extension Font {
     public static func registerSpaceGrotesk() -> Bool {
         let bundle = Bundle(for: Rewards.self)
-        let resourceBundle = Bundle(url: bundle.url(forResource: "RewardsFont", withExtension: "bundle")!)!
+        let resourceBundle = Bundle(url: bundle.url(forResource: "RewardsAssets", withExtension: "bundle")!)!
         guard let fontURL = resourceBundle.url(forResource: "SpaceGrotesk", withExtension: "ttf") else {
             fatalError("Couldn't find font SpaceGrotesk")
         }

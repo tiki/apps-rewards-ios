@@ -6,16 +6,17 @@
 import SwiftUI
 import Foundation
 
-public struct Home: View {
+public struct HomeView: View {
     
     @State var onDismiss: () -> Void
     @State var showSheet: Bool = true
     @State var offset: CGFloat = 0
-    @State var accountsList = []
+    @State var accountsList: [Account] = []
     
-    public init(){
+    public init(onDismiss: @escaping () -> Void){
         let _ = Font.registerSpaceGrotesk()
-        accountsList = initAccounts()
+        self.accountsList = initAccounts()
+        self.onDismiss = onDismiss
     }
     
     public var body: some View {
@@ -36,7 +37,7 @@ public struct Home: View {
                   .padding(.bottom, 24)
                   .frame(maxWidth: .infinity, alignment: .leading)
                   .padding(.horizontal, 24)
-                SheetHomeCarousel()
+                HomeCarousel(accountsList: $accountsList)
                   .padding(.bottom, 40)
             }.transition(.bottomSheet)
             .background(.white)
@@ -51,7 +52,7 @@ public struct Home: View {
     }
 }
 
-func initAccounts(): [Account] {
+func initAccounts() -> [Account] {
   var acc = [Account]()
   for account in AccountEnum.allCases {
       acc.append(

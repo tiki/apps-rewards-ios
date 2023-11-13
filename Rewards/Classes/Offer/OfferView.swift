@@ -6,7 +6,7 @@
 import SwiftUI
 import Foundation
 
-public struct OfferSheet: View {
+public struct OfferView: View {
     
     let onDismiss: () -> Void
     @State var showSheet: Bool = true

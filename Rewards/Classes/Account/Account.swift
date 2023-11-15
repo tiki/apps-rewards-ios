@@ -11,11 +11,13 @@ public class Account: Hashable {
     public var accountCommon: AccountCommon
     public var status: AccountStatus
     public var username: String?
+    public var password: String?
     
-    public init(accountCommon: AccountCommon, status: AccountStatus, username: String?) {
+    public init(accountCommon: AccountCommon, status: AccountStatus, username: String? = nil, password: String? = nil) {
         self.accountCommon = accountCommon
         self.status = status
         self.username = username
+        self.password = password
     }
     
     public static func iconStatus(status: AccountStatus) -> Image? {

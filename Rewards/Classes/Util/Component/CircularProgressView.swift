@@ -20,7 +20,7 @@ public struct CircularProgressView: View {
                 )
             if(progress3 != nil){
                 Circle()
-                    .trim(from: 0.03, to: progress3!)
+                    .trim(from: 0.03, to: progress + (progress2 ?? 0) + progress3!)
                     .stroke(
                         Color.tikiGreen.opacity(0.40),
                         style: StrokeStyle(
@@ -29,11 +29,11 @@ public struct CircularProgressView: View {
                         )
                     ).opacity(40)
                     .rotationEffect(.degrees(-90))
-                    .animation(.easeOut, value: progress3)
+                    .animation(.easeOut, value: progress + (progress2 ?? 0) + progress3!)
             }
             if(progress2 != nil){
                 Circle()
-                    .trim(from: 0.03, to: progress2!)
+                    .trim(from: 0.03, to: progress + progress2!)
                     .stroke(
                         Color.tikiGreen.opacity(0.60),
                         style: StrokeStyle(
@@ -42,7 +42,7 @@ public struct CircularProgressView: View {
                         )
                     )
                     .rotationEffect(.degrees(-90))
-                    .animation(.easeOut, value: progress2)
+                    .animation(.easeOut, value: progress + progress2!)
             }
             Circle()
                 .trim(from: 0.03, to: progress)

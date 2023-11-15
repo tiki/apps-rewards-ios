@@ -3,7 +3,6 @@
  * MIT license. See LICENSE file in the root directory.
  */
 
-
 import Foundation
 
 public enum AccountEnum : String, CaseIterable{

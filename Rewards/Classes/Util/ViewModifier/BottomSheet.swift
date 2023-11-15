@@ -27,7 +27,6 @@ public struct BottomSheet: ViewModifier {
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
                 .ignoresSafeArea()
                 .offset(y: offset)
-
         }
     }
 }

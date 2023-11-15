@@ -15,7 +15,6 @@ public struct HomeView: View {
     @State var isOpen: Bool = false
     
     public init(_ onDismiss: @escaping () -> Void){
-        let _ = Font.registerSpaceGrotesk()
         self.accounts = initAccounts()
         self.onDismiss = onDismiss
     }
@@ -23,31 +22,34 @@ public struct HomeView: View {
     public var body: some View {
         if(showSheet){
             VStack(alignment: .center, spacing: 0) {
-                BottomSheetHeader(
-                    title: "CASHBACK CONNECTIONS",
-                    subtitle: "Share data. Earn cash.",
-                    close: {
-                        showSheet = false
-                        onDismiss()
-                    })
-                .padding(.horizontal, 24)
-                .padding(.top, 20)
-                HomeCard()
-                    .padding(.top, 48)
+                if(!isOpen){
+                    BottomSheetHeader(
+                        title: "CASHBACK CONNECTIONS",
+                        subtitle: "Share data. Earn cash.",
+                        close: {
+                            showSheet = false
+                            onDismiss()
+                        })
                     .padding(.horizontal, 24)
+                    .padding(.top, 20)
+                    HomeCard()
+                        .padding(.top, 48)
+                        .padding(.horizontal, 24)
+                }
                 Text ("Increase Earnings")
+                    .padding(.top, isOpen ? 24 : 0)
                     .font(SpaceGrotesk.medium(size: 16))
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.horizontal, 24)
                     .padding(.top, 48)
                     .padding(.bottom, 24)
                 if(isOpen){
-                    HomeAccountGrid(accountsList: $accounts)
+                    HomeAccountGrid(isOpen: $isOpen, accountsList: $accounts)
                 }else{
                     HomeCarousel(accountsList: $accounts)
                 }
             }
-            .padding(.bottom, 40)
+            .padding(.bottom, isOpen ? 0 : 40)
             .transition(.bottomSheet)
             .background(.white)
             .asBottomSheet(

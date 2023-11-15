@@ -9,16 +9,16 @@ import SwiftUI
 
 struct AccountItem: View {
     let account: Account
+    let iconSize: CGFloat = 80
     
     var body: some View {
-        VStack(
-          alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/) {
-              AccountIcon(account: account, width: 77, height: 77)
-              .padding(.bottom, -15)
+        VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 0) {
+              AccountIcon(account: account, width: iconSize, height: iconSize)
         Text("Add")
           .font(SpaceGrotesk.medium(size: 12))
           .foregroundColor(.tikiDarkGray)
-              Text(account.accountCommon.name.toString())
+          .padding(.top, 10)
+        Text(account.accountCommon.name.toString())
           .font(SpaceGrotesk.medium(size: 12))
           .foregroundColor(.tikiDarkGray)
         }

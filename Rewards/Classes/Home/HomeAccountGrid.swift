@@ -7,18 +7,22 @@ import SwiftUI
 
 public struct HomeAccountGrid: View{
     
+    @Binding var isOpen: Bool
     @Binding var accountsList: [Account]
 
     var gridItemLayout = Array(repeating: GridItem(.flexible(), spacing: 0), count: 3)
     
     public var body: some View {
-        VStack() {
-            LazyVGrid(columns: gridItemLayout, spacing: 20) {
-                ForEach(accountsList, id: \.accountCommon.name){ acc in
-                   AccountItem(account: acc)
+        ScrollView{
+            VStack(alignment: .leading, spacing: 0){
+                LazyVGrid(columns: gridItemLayout, spacing: 24) {
+                    ForEach(accountsList, id: \.accountCommon.name){ acc in
+                        AccountItem(account: acc)
+                    }
                 }
-            }
-        }.background(.white)
+            }.frame(maxHeight: .infinity)
+        }.refreshable {
+            isOpen = false
+        }
     }
 }
-

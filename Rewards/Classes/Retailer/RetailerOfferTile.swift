@@ -11,7 +11,7 @@ struct RetailerOfferTile: View {
     
     var body: some View {
         HStack(){
-            AccountIcon(provider: offer.account, width: 56, height: 56)
+            AccountIcon(account: offer.account, width: 56, height: 56)
             VStack(alignment: .leading){
                 Text(offer.title).font(SpaceGrotesk.medium(size: 15)).foregroundStyle(Color.tikiDarkGray)
             }

@@ -16,7 +16,7 @@ struct RetailerOffers: View {
         }.padding(.leading, 21).padding(.bottom, 24)
        
         HStack(){
-            AccountIcon(provider: account, width: 56, height: 56)
+            AccountIcon(account: account, width: 56, height: 56)
             VStack(alignment: .leading){
                 Text("4% cashback on electronics").font(SpaceGrotesk.medium(size: 15)).foregroundStyle(Color.tikiDarkGray)
             }

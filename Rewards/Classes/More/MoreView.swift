@@ -29,7 +29,7 @@ public struct MoreView: View{
                 LazyVGrid(columns: gridItemLayout, spacing: 20) {
                     ForEach(accountsList, id: \.accountCommon.name){ acc in
                         VStack() {
-                            AccountIcon(provider: acc, width: 77, height: 77)
+                            AccountIcon(account: acc, width: 77, height: 77)
                             Text(acc.accountCommon.name.toString()).font(SpaceGrotesk.medium(size: 12)).foregroundColor(.tikiDarkGray)
                         }
 

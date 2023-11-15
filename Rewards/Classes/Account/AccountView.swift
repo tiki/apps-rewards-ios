@@ -11,7 +11,7 @@ struct AccountView: View {
     
     var body: some View {
         HStack(){
-            AccountIcon(provider: acc, width: 56, height: 56)
+            AccountIcon(account: acc, width: 56, height: 56)
             VStack(alignment: .leading){
                 Text(acc.accountCommon.name.toString()).font(SpaceGrotesk.bold(size: 24)).foregroundStyle(Color.tikiDarkGray)
                 Text(acc.username ?? "username").font(SpaceGrotesk.medium(size: 20)).foregroundStyle(Color.tikiDarkGray)

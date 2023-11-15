@@ -21,24 +21,28 @@ public struct HomeView: View {
     
     public var body: some View {
         if(showSheet){
-            VStack(alignment: .center) {
+            VStack(alignment: .center, spacing: 0) {
                 BottomSheetHeader(
                   title: "CASHBACK CONNECTIONS",
                   subtitle: "Share data. Earn cash.",
                   close: {
                     showSheet = false
                     onDismiss()
-                })
-                  .padding(.horizontal, 24)
-                  .padding(.top, 16)
+                  })
+                .padding(.horizontal, 24)
+                .padding(.top, 20)
                 HomeCard()
+                    .padding(.top, 48)
+                    .padding(.horizontal, 24)
                 Text ("Increase Earnings")
-                  .font(SpaceGrotesk.medium(size: 16))
+                    .font(SpaceGrotesk.medium(size: 16))
                   .frame(maxWidth: .infinity, alignment: .leading)
                   .padding(.horizontal, 24)
+                  .padding(.top, 48)
+                  .padding(.bottom, 24)
                 HomeCarousel(accountsList: $accountsList)
-                  .padding(.bottom, 40)
-            }.transition(.bottomSheet)
+            }.padding(.bottom, 40)
+            .transition(.bottomSheet)
             .background(.white)
             .asBottomSheet(
                 isShowing: $showSheet,

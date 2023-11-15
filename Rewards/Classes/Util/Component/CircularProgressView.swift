@@ -12,11 +12,11 @@ public struct CircularProgressView: View {
     
     public var body: some View {
         ZStack {
-            Circle().stroke(Color.tikiDarkGray, lineWidth: 25)
+            Circle().stroke(Color.tikiDarkGray, lineWidth: 21)
             Circle()
                 .stroke(
                     Color.white,
-                    lineWidth: 23
+                    lineWidth: 19
                 )
             if(progress3 != nil){
                 Circle()
@@ -24,7 +24,7 @@ public struct CircularProgressView: View {
                     .stroke(
                         Color.tikiGreen.opacity(0.40),
                         style: StrokeStyle(
-                            lineWidth: 24,
+                            lineWidth: 21,
                             lineCap: .round
                         )
                     ).opacity(40)
@@ -37,7 +37,7 @@ public struct CircularProgressView: View {
                     .stroke(
                         Color.tikiGreen.opacity(0.60),
                         style: StrokeStyle(
-                            lineWidth: 24,
+                            lineWidth: 21,
                             lineCap: .round
                         )
                     )
@@ -49,7 +49,7 @@ public struct CircularProgressView: View {
                 .stroke(
                     Color.tikiGreen,
                     style: StrokeStyle(
-                        lineWidth: 24,
+                        lineWidth: 21,
                         lineCap: .round
                     )
                 )

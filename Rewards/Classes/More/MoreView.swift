@@ -23,7 +23,7 @@ public struct MoreView: View{
                 MoreAccounts()
                     .padding(.top, 24)
                 MoreDetails()
-                    .padding(.top, 24)
+                    .padding(.top, 30)
             }
             .padding(.horizontal, 21)
             .padding(.bottom, 56)

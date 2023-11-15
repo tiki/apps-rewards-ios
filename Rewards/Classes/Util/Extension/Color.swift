@@ -15,6 +15,8 @@ public extension Color {
     
     static let tikiGreen: Color = Color(hex: "00B272")
     
+    static let tikiRed: Color = Color(hex: "C73000")
+    
     init(hex: String) {
         let hex = hex.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
         var int: UInt64 = 0

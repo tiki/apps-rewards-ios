@@ -13,22 +13,24 @@ struct MoreAccounts: View {
         for account in AccountEnum.allCases {
             acc.append(Account.init(accountCommon: .init(name: account, type: .RETAILER), status:  .verfied, username: "Username"))
         }
-        return acc
+        acc[3].status = .unverify
+        return [acc[0],acc[1],acc[2],acc[3]]
     }()
     
     private var gridItemLayout = Array(repeating: GridItem(.flexible(), spacing: 0), count: 3)
     
     var body: some View {
-        Text("Accounts").font(SpaceGrotesk.bold(size: 28)).padding(.horizontal, 21).padding(.top, 24)
+        Text("Accounts").font(SpaceGrotesk.bold(size: 28))
         LazyVGrid(columns: gridItemLayout, spacing: 20) {
             ForEach(accountsList, id: \.accountCommon.name){ acc in
                 VStack() {
-                    AccountIcon(account: acc, width: 77, height: 77)
+                    AccountIcon(account: acc, width: 80, height: 80)
                     Text(acc.accountCommon.name.toString()).font(SpaceGrotesk.medium(size: 12)).foregroundColor(.tikiDarkGray)
                 }
-
-
             }
-        }.asCard()
+        }
+        .padding(.vertical, 24)
+        .padding(.horizontal, 32)
+        .asCard()
     }
 }

@@ -18,7 +18,7 @@ public struct EmailView: View{
             if(provider == .Gmail){
                 EmailLoginOAuth().padding(.top, 24)
             }
-            EmailLoginImap().padding(.top, 32)
+            AccountLogin().padding(.top, 32)
         }.asScreen(title: provider.toString())
     }
 }

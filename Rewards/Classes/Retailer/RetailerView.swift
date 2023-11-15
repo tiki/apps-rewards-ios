@@ -6,28 +6,29 @@
 import SwiftUI
 
 public struct RetailerView: View{
-    @State var logged: Bool = false
+    @State var logged: Bool = true
     public var cashbackPercentage: Int = 3
     public var account = Account(accountCommon: .init(name: .Walmart, type: .RETAILER), status: .verfied, username: "Username Walmart")
-        
     
     public var body: some View {
-        ScrollView(.vertical) {
-            ScreenHeader(title: account.accountCommon.name.toString())
+        VStack(alignment: .leading, spacing: 0){
             RetailerCard(account: account, cashbackPercentage: 3)
-            .padding(.horizontal, 21).padding(.top, 24)
+                .padding(.top, 28)
             HStack(){
                 Text("Account").font(SpaceGrotesk.bold(size: 28))
                 Spacer()
-            }.padding(.vertical, 24).padding(.horizontal, 24)
+            }
+            .padding(.vertical, 24)
             if(!logged) {
-                RetailerLogin()
+                AccountLogin()
             }else{
                 AccountView(acc: account)
             }
             RetailerScan(logged: $logged)
-            RetailerOffers(account: account)
-        }.background(.white)
+                .padding(.top, 32)
+            RetailerOffers(account.accountCommon.name)
+                .padding(.top, 30)
+        }.asScreen(title: account.accountCommon.name.toString())
     }
 }
 

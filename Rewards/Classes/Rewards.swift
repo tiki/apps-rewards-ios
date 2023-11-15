@@ -16,7 +16,7 @@ public class Rewards{
             let _ = Font.registerSpaceGrotesk()
             let viewController = UIApplication.shared.windows.first?.rootViewController
             let vc = UIHostingController(
-                rootView: EmailView(provider: .Gmail)
+                rootView: RetailerView()
             )
             vc.modalPresentationStyle = .overFullScreen
             vc.modalTransitionStyle = .crossDissolve
@@ -52,10 +52,10 @@ public class Rewards{
         context.present(alertController, animated: true, completion: nil)
     }
 
-    static func offers(provider: AccountCommon) -> [Offer] {
+    static func offers(provider: AccountEnum) -> [RetailerOffer] {
         return [
-            Offer(provider: .Walmart, description: "4% cashback on electronics"),
-            Offer(provider: .Walmart, description: "10% off on electronics")
+            RetailerOffer(provider: provider, description: "4% cashback on electronics"),
+            RetailerOffer(provider: provider, description: "10% off on electronics")
         ]
     }
 

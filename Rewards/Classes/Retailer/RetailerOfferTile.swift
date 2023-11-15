@@ -11,18 +11,19 @@ struct RetailerOfferTile: View {
     
     var body: some View {
         HStack(){
-            AccountIcon(account: offer.account, width: 56, height: 56)
-            VStack(alignment: .leading){
-                Text(offer.title).font(SpaceGrotesk.medium(size: 15)).foregroundStyle(Color.tikiDarkGray)
-            }
+            TikiImages.from(offer.provider.toString())
+                .resizable()
+                .frame(width: 56, height: 56)
+                .clipShape(RoundedRectangle(cornerRadius: 10))
+                .shadow(color: .tikiLightGray, radius: 0, x: 2, y: 2)
+                .padding(.trailing, 24)
+            Text(offer.description).font(SpaceGrotesk.medium(size: 15)).foregroundStyle(Color.tikiDarkGray).padding(.trailing, 20)
             Spacer()
             TikiImages.arrow_right
                 .resizable()
                 .frame(width: 36, height: 36)
-                .padding(.trailing, 29)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
-        .padding(.leading, 21)
         .padding(.bottom, 24)
     }
 }

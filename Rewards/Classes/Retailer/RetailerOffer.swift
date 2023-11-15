@@ -6,7 +6,6 @@
 import Foundation
 
 struct RetailerOffer{
-    let account: Account
-    let title: String
-    let url: URL
+    let provider: AccountEnum
+    let description: String
 }

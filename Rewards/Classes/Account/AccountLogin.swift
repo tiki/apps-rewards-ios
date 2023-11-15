@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct EmailLoginImap: View {
+struct AccountLogin: View {
     
     @State public var showAlert: Bool = false
     @State var username: String = ""
@@ -29,7 +29,7 @@ struct EmailLoginImap: View {
                 .overlay(RoundedRectangle(cornerRadius: 10).stroke())
                 .padding(.top, 8)
             Text("Password")
-                .font(SpaceGrotesk.bold(size: 20))
+                .font(SpaceGrotesk.bold(size: 16))
                 .foregroundColor(.tikiDarkGray)
                 .padding(.top, 32)
             SecureField("", text: $password)
@@ -56,7 +56,7 @@ struct EmailLoginImap: View {
             .frame(maxWidth: .infinity)
             .background(Color.tikiGreen)
                 .cornerRadius(8)
-                .padding(.top, 48)
+                .padding(.top, 32)
                 .alert("Error", isPresented: $showAlert) {
                 } message: {
                     Button("No account match with this credentials", role: .cancel) { }

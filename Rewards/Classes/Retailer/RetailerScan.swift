@@ -15,16 +15,14 @@ struct RetailerScan: View {
             Text("Scan Receipt")
                 .foregroundColor(.tikiGreen)
                 .font(SpaceGrotesk.medium(size: 20))
+                .padding(.vertical, 14)
                 .lineLimit(1)
-                .frame(minWidth: 360, maxWidth: .infinity, minHeight: 54, maxHeight: .infinity)
+                .frame(maxWidth: .infinity)
                 .overlay(
                     RoundedRectangle(cornerRadius: 8)
-                        .stroke(Color.tikiGreen, lineWidth: 2)
+                        .stroke(Color.tikiGreen, lineWidth: 4)
                 )
         }.background(.white)
             .cornerRadius(8)
-            .padding(.horizontal, 21)
-            .padding(.top, 22)
-            .padding(.bottom, 24)
     }
 }

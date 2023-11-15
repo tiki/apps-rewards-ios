@@ -16,7 +16,7 @@ public class Rewards{
             let _ = Font.registerSpaceGrotesk()
             let viewController = UIApplication.shared.windows.first?.rootViewController
             let vc = UIHostingController(
-                rootView: MoreView()
+                rootView: EmailView(provider: .Gmail)
             )
             vc.modalPresentationStyle = .overFullScreen
             vc.modalTransitionStyle = .crossDissolve

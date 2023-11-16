@@ -8,16 +8,12 @@ import Foundation
 
 public struct HomeView: View {
     
-    @State var onDismiss: () -> Void
+    let onDismiss: () -> Void
+    let onLicenseDeclined: () -> Void
     @State var showSheet: Bool = true
     @State var offset: CGFloat = 0
     @State var accounts: [Account] = initAccounts()
     @State var isOpen: Bool = false
-    
-    public init(_ onDismiss: @escaping () -> Void){
-        self.accounts = initAccounts()
-        self.onDismiss = onDismiss
-    }
     
     public var body: some View {
         if(showSheet){

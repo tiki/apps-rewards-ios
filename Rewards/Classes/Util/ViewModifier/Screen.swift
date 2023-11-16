@@ -12,7 +12,7 @@ public struct Screen: ViewModifier {
     public func body(content: Content) -> some View {
         ScrollView() {
             VStack(alignment: .leading, spacing: 0){
-                ScreenHeader(title: title)
+                ScreenHeader(title: title, action: {})
                 VStack(alignment: .leading, spacing: 0){
                     content
                 }

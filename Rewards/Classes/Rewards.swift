@@ -9,14 +9,14 @@ import SwiftUI
 public class Rewards{
     
     private static var _accounts: [Account] = []
-    private static var isLicensed: Bool = false
+    private static var _isLicensed: Bool = false
 
     public static func start() {
         DispatchQueue.main.async {
             let _ = Font.registerSpaceGrotesk()
             let viewController = UIApplication.shared.windows.first?.rootViewController
             let vc = UIHostingController(
-                rootView: RetailerView()
+                rootView: HomeScreen(onDismiss: {viewController?.dismiss(animated: true)})
             )
             vc.modalPresentationStyle = .overFullScreen
             vc.modalTransitionStyle = .crossDissolve
@@ -25,12 +25,16 @@ public class Rewards{
         }
     }
 
+    static func isLicensed() -> Bool{
+        return _isLicensed
+    }
+    
     static func license() {
-        isLicensed = true
+        _isLicensed = true
     }
 
     static func decline() {
-        isLicensed = false
+        _isLicensed = false
     }
 
     static func estimate() -> OfferEstimate {

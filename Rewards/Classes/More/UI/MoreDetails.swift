@@ -1,9 +1,7 @@
-//
-//  MoreDetails.swift
-//  Rewards
-//
-//  Created by Ricardo on 13/11/23.
-//
+/*
+ * Copyright (c) TIKI Inc.
+ * MIT license. See LICENSE file in the root directory.
+ */
 
 import SwiftUI
 

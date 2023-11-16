@@ -5,7 +5,7 @@
 
 import SwiftUI
 
-struct TermsAndConditions: View {
+struct OfferTerms: View {
     var body: some View {
         VStack(){
             ScreenHeader(title: "PROGRAM TERMS").padding(.vertical, 30)

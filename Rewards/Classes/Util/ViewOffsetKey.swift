@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) TIKI Inc.
+ * MIT license. See LICENSE file in the root directory.
+ */
+
 import SwiftUI
 
 struct ViewOffsetKey: PreferenceKey {

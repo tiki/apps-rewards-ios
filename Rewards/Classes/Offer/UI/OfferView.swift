@@ -35,9 +35,9 @@ public struct OfferView: View {
                         .foregroundColor(.tikiDarkGray)
                         .padding(.horizontal, 15)
                         .padding(.top, 36)
-                    Button {
+                    Button (action: {
                         showTerms = true
-                    } label: {
+                    }, label: {
                         Text("Get estimate")
                             .foregroundColor(.white)
                             .font(SpaceGrotesk.medium(size: 20))
@@ -47,7 +47,7 @@ public struct OfferView: View {
                                 RoundedRectangle(cornerRadius: 8)
                                     .stroke(.gray.opacity(0.5), lineWidth: 1)
                             )
-                    }
+                    })
                     .background(Color.tikiGreen)
                     .cornerRadius(8)
                     .padding(.horizontal, 15)

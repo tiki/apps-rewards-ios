@@ -2,6 +2,8 @@ import XCTest
 import Rewards
 
 class Tests: XCTestCase {
+    let app = XCUIApplication()
+
     
     override func setUp() {
         super.setUp()
@@ -15,6 +17,11 @@ class Tests: XCTestCase {
     
     func testExample() {
         XCTAssert(true, "Pass")
+    }
+    func testGetEstimate() {
+        let getEstimate = NSPredicate(format: "label beginswith 'Click to open Tiki BottomSheet '")
+        app.tables.buttons.element(matching: getEstimate).doubleTap()
+        XCTAssert(app.staticTexts["Share data. Earn cash."].exists)
     }
     
     func testPerformanceExample() {

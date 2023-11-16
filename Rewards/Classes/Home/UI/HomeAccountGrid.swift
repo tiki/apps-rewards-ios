@@ -20,7 +20,8 @@ public struct HomeAccountGrid: View{
                         AccountItem(account: acc)
                     }
                 }
-            }.frame(maxHeight: .infinity)
+            }.padding(.horizontal, 24)
+            .frame(maxHeight: .infinity)
         }.refreshable {
             isOpen = false
         }

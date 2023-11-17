@@ -8,6 +8,7 @@ import SwiftUI
 
 public struct HomeCard: View {
     @State var progress: Double = 0.25
+    @Binding var showMoreSheet: Bool
     
     public var body: some View {
         HStack(spacing: 0) {
@@ -15,17 +16,17 @@ public struct HomeCard: View {
                 Text("Month").font(SpaceGrotesk.medium(size: 14))
                     .foregroundColor(Rewards.theme.primaryTextColor)
                     .padding(.bottom, 3)
-                Text("$4.80 / $12.00").font(SpaceGrotesk.bold(size: 18))
+                Text("$\(Rewards.earnings().rating, specifier: "%.2f")/ $\(Rewards.earnings().bonus, specifier: "%.2f")").font(SpaceGrotesk.bold(size: 18))
                     .foregroundColor(Rewards.theme.accentColor)
                     .padding(.bottom, 12)
                 Text("Lifetime").font(SpaceGrotesk.medium(size: 14))
                     .foregroundColor(Rewards.theme.primaryTextColor)
                     .padding(.bottom, 3)
-                Text("$34.30").font(SpaceGrotesk.bold(size: 18))
+                Text("$\(Rewards.earnings().total, specifier: "%.2f")").font(SpaceGrotesk.bold(size: 18))
                     .foregroundColor(Rewards.theme.secondaryTextColor)
                     .padding(.bottom, 12)
                 Button {
-                    progress += 1
+                    showMoreSheet = true
                 } label: {
                     HStack(spacing: 0) {
                         Text("Show More")

@@ -8,6 +8,7 @@ import SwiftUI
 public struct EmailView: View{
     
     let provider: AccountEnum
+    @Binding var showAccountSheet: Bool
     
     public var body: some View {
         VStack(alignment: .leading, spacing: 0){
@@ -19,7 +20,7 @@ public struct EmailView: View{
                 EmailLoginOAuth().padding(.top, 24)
             }
             AccountLogin().padding(.top, 32)
-        }.asScreen(title: provider.toString())
+        }.asScreen(title: provider.toString(), action: {showAccountSheet = false})
     }
 }
 

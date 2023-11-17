@@ -18,13 +18,12 @@ public struct AccountIcon : View {
                 .frame(width: width, height: height)
                 .clipShape(RoundedRectangle(cornerRadius: 10))
                 .shadow(color: Rewards.theme.secondaryBackgroundColor, radius: 0, x: 2, y: 2)
-            Button(action: { print("TODO") }) {
-                if(Account.iconStatus(status: account.status) != nil) {
-                    Account.iconStatus(status: account.status)!
-                        .resizable()
-                        .frame(width: 32, height: 32)
-                }
+            if(Account.iconStatus(status: account.status) != nil) {
+                Account.iconStatus(status: account.status)!
+                    .resizable()
+                    .frame(width: 32, height: 32)
             }
+            
         }
     }
 }

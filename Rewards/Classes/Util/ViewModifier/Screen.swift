@@ -8,11 +8,12 @@ import SwiftUI
 public struct Screen: ViewModifier {
     
     let title: String
+    let action: () -> Void
 
     public func body(content: Content) -> some View {
         ScrollView() {
             VStack(alignment: .leading, spacing: 0){
-                ScreenHeader(title: title, action: {})
+                ScreenHeader(title: title, action: action)
                 VStack(alignment: .leading, spacing: 0){
                     content
                 }
@@ -24,8 +25,8 @@ public struct Screen: ViewModifier {
 }
 
 extension View {
-    func asScreen(title: String) -> some View {
-        modifier(Screen(title: title))
+    func asScreen(title: String, action: @escaping () -> Void) -> some View {
+        modifier(Screen(title: title, action: action))
     }
 
 }

@@ -7,17 +7,18 @@ import SwiftUI
 
 public struct OfferCard: View{
     
+    var estimate = Rewards.estimate()
     public var body: some View {
         VStack{
             Text("Earn monthly")
                 .font(SpaceGrotesk.medium(size: 20))
-                .foregroundColor(.tikiBlack)
-            Text("$5 - $15")
+                .foregroundColor(Rewards.theme.primaryTextColor)
+            Text("$\(estimate.min) - $\(estimate.max)")
                 .font(SpaceGrotesk.bold(size: 42))
-                .foregroundColor(.tikiGreen)
+                .foregroundColor(Rewards.theme.accentColor)
             Text("for your shopping habits")
                 .font(SpaceGrotesk.medium(size: 20))
-                .foregroundColor(.tikiBlack)
+                .foregroundColor(Rewards.theme.primaryTextColor)
         }.padding(.vertical, 48).asCard()
     }
     

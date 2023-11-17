@@ -8,10 +8,13 @@ import SwiftUI
 
 public class Rewards{
     
+    public static var theme = Theme()
     private static var _accounts: [Account] = []
     private static var _isLicensed: Bool = false
 
-    public static func start() {
+
+    public static func start(theme: Theme?) {
+        self.theme = theme ?? self.theme
         DispatchQueue.main.async {
             let _ = Font.registerSpaceGrotesk()
             let viewController = UIApplication.shared.windows.first?.rootViewController

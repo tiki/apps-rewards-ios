@@ -14,11 +14,11 @@ struct AccountItem: View {
               AccountIcon(account: account, width: iconSize, height: iconSize)
         Text("Add")
           .font(SpaceGrotesk.medium(size: 12))
-          .foregroundColor(.tikiDarkGray)
+          .foregroundColor(Rewards.theme.secondaryTextColor)
           .padding(.top, 10)
         Text(account.accountCommon.name.toString())
           .font(SpaceGrotesk.medium(size: 12))
-          .foregroundColor(.tikiDarkGray)
+          .foregroundColor(Rewards.theme.secondaryTextColor)
         }
     }
 }

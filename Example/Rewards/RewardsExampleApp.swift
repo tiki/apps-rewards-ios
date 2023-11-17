@@ -12,7 +12,7 @@ struct RewardsExampleApp: App {
     var body: some Scene {
         WindowGroup {
             Button(action: {
-                Rewards.start()
+                Rewards.start(theme: nil)
             }) {
                 HStack (spacing: 5) {
                     Image(systemName: "hand.tap.fill")

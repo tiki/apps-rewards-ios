@@ -24,7 +24,7 @@ struct MoreAccounts: View {
             ForEach(accountsList, id: \.accountCommon.name){ acc in
                 VStack() {
                     AccountIcon(account: acc, width: 80, height: 80)
-                    Text(acc.accountCommon.name.toString()).font(SpaceGrotesk.medium(size: 12)).foregroundColor(.tikiDarkGray)
+                    Text(acc.accountCommon.name.toString()).font(SpaceGrotesk.medium(size: 12)).foregroundColor(Rewards.theme.secondaryTextColor)
                 }
             }
         }

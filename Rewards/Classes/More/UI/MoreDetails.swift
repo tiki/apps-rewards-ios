@@ -13,7 +13,7 @@ struct MoreDetails: View {
                 Image(systemName: "person.circle")
                     .resizable()
                     .frame(width: 36, height: 36, alignment: .center)
-                    .foregroundColor(.tikiGreen)
+                    .foregroundColor(Rewards.theme.accentColor)
                     .padding(.vertical, 24)
                 MoreDetailsData()
                     .frame(width: 275)

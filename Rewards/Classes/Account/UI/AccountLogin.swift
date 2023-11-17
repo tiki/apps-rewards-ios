@@ -15,7 +15,7 @@ struct AccountLogin: View {
         VStack(alignment: .leading, spacing: 0){
             Text("Email")
                 .font(SpaceGrotesk.bold(size: 16))
-                .foregroundColor(.tikiDarkGray)
+                .foregroundColor(Rewards.theme.secondaryTextColor)
             TextField("", text: $username)
                 .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 6))
                 .keyboardType(.emailAddress)
@@ -28,7 +28,7 @@ struct AccountLogin: View {
                 .padding(.top, 8)
             Text("Password")
                 .font(SpaceGrotesk.bold(size: 16))
-                .foregroundColor(.tikiDarkGray)
+                .foregroundColor(Rewards.theme.secondaryTextColor)
                 .padding(.top, 32)
             SecureField("", text: $password)
                 .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 6))
@@ -52,7 +52,7 @@ struct AccountLogin: View {
                     )
             }
             .frame(maxWidth: .infinity)
-            .background(Color.tikiGreen)
+            .background(Rewards.theme.accentColor)
                 .cornerRadius(8)
                 .padding(.top, 32)
                 .alert("Error", isPresented: $showAlert) {

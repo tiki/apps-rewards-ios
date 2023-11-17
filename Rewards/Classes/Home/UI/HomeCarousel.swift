@@ -18,10 +18,10 @@ public struct HomeCarousel : View {
                         AccountIcon(account: acc, width: 77, height: 77)
                         Text("Add")
                           .font(SpaceGrotesk.medium(size: 12))
-                          .foregroundColor(.tikiDarkGray)
+                          .foregroundColor(Rewards.theme.secondaryTextColor)
                         Text(acc.accountCommon.name.toString())
                           .font(SpaceGrotesk.medium(size: 12))
-                          .foregroundColor(.tikiDarkGray)
+                          .foregroundColor(Rewards.theme.secondaryTextColor)
                     }
 
                 }

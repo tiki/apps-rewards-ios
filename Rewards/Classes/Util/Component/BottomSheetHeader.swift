@@ -16,7 +16,7 @@ public struct BottomSheetHeader: View{
             HStack{
                 Text(title)
                     .font(SpaceGrotesk.bold(size: 22))
-                    .foregroundColor(.tikiBlack).frame(maxWidth: .infinity, alignment: .leading)
+                    .foregroundColor(Rewards.theme.primaryTextColor).frame(maxWidth: .infinity, alignment: .leading)
                 Button(action: close) {
                     Image(systemName: "xmark.circle")
                         .font(.system(size: 32, weight: .light, design: .rounded))
@@ -25,7 +25,7 @@ public struct BottomSheetHeader: View{
             }
             Text(subtitle)
                 .font(SpaceGrotesk.medium(size: 16))
-                .foregroundColor(.tikiDarkGray)
+                .foregroundColor(Rewards.theme.secondaryTextColor)
         }
     }
 }

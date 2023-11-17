@@ -13,23 +13,23 @@ public struct HomeCard: View {
         HStack(spacing: 0) {
             VStack(alignment: .leading, spacing: 0){
                 Text("Month").font(SpaceGrotesk.medium(size: 14))
-                    .foregroundColor(Color.tikiBlack)
+                    .foregroundColor(Rewards.theme.primaryTextColor)
                     .padding(.bottom, 3)
                 Text("$4.80 / $12.00").font(SpaceGrotesk.bold(size: 18))
-                    .foregroundColor(Color.tikiGreen)
+                    .foregroundColor(Rewards.theme.accentColor)
                     .padding(.bottom, 12)
                 Text("Lifetime").font(SpaceGrotesk.medium(size: 14))
-                    .foregroundColor(Color.tikiBlack)
+                    .foregroundColor(Rewards.theme.primaryTextColor)
                     .padding(.bottom, 3)
                 Text("$34.30").font(SpaceGrotesk.bold(size: 18))
-                    .foregroundColor(Color.tikiDarkGray)
+                    .foregroundColor(Rewards.theme.secondaryTextColor)
                     .padding(.bottom, 12)
                 Button {
                     progress += 1
                 } label: {
                     HStack(spacing: 0) {
                         Text("Show More")
-                            .foregroundColor(Color.tikiGreen)
+                            .foregroundColor(Rewards.theme.accentColor)
                             .font(SpaceGrotesk.bold(size: 18))
                             .lineLimit(1)
                     }

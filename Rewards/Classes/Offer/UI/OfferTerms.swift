@@ -19,7 +19,7 @@ struct OfferTerms: View {
                 Text(Rewards.terms()).font(SpaceGrotesk.regular(size: 16)).padding(.horizontal, 15)
             }
             Divider().frame(height: 1)
-                .overlay(Color.tikiGreen).padding(.horizontal, 15)
+                .overlay(Rewards.theme.accentColor).padding(.horizontal, 15)
             Button {
                 onLicenseAccepted()
             } label: {
@@ -32,7 +32,7 @@ struct OfferTerms: View {
                         RoundedRectangle(cornerRadius: 8)
                             .stroke(.gray.opacity(0.5), lineWidth: 1)
                     )
-            }.background(Color.tikiGreen)
+            }.background(Rewards.theme.accentColor)
                 .cornerRadius(8)
                 .padding(.horizontal, 15)
                 .padding(.top, 32)

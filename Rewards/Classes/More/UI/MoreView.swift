@@ -16,7 +16,7 @@ public struct MoreView: View{
                 .padding(.top, 16)
             Text("Estimate calculated based on your spending history and available offers from eligible retailers.")
                 .font(SpaceGrotesk.medium(size: 14))
-                .foregroundColor(Color.tikiDarkGray)
+                .foregroundColor(Rewards.theme.secondaryTextColor)
                 .padding(.top, 16)
             MoreAccounts()
                 .padding(.top, 24)

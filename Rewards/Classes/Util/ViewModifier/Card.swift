@@ -12,9 +12,9 @@ public struct Card: ViewModifier {
             .frame(maxWidth: .infinity)
             .background(RoundedRectangle(cornerRadius: 10)
             .foregroundColor(.white)
-            .shadow(color: .tikiLightGray, radius: 0, x: 4, y: 4)
+            .shadow(color: Rewards.theme.secondaryBackgroundColor, radius: 0, x: 4, y: 4)
             .overlay(
-                RoundedRectangle(cornerRadius: 10).stroke(Color.tikiDarkGray))
+                RoundedRectangle(cornerRadius: 10).stroke(Rewards.theme.secondaryTextColor))
             )
     }
 }

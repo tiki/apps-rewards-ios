@@ -11,7 +11,7 @@ struct MoreDetailsData: View {
         VStack(spacing: 0){
             Text("What data do we collect?").font(SpaceGrotesk.bold(size: 18))
                 .foregroundColor(.tikiDarkGray)
-            Text("Learn about how your data powers your cashback connections")
+            Text("Learn about how your data powers your Cashback Connections")
                 .font(SpaceGrotesk.medium(size: 12))
                 .foregroundColor(.tikiDarkGray)
                 .multilineTextAlignment(.center)

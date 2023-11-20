@@ -97,8 +97,4 @@ public class Theme {
         self._fontFamily = fontFamily
         return self
     }
-//    
-//    public func and() -> Pods_Rewards_Example {
-//        TikiSdk.instance
-//    }
 }

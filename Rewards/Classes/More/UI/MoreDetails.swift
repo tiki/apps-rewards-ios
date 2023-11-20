@@ -6,6 +6,14 @@
 import SwiftUI
 
 struct MoreDetails: View {
+    @Binding var showTerms: Bool
+    @Binding var showSheet: Bool
+    @Binding var showMoreSheet: Bool
+    let onDismiss: () -> Void
+    let onLicenseAccepted: () -> Void
+    let onLicenseDeclined: () -> Void
+
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 0){
             Text("Program Details").font(SpaceGrotesk.bold(size: 28))
@@ -20,7 +28,7 @@ struct MoreDetails: View {
                     .padding(.horizontal, 36.5)
                 MoreDetailsUse()
                     .padding(.top, 48)
-                MoreDetailsActions()
+                MoreDetailsActions(showTerms: $showTerms, showSheet: $showSheet, showMoreSheet: $showMoreSheet, onDismiss: onDismiss, onLicenseAccepted: onLicenseAccepted, onLicenseDeclined: onLicenseDeclined)
                     .padding(.top, 48)
             }
             .asCard()

@@ -15,13 +15,15 @@ struct HomeScreen: View {
         if(isLicensed){
             HomeView(onDismiss: onDismiss, onLicenseDeclined: {
                 Rewards.decline()
-                isLicensed = Rewards.isLicensed()
-            })
-        }else{
+                isLicensed = false
+            }, onLicenseAccepted: {Rewards.license()})
+        }
+        if(!isLicensed){
             OfferView(onDismiss: onDismiss, onLicenseAccepted: {
                 Rewards.license()
                 isLicensed = Rewards.isLicensed()
             })
         }
+
     }
 }

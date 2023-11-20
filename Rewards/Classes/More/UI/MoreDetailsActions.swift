@@ -8,9 +8,7 @@ import SwiftUI
 
 struct MoreDetailsActions: View {
     @Binding var showTerms: Bool
-    @Binding var showSheet: Bool
     @Binding var showMoreSheet: Bool
-    let onDismiss: () -> Void
     let onLicenseAccepted: () -> Void
     let onLicenseDeclined: () -> Void
 

@@ -7,9 +7,7 @@ import SwiftUI
 
 struct MoreDetails: View {
     @Binding var showTerms: Bool
-    @Binding var showSheet: Bool
     @Binding var showMoreSheet: Bool
-    let onDismiss: () -> Void
     let onLicenseAccepted: () -> Void
     let onLicenseDeclined: () -> Void
 
@@ -28,7 +26,7 @@ struct MoreDetails: View {
                     .padding(.horizontal, 36.5)
                 MoreDetailsUse()
                     .padding(.top, 48)
-                MoreDetailsActions(showTerms: $showTerms, showSheet: $showSheet, showMoreSheet: $showMoreSheet, onDismiss: onDismiss, onLicenseAccepted: onLicenseAccepted, onLicenseDeclined: onLicenseDeclined)
+                MoreDetailsActions(showTerms: $showTerms, showMoreSheet: $showMoreSheet, onLicenseAccepted: onLicenseAccepted, onLicenseDeclined: onLicenseDeclined)
                     .padding(.top, 48)
             }
             .asCard()

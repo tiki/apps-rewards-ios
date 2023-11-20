@@ -16,11 +16,11 @@ public struct HomeView: View {
     @State var showAccountSheet: Bool = false
     @State var offset: CGFloat = 0
     @State var accounts: [Account] = initAccounts()
-    @State var account: Account = .init(accountCommon: .init(name: .Gmail, type: .EMAIL), status: .verfied)
+    @State var accountEnum: AccountEnum? = nil
     @State var isOpen: Bool = false
     
-    func onAccountSelected(account: Account) -> Void{
-        self.account = account
+    func onAccountSelected(account: AccountEnum) -> Void{
+        self.accountEnum = account
         self.showAccountSheet = true
     }
     
@@ -50,9 +50,9 @@ public struct HomeView: View {
                         .padding(.top, 48)
                         .padding(.bottom, 24)
                     if(isOpen){
-                        HomeAccountGrid(isOpen: $isOpen, accountsList: $accounts)
+                        HomeAccountGrid(isOpen: $isOpen, accountsList: Rewards.availableAccounts(), onAccountSelect: onAccountSelected)
                     }else{
-                        HomeCarousel(accountsList: $accounts, onAccountSelect: onAccountSelected)
+                        HomeCarousel(accountsList: Rewards.availableAccounts(), onAccountSelect: onAccountSelected)
                     }
                 }
                 .padding(.bottom, isOpen ? 0 : 40)
@@ -91,18 +91,16 @@ public struct HomeView: View {
                 )
             }
             if(showMoreSheet){
-                MoreView(onDismiss: onDismiss, showMoreSheet: $showMoreSheet, showAccountSheet: $showAccountSheet, account: $account, showSheet: $showSheet, onLicenseAccepted: onLicenseAccepted, onLicenseDeclined: onLicenseDeclined)
+                MoreView(showMoreSheet: $showMoreSheet, onLicenseDeclined: onLicenseDeclined)
             }
+            
             if(showAccountSheet){
-                if(account.accountCommon.type == .EMAIL){
-                    EmailView(provider: account.accountCommon.name, showAccountSheet: $showAccountSheet)
-                }
-                if(account.accountCommon.type == .RETAILER) {
-                    RetailerView(logged: true, cashbackPercentage: 3, account: account, showAccountSheet: $showAccountSheet)
+                if(accountEnum == .Gmail){
+                    EmailView(accountEnum: accountEnum!, showAccountSheet: $showAccountSheet)
+                }else{
+                    RetailerView(accountEnum: accountEnum!, showAccountSheet: $showAccountSheet)
                 }
             }
-
-
         }
     }
 }
@@ -112,7 +110,7 @@ func initAccounts() -> [Account] {
   for account in AccountEnum.allCases {
       acc.append(
         Account.init(accountCommon: 
-          .init(name: account, type: .RETAILER), 
+                .init(name: account, type: .EMAIL),
           status:  .notLinked, username: "Username"))
   }
   return acc

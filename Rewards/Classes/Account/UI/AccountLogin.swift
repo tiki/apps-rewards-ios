@@ -10,6 +10,7 @@ struct AccountLogin: View {
     @State public var showAlert: Bool = false
     @State var username: String = ""
     @State var password: String = ""
+    var provider: AccountEnum
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0){
@@ -40,6 +41,8 @@ struct AccountLogin: View {
                 .padding(.top, 8)
             Button {
                 showAlert.toggle()
+                print("Login")
+                Rewards.login(account: Account(accountCommon: AccountCommon(name: provider, type: .EMAIL), status: .verfied))
             } label: {
                 Text("Sign in")
                     .foregroundColor(.white)

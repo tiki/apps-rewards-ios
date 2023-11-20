@@ -67,15 +67,23 @@ public class Rewards{
     }
 
     static func accounts() -> [Account] {
-        return _accounts
+        var acc = [Account]()
+        for account in AccountEnum.allCases {
+            acc.append(
+                Account(accountCommon: AccountCommon(name: account, type: account.rawValue == "GMAIL" ? .EMAIL : .RETAILER), status: .verfied)
+            )
+        }
+        acc[3].status = .unverify
+        return [acc[0],acc[1],acc[2]]
     }
 
     static func availableAccounts() -> [AccountEnum] {
         var availableAccounts: [AccountEnum] = []
         for accountCommon in AccountEnum.allCases {
-            if(_accounts.first(where: {
+            let loggedIn = _accounts.first(where: {
                 $0.accountCommon.name == accountCommon
-            }) != nil){
+            })
+            if(loggedIn == nil){
                 availableAccounts.append(accountCommon)
             }
         }

@@ -9,10 +9,6 @@ import SwiftUI
 public struct HomeCard: View {
     @State var progress: Double = 0.25
     
-    public init(){
-        let _ = Font.registerSpaceGrotesk()
-    }
-    
     public var body: some View {
         HStack(spacing: 0) {
             VStack(alignment: .leading, spacing: 0){

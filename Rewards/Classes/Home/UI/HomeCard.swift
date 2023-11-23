@@ -11,18 +11,22 @@ public struct HomeCard: View {
     @Binding var showMoreSheet: Bool
     
     public var body: some View {
+      let earnings = Rewards.earnings()
+      let rating = "$\(earnings.rating, specifier: "%.2f")"
+      let bonus = "$\(earnings.bonus, specifier: "%.2f")"
+      let total = "$\(earnings.total, specifier: "%.2f")"
         HStack(spacing: 0) {
             VStack(alignment: .leading, spacing: 0){
                 Text("Month").font(Rewards.theme.fontMedium(size: 14))
                     .foregroundColor(Rewards.theme.primaryTextColor)
                     .padding(.bottom, 3)
-                Text("$\(Rewards.earnings().rating, specifier: "%.2f")/ $\(Rewards.earnings().bonus, specifier: "%.2f")").font(SpaceGrotesk.bold(size: 18))
+                Text("\(rating) / \(bonus)").font(SpaceGrotesk.bold(size: 18))
                     .foregroundColor(Rewards.theme.accentColor)
                     .padding(.bottom, 12)
                 Text("Lifetime").font(Rewards.theme.fontMedium(size: 14))
                     .foregroundColor(Rewards.theme.primaryTextColor)
                     .padding(.bottom, 3)
-                Text("$\(Rewards.earnings().total, specifier: "%.2f")").font(SpaceGrotesk.bold(size: 18))
+                Text(total).font(SpaceGrotesk.bold(size: 18))
                     .foregroundColor(Rewards.theme.secondaryTextColor)
                     .padding(.bottom, 12)
                 Button {

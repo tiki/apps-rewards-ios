@@ -16,7 +16,7 @@ public struct ScreenHeader: View{
                 .onTapGesture {
                     action()
                 }
-            Text(title.uppercased()).font(SpaceGrotesk.bold(size: 20))
+            Text(title.uppercased()).font(Rewards.theme.fontBold(size: 20))
           Spacer()
         }.padding(.horizontal, 15)
     }

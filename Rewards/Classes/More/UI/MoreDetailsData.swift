@@ -9,30 +9,27 @@ import SwiftUI
 struct MoreDetailsData: View {
     var body: some View {
         VStack(spacing: 0){
-            Text("What data do we collect?").font(SpaceGrotesk.bold(size: 18)
-                .foregroundColor(.tikiDarkGray)
-            Text("Learn about how your data powers your Cashback Connections")
-                .font(SpaceGrotesk.medium(size: 12))
+            Text("What data do we collect?").font(Rewards.theme.fontBold(size: 18))
+                .foregroundColor(Rewards.theme.secondaryTextColor)
+            Text("Learn about how your data powers your cashback connections")
+                .font(Rewards.theme.fontMedium(size: 12))
                 .foregroundColor(Rewards.theme.secondaryTextColor)
                 .multilineTextAlignment(.center)
             HStack(){
                 HStack(){
                     TikiImages.purchases.resizable().frame(width: 18, height: 18)
-                    Text("Purchases").font(SpaceGrotesk
-                        .medium(size: 16)).foregroundColor(Rewards.theme.secondaryTextColor)
+                    Text("Purchases").font(Rewards.theme.fontMedium(size: 16)).foregroundColor(Rewards.theme.secondaryTextColor)
                 }
                 Spacer()
                 HStack(){
                     TikiImages.receipts.resizable().frame(width: 18, height: 18)
-                    Text("Receipts").font(SpaceGrotesk
-                        .medium(size: 16)).foregroundColor(Rewards.theme.secondaryTextColor)
+                    Text("Receipts").font(Rewards.theme.fontMedium(size: 16)).foregroundColor(Rewards.theme.secondaryTextColor)
                 }
             }.padding(.top, 24)
             HStack(){
                 HStack(){
                     TikiImages.userId.resizable().frame(width: 18, height: 18)
-                    Text("User ID").font(SpaceGrotesk
-                        .medium(size: 16)).foregroundColor(Rewards.theme.secondaryTextColor)
+                    Text("User ID").font(Rewards.theme.fontMedium(size: 16)).foregroundColor(Rewards.theme.secondaryTextColor)
                 }
                 Spacer()
             }.padding(.top, 12)

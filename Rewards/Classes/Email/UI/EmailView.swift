@@ -15,7 +15,7 @@ public struct EmailView: View{
             EmailCard()
                 .padding(.top, 28)
             EmailAccounts()
-            Text("Add Account").font(SpaceGrotesk.bold(size: 28)).padding(.top, 30)
+            Text("Add Account").font(Rewards.theme.fontBold(size: 28)).padding(.top, 30)
             if(provider == .Gmail){
                 EmailLoginOAuth().padding(.top, 24)
             }

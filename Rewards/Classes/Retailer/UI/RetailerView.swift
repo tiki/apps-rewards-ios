@@ -15,7 +15,7 @@ public struct RetailerView: View{
             RetailerCard(account: account, cashbackPercentage: 3)
                 .padding(.top, 28)
             HStack(){
-                Text("Account").font(SpaceGrotesk.bold(size: 28))
+                Text("Account").font(Rewards.theme.fontBold(size: 28))
                 Spacer()
             }
             .padding(.vertical, 24)

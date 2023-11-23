@@ -13,11 +13,11 @@ struct AccountItem: View {
         VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 0) {
               AccountIcon(account: account, width: iconSize, height: iconSize)
         Text("Add")
-          .font(SpaceGrotesk.medium(size: 12))
+                .font(Rewards.theme.fontMedium(size: 12))
           .foregroundColor(Rewards.theme.secondaryTextColor)
           .padding(.top, 10)
         Text(account.accountCommon.name.toString())
-          .font(SpaceGrotesk.medium(size: 12))
+          .font(Rewards.theme.fontMedium(size: 12))
           .foregroundColor(Rewards.theme.secondaryTextColor)
         }
     }

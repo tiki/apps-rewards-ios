@@ -11,7 +11,7 @@ struct MoreDetailsActions: View {
         VStack(spacing: 0){
             Rewards.theme.secondaryTextColor.frame(height: 4 / UIScreen.main.scale)
             HStack() {
-                Text("Report an issue").font(SpaceGrotesk.medium(size: 16)).foregroundColor(Rewards.theme.secondaryTextColor)
+                Text("Report an issue").font(Rewards.theme.fontMedium(size: 16)).foregroundColor(Rewards.theme.secondaryTextColor)
                 Spacer()
                 TikiImages.grayAlert.resizable().frame(width: 18, height: 18)
             }
@@ -19,7 +19,7 @@ struct MoreDetailsActions: View {
             .padding(.horizontal, 12)
             Rewards.theme.secondaryTextColor.frame(height: 4 / UIScreen.main.scale)
             HStack() {
-                Text("Data licensing agreement").font(SpaceGrotesk.medium(size: 16)).foregroundColor(Rewards.theme.secondaryTextColor)
+                Text("Data licensing agreement").font(Rewards.theme.fontMedium(size: 16)).foregroundColor(Rewards.theme.secondaryTextColor)
                 Spacer()
                 TikiImages.handStop.resizable().frame(width: 18, height: 18)
             }
@@ -27,7 +27,7 @@ struct MoreDetailsActions: View {
             .padding(.horizontal, 12)
             Rewards.theme.secondaryTextColor.frame(height: 4 / UIScreen.main.scale)
             HStack() {
-                Text("Opt out of cashback connections").font(SpaceGrotesk.medium(size: 16)).foregroundColor(.tikiRed)
+                Text("Opt out of cashback connections").font(Rewards.theme.fontMedium(size: 16)).foregroundColor(.tikiRed)
                 Spacer()
                 TikiImages.redStop.resizable().frame(width: 18, height: 18)
             }

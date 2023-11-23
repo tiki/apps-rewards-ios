@@ -6,6 +6,7 @@
 import SwiftUI
 
 public struct MoreView: View{
+    @Binding var showMoreSheet: Bool
     
     public var body: some View {
         VStack(alignment: .leading, spacing: 0){
@@ -22,6 +23,6 @@ public struct MoreView: View{
                 .padding(.top, 24)
             MoreDetails()
                 .padding(.top, 30)
-        }.asScreen(title: "BACK")
+        }.asScreen(title: "BACK", action: {showMoreSheet = false})
     }
 }

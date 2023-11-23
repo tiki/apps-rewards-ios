@@ -9,6 +9,7 @@ import Foundation
 public struct HomeCarousel : View {
     
     @Binding var accountsList: [Account];
+    let onAccountSelect: (Account) ->  Void
 
     public var body: some View {
         ScrollView (.horizontal, showsIndicators: false){
@@ -22,6 +23,8 @@ public struct HomeCarousel : View {
                         Text(acc.accountCommon.name.toString())
                           .font(Rewards.theme.fontMedium(size: 12))
                           .foregroundColor(Rewards.theme.secondaryTextColor)
+                    }.onTapGesture {
+                        onAccountSelect(acc)
                     }
 
                 }

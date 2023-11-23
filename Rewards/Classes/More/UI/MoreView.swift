@@ -32,9 +32,9 @@ public struct MoreView: View{
                 .font(Rewards.theme.fontMedium(size: 14))
                 .foregroundColor(Rewards.theme.secondaryTextColor)
                 .padding(.top, 16)
-            MoreAccounts()
+            MoreAccounts(onAccountSelect: { acc in onAccountSelected(account: acc) })
                 .padding(.top, 24)
-            MoreDetails()
+            MoreDetails(showTerms: $showTerms, showSheet: $showSheet, showMoreSheet: $showMoreSheet, onDismiss: onDismiss, onLicenseAccepted: onLicenseAccepted, onLicenseDeclined: onLicenseDeclined)
                 .padding(.top, 30)
         }.asScreen(title: "BACK", action: {showMoreSheet = false})
     }

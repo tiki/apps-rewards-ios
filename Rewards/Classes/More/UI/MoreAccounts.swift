@@ -20,7 +20,7 @@ public struct MoreAccounts: View {
     
     public var gridItemLayout = Array(repeating: GridItem(.flexible(), spacing: 0), count: 3)
     
-    var body: some View {
+    public var body: some View {
         Text("Accounts").font(Rewards.theme.fontBold(size: 28))
         LazyVGrid(columns: gridItemLayout, spacing: 20) {
             ForEach(accountsList, id: \.accountCommon.name){ acc in

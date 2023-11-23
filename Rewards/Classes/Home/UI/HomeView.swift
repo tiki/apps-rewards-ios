@@ -34,7 +34,7 @@ public struct HomeView: View {
                 }
                 Text ("Increase Earnings")
                     .padding(.top, isOpen ? 24 : 0)
-                    .font(SpaceGrotesk.medium(size: 16))
+                    .font(Rewards.theme.fontMedium(size: 16))
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.horizontal, 24)
                     .padding(.top, 48)

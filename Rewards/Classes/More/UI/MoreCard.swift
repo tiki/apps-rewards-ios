@@ -13,12 +13,12 @@ public struct MoreCard: View {
     public var body: some View {
         HStack(spacing: 0){
             VStack(alignment: .leading, spacing: 0){
-                Text("Largest Contributors").font(SpaceGrotesk.bold(size: 14))
-                    .foregroundColor(Color.tikiGreen)
+                Text("Largest Contributors").font(Rewards.theme.fontBold(size: 14))
+                    .foregroundColor(Rewards.theme.accentColor)
                     .padding(.bottom, 2)
                 ForEach(largestContributors, id: \.name){ contributor in
-                    Text("\(contributor.name): \(Int(contributor.percentage*100))%").font(SpaceGrotesk.medium(size: 14))
-                        .foregroundColor(Color.tikiDarkGray)
+                    Text("\(contributor.name): \(Int(contributor.percentage*100))%").font(Rewards.theme.fontMedium(size: 14))
+                        .foregroundColor(Rewards.theme.secondaryTextColor)
                         .padding(.bottom, 2)
                 }
             }

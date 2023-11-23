@@ -12,7 +12,7 @@ struct EmailAccounts: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0){
-            Text("Accounts").font(SpaceGrotesk.bold(size: 28))
+            Text("Accounts").font(Rewards.theme.fontBold(size: 28))
                 .padding(.top, 24)
             ForEach(accountsList, id: \.hashValue){ acc in
                 AccountView(acc: acc)

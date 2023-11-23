@@ -13,14 +13,14 @@ struct RetailerScan: View {
             print("TODO Scan Receipt")
         } label: {
             Text("Scan Receipt")
-                .foregroundColor(.tikiGreen)
-                .font(SpaceGrotesk.medium(size: 20))
+                .foregroundColor(Rewards.theme.accentColor)
+                .font(Rewards.theme.fontMedium(size: 20))
                 .padding(.vertical, 14)
                 .lineLimit(1)
                 .frame(maxWidth: .infinity)
                 .overlay(
                     RoundedRectangle(cornerRadius: 8)
-                        .stroke(Color.tikiGreen, lineWidth: 4)
+                        .stroke(Rewards.theme.accentColor, lineWidth: 4)
                 )
         }.background(.white)
             .cornerRadius(8)

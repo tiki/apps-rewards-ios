@@ -7,15 +7,17 @@ import SwiftUI
 
 public extension Color {
     
-    static let tikiBlack: Color = Color(hex: "1C0000")
+    static let tikiBlack: Color = Color(hex: "FF000000")
     
-    static let tikiDarkGray:Color =  Color(hex: "666666")
+    static let tikiDarkGray:Color =  Color(hex: "99000000")
     
     static let tikiLightGray:Color = Color(hex: "15000000")
     
-    static let tikiGreen: Color = Color(hex: "00B272")
+    static let tikiGreen: Color = Color(hex: "FF00B272")
     
     static let tikiRed: Color = Color(hex: "C73000")
+    
+    static let tikiWhite: Color = Color(hex: "FFFFFFFF")
     
     init(hex: String) {
         let hex = hex.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)

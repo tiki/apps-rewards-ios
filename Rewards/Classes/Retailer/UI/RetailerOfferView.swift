@@ -15,7 +15,7 @@ struct RetailerOffers: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0){
-            Text("More Offers").font(SpaceGrotesk.bold(size: 28))
+            Text("More Offers").font(Rewards.theme.fontBold(size: 28))
         }
         ForEach(offers, id: \.description){ offer in
             RetailerOfferTile(offer: offer)

@@ -15,11 +15,11 @@ struct AccountView: View {
                 .padding(.trailing, 24)
             VStack(alignment: .leading, spacing: 0){
                 Text(acc.accountCommon.name.toString())
-                    .font(SpaceGrotesk.bold(size: 24))
-                    .foregroundStyle(acc.status == .unverify ? Color.tikiRed : Color.tikiDarkGray)
+                    .font(Rewards.theme.fontBold(size: 24))
+                    .foregroundStyle(acc.status == .unverify ? Color.tikiRed : Rewards.theme.secondaryTextColor)
                 Text(acc.username ?? "username")
-                    .font(SpaceGrotesk.medium(size: 20))
-                    .foregroundStyle(acc.status == .unverify ? Color.tikiRed : Color.tikiDarkGray)
+                    .font(Rewards.theme.fontMedium(size: 20))
+                    .foregroundStyle(acc.status == .unverify ? Color.tikiRed : Rewards.theme.secondaryTextColor)
                     .lineLimit(1)
                     .truncationMode(.tail)
             }

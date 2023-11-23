@@ -31,8 +31,8 @@ public struct OfferView: View {
                         .padding(.horizontal, 15)
                         .padding(.top, 48)
                     Text("Estimate based on similar users spending habits and market price for shopping data.")
-                        .font(SpaceGrotesk.medium(size: 14))
-                        .foregroundColor(.tikiDarkGray)
+                        .font(Rewards.theme.fontMedium(size: 14))
+                        .foregroundColor(Rewards.theme.secondaryTextColor)
                         .padding(.horizontal, 15)
                         .padding(.top, 36)
                     Button (action: {
@@ -40,7 +40,7 @@ public struct OfferView: View {
                     }, label: {
                         Text("Get estimate")
                             .foregroundColor(.white)
-                            .font(SpaceGrotesk.medium(size: 20))
+                            .font(Rewards.theme.fontMedium(size: 20))
                             .lineLimit(1)
                             .frame(width: 360, height: 54)
                             .overlay(
@@ -48,7 +48,7 @@ public struct OfferView: View {
                                     .stroke(.gray.opacity(0.5), lineWidth: 1)
                             )
                     })
-                    .background(Color.tikiGreen)
+                    .background(Rewards.theme.accentColor)
                     .cornerRadius(8)
                     .padding(.horizontal, 15)
                     .padding(.top, 20)

@@ -10,13 +10,13 @@ public struct MoreView: View{
     public var body: some View {
         VStack(alignment: .leading, spacing: 0){
             Text("Monthly Estimate")
-                .font(SpaceGrotesk.bold(size: 28))
+                .font(Rewards.theme.fontBold(size: 28))
                 .padding(.top, 34)
             MoreCard()
                 .padding(.top, 16)
             Text("Estimate calculated based on your spending history and available offers from eligible retailers.")
-                .font(SpaceGrotesk.medium(size: 14))
-                .foregroundColor(Color.tikiDarkGray)
+                .font(Rewards.theme.fontMedium(size: 14))
+                .foregroundColor(Rewards.theme.secondaryTextColor)
                 .padding(.top, 16)
             MoreAccounts()
                 .padding(.top, 24)

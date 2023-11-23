@@ -16,23 +16,23 @@ struct OfferTerms: View {
                 showTerms = false
             }).padding(.vertical, 30)
             ScrollView(.vertical){
-                Text(Rewards.terms()).font(SpaceGrotesk.regular(size: 16)).padding(.horizontal, 15)
+                Text(Rewards.terms()).font(Rewards.theme.fontRegular(size: 16)).padding(.horizontal, 15)
             }
             Divider().frame(height: 1)
-                .overlay(Color.tikiGreen).padding(.horizontal, 15)
+                .overlay(Rewards.theme.accentColor).padding(.horizontal, 15)
             Button {
                 onLicenseAccepted()
             } label: {
                 Text("I agree")
                     .foregroundColor(.white)
-                    .font(SpaceGrotesk.medium(size: 20))
+                    .font(Rewards.theme.fontMedium(size: 20))
                     .lineLimit(1)
                     .frame(width: 360, height: 54)
                     .overlay(
                         RoundedRectangle(cornerRadius: 8)
                             .stroke(.gray.opacity(0.5), lineWidth: 1)
                     )
-            }.background(Color.tikiGreen)
+            }.background(Rewards.theme.accentColor)
                 .cornerRadius(8)
                 .padding(.horizontal, 15)
                 .padding(.top, 32)

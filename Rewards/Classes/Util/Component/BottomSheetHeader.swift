@@ -15,8 +15,8 @@ public struct BottomSheetHeader: View{
         VStack(alignment: .leading, spacing: 0){
             HStack{
                 Text(title)
-                    .font(SpaceGrotesk.bold(size: 22))
-                    .foregroundColor(.tikiBlack).frame(maxWidth: .infinity, alignment: .leading)
+                    .font(Rewards.theme.fontBold(size: 22))
+                    .foregroundColor(Rewards.theme.primaryTextColor).frame(maxWidth: .infinity, alignment: .leading)
                 Button(action: close) {
                     Image(systemName: "xmark.circle")
                         .font(.system(size: 32, weight: .light, design: .rounded))
@@ -24,8 +24,8 @@ public struct BottomSheetHeader: View{
                 }
             }
             Text(subtitle)
-                .font(SpaceGrotesk.medium(size: 16))
-                .foregroundColor(.tikiDarkGray)
+                .font(Rewards.theme.fontMedium(size: 16))
+                .foregroundColor(Rewards.theme.secondaryTextColor)
         }
     }
 }

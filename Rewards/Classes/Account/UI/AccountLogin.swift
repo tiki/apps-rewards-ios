@@ -14,8 +14,8 @@ struct AccountLogin: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 0){
             Text("Email")
-                .font(SpaceGrotesk.bold(size: 16))
-                .foregroundColor(.tikiDarkGray)
+                .font(Rewards.theme.fontBold(size: 16))
+                .foregroundColor(Rewards.theme.secondaryTextColor)
             TextField("", text: $username)
                 .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 6))
                 .keyboardType(.emailAddress)
@@ -23,18 +23,18 @@ struct AccountLogin: View {
                 .autocapitalization(.none)
                 .foregroundColor(.black)
                 .frame(height: 50)
-                .font(SpaceGrotesk.bold(size: 20))
+                .font(Rewards.theme.fontBold(size: 20))
                 .overlay(RoundedRectangle(cornerRadius: 10).stroke())
                 .padding(.top, 8)
             Text("Password")
-                .font(SpaceGrotesk.bold(size: 16))
-                .foregroundColor(.tikiDarkGray)
+                .font(Rewards.theme.fontBold(size: 16))
+                .foregroundColor(Rewards.theme.secondaryTextColor)
                 .padding(.top, 32)
             SecureField("", text: $password)
                 .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 6))
                 .foregroundColor(.black)
                 .frame(height: 50)
-                .font(SpaceGrotesk.bold(size: 16))
+                .font(Rewards.theme.fontBold(size: 16))
                 .overlay(RoundedRectangle(cornerRadius: 10)
                     .stroke())
                 .padding(.top, 8)
@@ -43,7 +43,7 @@ struct AccountLogin: View {
             } label: {
                 Text("Sign in")
                     .foregroundColor(.white)
-                    .font(SpaceGrotesk.medium(size: 20))
+                    .font(Rewards.theme.fontMedium(size: 20))
                     .lineLimit(1)
                     .frame(height: 54)
                     .overlay(
@@ -52,7 +52,7 @@ struct AccountLogin: View {
                     )
             }
             .frame(maxWidth: .infinity)
-            .background(Color.tikiGreen)
+            .background(Rewards.theme.accentColor)
                 .cornerRadius(8)
                 .padding(.top, 32)
                 .alert("Error", isPresented: $showAlert) {

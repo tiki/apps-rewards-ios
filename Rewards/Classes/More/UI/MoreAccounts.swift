@@ -19,12 +19,12 @@ struct MoreAccounts: View {
     private var gridItemLayout = Array(repeating: GridItem(.flexible(), spacing: 0), count: 3)
     
     var body: some View {
-        Text("Accounts").font(SpaceGrotesk.bold(size: 28))
+        Text("Accounts").font(Rewards.theme.fontBold(size: 28))
         LazyVGrid(columns: gridItemLayout, spacing: 20) {
             ForEach(accountsList, id: \.accountCommon.name){ acc in
                 VStack() {
                     AccountIcon(account: acc, width: 80, height: 80)
-                    Text(acc.accountCommon.name.toString()).font(SpaceGrotesk.medium(size: 12)).foregroundColor(.tikiDarkGray)
+                    Text(acc.accountCommon.name.toString()).font(Rewards.theme.fontMedium(size: 12)).foregroundColor(Rewards.theme.secondaryTextColor)
                 }
             }
         }

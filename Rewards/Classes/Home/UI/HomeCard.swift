@@ -12,25 +12,25 @@ public struct HomeCard: View {
     public var body: some View {
         HStack(spacing: 0) {
             VStack(alignment: .leading, spacing: 0){
-                Text("Month").font(SpaceGrotesk.medium(size: 14))
-                    .foregroundColor(Color.tikiBlack)
+                Text("Month").font(Rewards.theme.fontMedium(size: 14))
+                    .foregroundColor(Rewards.theme.primaryTextColor)
                     .padding(.bottom, 3)
-                Text("$4.80 / $12.00").font(SpaceGrotesk.bold(size: 18))
-                    .foregroundColor(Color.tikiGreen)
+                Text("$4.80 / $12.00").font(Rewards.theme.fontBold(size: 18))
+                    .foregroundColor(Rewards.theme.accentColor)
                     .padding(.bottom, 12)
-                Text("Lifetime").font(SpaceGrotesk.medium(size: 14))
-                    .foregroundColor(Color.tikiBlack)
+                Text("Lifetime").font(Rewards.theme.fontMedium(size: 14))
+                    .foregroundColor(Rewards.theme.primaryTextColor)
                     .padding(.bottom, 3)
-                Text("$34.30").font(SpaceGrotesk.bold(size: 18))
-                    .foregroundColor(Color.tikiDarkGray)
+                Text("$34.30").font(Rewards.theme.fontBold(size: 18))
+                    .foregroundColor(Rewards.theme.secondaryTextColor)
                     .padding(.bottom, 12)
                 Button {
                     progress += 1
                 } label: {
                     HStack(spacing: 0) {
                         Text("Show More")
-                            .foregroundColor(Color.tikiGreen)
-                            .font(SpaceGrotesk.bold(size: 18))
+                            .foregroundColor(Rewards.theme.accentColor)
+                            .font(Rewards.theme.fontBold(size: 18))
                             .lineLimit(1)
                     }
                 }

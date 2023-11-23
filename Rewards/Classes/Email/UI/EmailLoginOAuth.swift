@@ -20,7 +20,7 @@ struct EmailLoginOAuth: View {
                         .frame(height: 1)
                         .overlay(Rewards.theme.secondaryTextColor)
                 }
-                Text("or").font(SpaceGrotesk.regular(size: 14))
+                Text("or").font(Rewards.theme.fontRegular(size: 14))
                     .padding(.horizontal, 14)
                 VStack{
                     Divider().frame(height: 1)

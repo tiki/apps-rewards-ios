@@ -21,7 +21,7 @@ public struct SpaceGrotesk{
 }
 
 extension Font {
-    public static func registerSpaceGrotesk() -> Bool {
+    public static func registerSpaceGrotesk() {
         let bundle = Bundle(for: Rewards.self)
         let resourceBundle = Bundle(url: bundle.url(forResource: "RewardsAssets", withExtension: "bundle")!)!
         guard let fontURL = resourceBundle.url(forResource: "Assets/SpaceGrotesk", withExtension: "ttf") else {
@@ -31,9 +31,8 @@ extension Font {
         let success = CTFontManagerRegisterFontsForURL(fontURL as CFURL, .process, &error)
         guard success else {
             print("Error registering font: maybe it was already registered.")
-            return false
+            return
         }
-        return true
     }
 }
 

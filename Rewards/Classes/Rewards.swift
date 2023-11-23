@@ -15,7 +15,6 @@ public class Rewards{
     public static func start(_ theme: Theme? = nil) {
         self.theme = theme ?? self.theme
         DispatchQueue.main.async {
-            let _ = Font.registerSpaceGrotesk()
             let viewController = UIApplication.shared.windows.first?.rootViewController
             let vc = UIHostingController(
                 rootView: HomeScreen(onDismiss: {viewController?.dismiss(animated: true)})

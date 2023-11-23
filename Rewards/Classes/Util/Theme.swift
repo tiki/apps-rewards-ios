@@ -13,16 +13,38 @@ public class Theme {
     var _primaryBackgroundColor = Color.tikiWhite
     var _secondaryBackgroundColor = Color.tikiLightGray
     var _accentColor = Color.tikiGreen
-    var _fontFamily = "SpaceGrotesk"
+    var _fontFamily = "SpaceGrotesk-Light"
     
-    var font: Dictionary<String,String> {
-        get {[
-            "regular" : "\(_fontFamily)-Regular",
-            "bold" : "\(_fontFamily)-Bold",
-            "light" : "\(_fontFamily)-Light",
-            "medium" : "\(_fontFamily)-Medium",
-            "semiBold" : "\(_fontFamily)-SemiBold",
-        ]}
+    init(primaryTextColor: Color = Color.tikiBlack, secondaryTextColor: Color = Color.tikiDarkGray, primaryBackgroundColor: Color = Color.tikiWhite, secondaryBackgroundColor: Color = Color.tikiLightGray, accentColor: Color = Color.tikiGreen, fontFamily: String = "SpaceGrotesk-Light") {
+        self._primaryTextColor = primaryTextColor
+        self._secondaryTextColor = secondaryTextColor
+        self._primaryBackgroundColor = primaryBackgroundColor
+        self._secondaryBackgroundColor = secondaryBackgroundColor
+        self._accentColor = accentColor
+        self._fontFamily = fontFamily
+        if(self._fontFamily == "SpaceGrotesk-Light"){
+            Font.registerSpaceGrotesk()
+        }
+    }
+    
+    /// Theme font light
+    public func fontLight(size: CGFloat) -> Font {
+        return Font.custom("\(_fontFamily)", size: size)
+    }
+    
+    /// Theme font regular
+    public func fontRegular(size: CGFloat) -> Font {
+        return Font.custom("\(_fontFamily)_Regular", size: size)
+    }
+    
+    /// Theme font medium
+    public func fontMedium(size: CGFloat) -> Font {
+        return Font.custom("\(_fontFamily)_Medium", size: size)
+    }
+    
+    /// Theme font bold
+    public func fontBold(size: CGFloat) -> Font {
+        return Font.custom("\(_fontFamily)_Bold", size: size)
     }
     
     /// Primary text color. Used in the default text items.
@@ -41,32 +63,6 @@ public class Theme {
     
     /// Accent color. Used to decorate or highlight items.
     public var accentColor: Color { _accentColor }
-    
-    public var fontRegular: String {
-        get{
-            font["regular"]!
-        }
-    }
-    public var fontBold: String {
-        get{
-            font["bold"]!
-        }
-    }
-    public var fontLight: String {
-        get{
-            font["light"]!
-        }
-    }
-    public var fontMedium: String {
-        get{
-            font["medium"]!
-        }
-    }
-    public var fontSemiBold: String {
-        get {
-            font["semiBold"]!
-        }
-    }
     
     public func primaryTextColor(_ primaryTextColor: Color) -> Self {
         self._primaryTextColor = primaryTextColor

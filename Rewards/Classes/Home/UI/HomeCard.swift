@@ -12,21 +12,21 @@ public struct HomeCard: View {
     
     public var body: some View {
       let earnings = Rewards.earnings()
-      let rating = "$\(earnings.rating, specifier: "%.2f")"
-      let bonus = "$\(earnings.bonus, specifier: "%.2f")"
-      let total = "$\(earnings.total, specifier: "%.2f")"
+      let rating = String(format: "%.2f", earnings.rating)
+      let bonus = String(format: "%.2f", earnings.bonus)
+      let total = String(format: "%.2f", earnings.total)
         HStack(spacing: 0) {
             VStack(alignment: .leading, spacing: 0){
                 Text("Month").font(Rewards.theme.fontMedium(size: 14))
                     .foregroundColor(Rewards.theme.primaryTextColor)
                     .padding(.bottom, 3)
-                Text("\(rating) / \(bonus)").font(SpaceGrotesk.bold(size: 18))
+                Text("$\(rating) / $\(bonus)").font(SpaceGrotesk.bold(size: 18))
                     .foregroundColor(Rewards.theme.accentColor)
                     .padding(.bottom, 12)
                 Text("Lifetime").font(Rewards.theme.fontMedium(size: 14))
                     .foregroundColor(Rewards.theme.primaryTextColor)
                     .padding(.bottom, 3)
-                Text(total).font(SpaceGrotesk.bold(size: 18))
+                Text("$\(total)").font(SpaceGrotesk.bold(size: 18))
                     .foregroundColor(Rewards.theme.secondaryTextColor)
                     .padding(.bottom, 12)
                 Button {

@@ -27,6 +27,7 @@ public struct HomeView: View {
         ZStack(){
             if(showSheet){
                 VStack(alignment: .center, spacing: 0) {
+
                     if(!isOpen){
                         BottomSheetHeader(
                             title: "CASHBACK CONNECTIONS",

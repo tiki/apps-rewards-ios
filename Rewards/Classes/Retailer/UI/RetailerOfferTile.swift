@@ -17,7 +17,7 @@ struct RetailerOfferTile: View {
                 .clipShape(RoundedRectangle(cornerRadius: 10))
                 .shadow(color: Rewards.theme.secondaryBackgroundColor, radius: 0, x: 2, y: 2)
                 .padding(.trailing, 24)
-            Text(offer.description).font(SpaceGrotesk.medium(size: 15)).foregroundStyle(Rewards.theme.secondaryTextColor).padding(.trailing, 20)
+            Text(offer.description).font(Rewards.theme.fontMedium(size: 15)).foregroundStyle(Rewards.theme.secondaryTextColor).padding(.trailing, 20)
             Spacer()
             TikiImages.arrow_right
                 .resizable()

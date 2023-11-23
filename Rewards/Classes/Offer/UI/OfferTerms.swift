@@ -16,7 +16,7 @@ struct OfferTerms: View {
                 showTerms = false
             }).padding(.vertical, 30)
             ScrollView(.vertical){
-                Text(Rewards.terms()).font(SpaceGrotesk.regular(size: 16)).padding(.horizontal, 15)
+                Text(Rewards.terms()).font(Rewards.theme.fontRegular(size: 16)).padding(.horizontal, 15)
             }
             Divider().frame(height: 1)
                 .overlay(Rewards.theme.accentColor).padding(.horizontal, 15)

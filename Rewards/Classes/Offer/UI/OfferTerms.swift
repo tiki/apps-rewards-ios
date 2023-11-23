@@ -11,7 +11,7 @@ struct OfferTerms: View {
     let onLicenseAccepted: () -> Void
     
     var body: some View {
-        VStack(){
+        VStack(spacing: 0){
             ScreenHeader(title: "PROGRAM TERMS", action: {
                 showTerms = false
             }).padding(.vertical, 30)
@@ -37,9 +37,9 @@ struct OfferTerms: View {
                     .cornerRadius(8)
                     .padding(.horizontal, 15)
                     .padding(.top, 32)
-                    .padding(.bottom, 40)
             }
-
-        }.background(.white)
+        }
+        .padding(.bottom, Rewards.isLicensed() ? 40 : 0)
+        .background(.white)
     }
 }

@@ -6,7 +6,20 @@
 import SwiftUI
 
 public struct MoreView: View{
+    let onDismiss: () -> Void
     @Binding var showMoreSheet: Bool
+    @Binding var showAccountSheet: Bool
+    @Binding var account: Account
+    @State var showTerms: Bool = false
+    @Binding var showSheet: Bool
+    let onLicenseAccepted: () -> Void
+    let onLicenseDeclined: () -> Void
+
+    
+    func onAccountSelected(account: Account) -> Void{
+        self.account = account
+        self.showAccountSheet = true
+    }
     
     public var body: some View {
         VStack(alignment: .leading, spacing: 0){
@@ -19,9 +32,9 @@ public struct MoreView: View{
                 .font(Rewards.theme.fontMedium(size: 14))
                 .foregroundColor(Rewards.theme.secondaryTextColor)
                 .padding(.top, 16)
-            MoreAccounts()
+            MoreAccounts(onAccountSelect: { acc in onAccountSelected(account: acc) })
                 .padding(.top, 24)
-            MoreDetails()
+            MoreDetails(showTerms: $showTerms, showSheet: $showSheet, showMoreSheet: $showMoreSheet, onDismiss: onDismiss, onLicenseAccepted: onLicenseAccepted, onLicenseDeclined: onLicenseDeclined)
                 .padding(.top, 30)
         }.asScreen(title: "BACK", action: {showMoreSheet = false})
     }

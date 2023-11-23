@@ -3,10 +3,16 @@
  * MIT license. See LICENSE file in the root directory.
  */
 
-
 import SwiftUI
 
 struct MoreDetailsActions: View {
+    @Binding var showTerms: Bool
+    @Binding var showSheet: Bool
+    @Binding var showMoreSheet: Bool
+    let onDismiss: () -> Void
+    let onLicenseAccepted: () -> Void
+    let onLicenseDeclined: () -> Void
+
     var body: some View {
         VStack(spacing: 0){
             Rewards.theme.secondaryTextColor.frame(height: 4 / UIScreen.main.scale)

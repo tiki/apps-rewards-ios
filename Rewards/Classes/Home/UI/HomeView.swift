@@ -10,6 +10,7 @@ public struct HomeView: View {
     
     let onDismiss: () -> Void
     let onLicenseDeclined: () -> Void
+    let onLicenseAccepted: () -> Void
     @State var showSheet: Bool = true
     @State var showMoreSheet: Bool = false
     @State var showAccountSheet: Bool = false
@@ -91,7 +92,7 @@ public struct HomeView: View {
                 )
             }
             if(showMoreSheet){
-                MoreView(showMoreSheet: $showMoreSheet)
+                MoreView(onDismiss: onDismiss, showMoreSheet: $showMoreSheet, showAccountSheet: $showAccountSheet, account: $account, showSheet: $showSheet, onLicenseAccepted: onLicenseAccepted, onLicenseDeclined: onLicenseDeclined)
             }
             if(showAccountSheet){
                 if(account.accountCommon.type == .EMAIL){
@@ -101,6 +102,7 @@ public struct HomeView: View {
                     RetailerView(logged: true, cashbackPercentage: 3, account: account, showAccountSheet: $showAccountSheet)
                 }
             }
+
 
         }
     }

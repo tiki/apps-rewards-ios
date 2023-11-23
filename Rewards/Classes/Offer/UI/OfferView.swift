@@ -48,7 +48,7 @@ public struct OfferView: View {
                                     .stroke(.gray.opacity(0.5), lineWidth: 1)
                             )
                     })
-                    .background(Rewards.theme.accentColor)
+                    .background(Color.tikiGreen)
                     .cornerRadius(8)
                     .padding(.horizontal, 15)
                     .padding(.top, 20)

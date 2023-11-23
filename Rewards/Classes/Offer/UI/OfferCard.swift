@@ -7,6 +7,7 @@ import SwiftUI
 
 public struct OfferCard: View{
     
+    var estimate = Rewards.estimate()
     public var body: some View {
         VStack{
             Text("Earn monthly")

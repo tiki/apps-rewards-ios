@@ -97,9 +97,9 @@ public struct HomeView: View {
             
             if(showAccountSheet){
                 if(accountEnum == .Gmail){
-                    EmailView(accountEnum: accountEnum!, showAccountSheet: $showAccountSheet)
+                    EmailView(provider: accountEnum!, showAccountSheet: $showAccountSheet)
                 }else{
-                    RetailerView(accountEnum: accountEnum!, showAccountSheet: $showAccountSheet)
+                    //RetailerView(retailer: accountEnum!, showAccountSheet: $showAccountSheet)
                 }
             }
         }

@@ -6,18 +6,18 @@
 import SwiftUI
 
 struct MoreDetailsActions: View {
-    @Binding var showTerms: Bool
-    @Binding var showMoreSheet: Bool
-    let onLicenseAccepted: () -> Void
+    let showTerms: () -> Void
     let onLicenseDeclined: () -> Void
 
     var body: some View {
         VStack(spacing: 0){
             Rewards.theme.secondaryTextColor.frame(height: 4 / UIScreen.main.scale)
-            HStack() {
-                Text("Report an issue").font(Rewards.theme.fontMedium(size: 16)).foregroundColor(Rewards.theme.secondaryTextColor)
-                Spacer()
-                TikiImages.grayAlert.resizable().frame(width: 18, height: 18)
+            Link(destination: URL(string: "https://www.apple.com")!) {
+                HStack() {
+                    Text("Report an issue").font(Rewards.theme.fontMedium(size: 16)).foregroundColor(Rewards.theme.secondaryTextColor)
+                    Spacer()
+                    TikiImages.grayAlert.resizable().frame(width: 18, height: 18)
+                }
             }
             .padding(.vertical, 16)
             .padding(.horizontal, 12)
@@ -27,6 +27,9 @@ struct MoreDetailsActions: View {
                 Spacer()
                 TikiImages.handStop.resizable().frame(width: 18, height: 18)
             }
+            .onTapGesture {
+                showTerms()
+            }
             .padding(.vertical, 16)
             .padding(.horizontal, 12)
             Rewards.theme.secondaryTextColor.frame(height: 4 / UIScreen.main.scale)
@@ -34,6 +37,8 @@ struct MoreDetailsActions: View {
                 Text("Opt out of cashback connections").font(Rewards.theme.fontMedium(size: 16)).foregroundColor(.tikiRed)
                 Spacer()
                 TikiImages.redStop.resizable().frame(width: 18, height: 18)
+            }.onTapGesture {
+                onLicenseDeclined()
             }
             .padding(.vertical, 16)
             .padding(.horizontal, 12)

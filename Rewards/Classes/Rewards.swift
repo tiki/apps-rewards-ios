@@ -30,7 +30,7 @@ public class Rewards{
         return _isLicensed
     }
     
-    static func license() {
+    static func accept() {
         _isLicensed = true
     }
 

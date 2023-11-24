@@ -12,6 +12,7 @@ struct AccountLogin: View {
     @State var password: String = ""
     @State var errorMessage: String = ""
     var provider: AccountProvider
+    let onLogin: (Account) -> Void
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0){
@@ -51,7 +52,8 @@ struct AccountLogin: View {
                     ).onTapGesture {
                         Task{
                             do{
-                                try Rewards.account.login(username: username, password: password, provider: provider)
+                                let account = try Rewards.account.login(username: username, password: password, provider: provider)
+                                onLogin(account)
                             }catch TikiError.error(let message){
                                 showAlert = true
                                 errorMessage = message

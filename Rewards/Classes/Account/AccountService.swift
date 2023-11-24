@@ -33,7 +33,7 @@ public class AccountService{
         return providers
     }
 
-    func login(username: String, password: String, provider: AccountProvider) throws {
+    func login(username: String, password: String, provider: AccountProvider) throws -> Account  {
         if(username.isEmpty || password.isEmpty){
             throw TikiError.error("Username and password should not be empty.")
         }else{
@@ -44,9 +44,9 @@ public class AccountService{
             }) != nil) {
                 throw TikiError.error("Account already linked.")
             }else{
-                _accounts.append(
-                    Account(username: username, provider: provider, status: .verified)
-                )
+                let account =  Account(username: username, provider: provider, status: .verified)
+                _accounts.append(account)
+                return account
             }
         }
     }

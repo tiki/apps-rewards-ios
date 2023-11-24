@@ -95,12 +95,20 @@ public struct HomeView: View {
             }
             
             if(showAccountSheet){
-                if(provider == .email(.GMAIL)){
-                    EmailView(provider: provider!, showAccountSheet: $showAccountSheet)
-                }else{
-                    RetailerView(provider: provider!, showAccountSheet: $showAccountSheet)
+                switch(provider){
+                    case .email(let _):
+                        EmailView(provider: provider!, showAccountSheet: $showAccountSheet, onAccount: removeProvider)
+                    case .retailer(let _):
+                            RetailerView(provider: provider!, showAccountSheet: $showAccountSheet, onAccount: removeProvider)
+                    case .none:
+                        EmptyView()
                 }
             }
         }
+    }
+    
+    func removeProvider(_ account: Account){
+        let rmProvider = account.provider
+        providers.removeAll{ prov in prov == rmProvider}
     }
 }

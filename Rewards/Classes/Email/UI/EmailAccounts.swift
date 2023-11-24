@@ -8,14 +8,15 @@ import SwiftUI
 
 struct EmailAccounts: View {
     
-    let provider: AccountProvider
+    @Binding var accounts: [Account]
+    let onRemove:(Account) -> Void
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0){
             Text("Accounts").font(Rewards.theme.fontBold(size: 28))
                 .padding(.top, 24)
-            ForEach(Rewards.account.accounts(for: provider), id: \.hashValue){ acc in
-                AccountView(acc: acc)
+            ForEach(accounts, id: \.hashValue){ acc in
+                AccountRow(acc: acc, onRemove: onRemove)
                     .padding(.top, 24)
             }
         }

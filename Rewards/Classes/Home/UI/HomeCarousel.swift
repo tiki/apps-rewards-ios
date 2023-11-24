@@ -18,7 +18,7 @@ public struct HomeCarousel : View {
                     VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/) {
                         AccountIcon(accountEnum: acc, accountStatus: .notLinked, width: 77, height: 77)
                         Text("Add")
-                          .font(SpaceGrotesk.medium(size: 12))
+                          .font(Rewards.theme.fontMedium(size: 12))
                           .foregroundColor(Rewards.theme.secondaryTextColor)
                         Text(acc.toString())
                           .font(SpaceGrotesk.medium(size: 12))

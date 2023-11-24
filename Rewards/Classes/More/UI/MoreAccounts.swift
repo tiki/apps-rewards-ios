@@ -12,7 +12,7 @@ public struct MoreAccounts: View {
     let accountList = Rewards.accounts()
     
     public var body: some View {
-        Text("Accounts").font(SpaceGrotesk.bold(size: 28))
+        Text("Accounts").font(Rewards.theme.fontBold(size: 28))
         LazyVGrid(columns: gridItemLayout, spacing: 20) {
             ForEach(accountList, id: \.accountCommon.name){ acc in
                 VStack() {

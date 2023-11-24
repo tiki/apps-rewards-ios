@@ -8,15 +8,13 @@ import SwiftUI
 
 public class Rewards{
     
-    public static var theme = Theme()
+    public static var theme: Theme = Theme()
     private static var _accounts: [Account] = []
     private static var _isLicensed: Bool = false
 
-
-    public static func start(theme: Theme?) {
+    public static func start(_ theme: Theme? = nil) {
         self.theme = theme ?? self.theme
         DispatchQueue.main.async {
-            let _ = Font.registerSpaceGrotesk()
             let viewController = UIApplication.shared.windows.first?.rootViewController
             let vc = UIHostingController(
                 rootView: HomeScreen(onDismiss: {viewController?.dismiss(animated: true)})

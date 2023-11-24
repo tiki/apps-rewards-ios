@@ -19,25 +19,20 @@ public struct MoreView: View{
     }
     
     public var body: some View {
-        ZStack(){
-            VStack(alignment: .leading, spacing: 0){
-                Text("Monthly Estimate")
-                    .font(SpaceGrotesk.bold(size: 28))
-                    .padding(.top, 34)
-                MoreCard()
-                    .padding(.top, 16)
-                Text("Estimate calculated based on your spending history and available offers from eligible retailers.")
-                    .font(SpaceGrotesk.medium(size: 14))
-                    .foregroundColor(Rewards.theme.secondaryTextColor)
-                    .padding(.top, 16)
-                MoreAccounts(onAccountSelect: onAccountSelected)
-                    .padding(.top, 24)
-                MoreDetails(showTerms: $showTerms,  showMoreSheet: $showMoreSheet, onLicenseAccepted: {}, onLicenseDeclined: onLicenseDeclined)
-                    .padding(.top, 30)
-            }.asScreen(title: "BACK", action: {showMoreSheet = false})
-            if(showTerms){
-                OfferTerms(showTerms: $showTerms, onLicenseAccepted: {}).transition(.navigate)
-            }
-        }
+        VStack(alignment: .leading, spacing: 0){
+            Text("Monthly Estimate")
+                .font(Rewards.theme.fontBold(size: 28))
+                .padding(.top, 34)
+            MoreCard()
+                .padding(.top, 16)
+            Text("Estimate calculated based on your spending history and available offers from eligible retailers.")
+                .font(Rewards.theme.fontMedium(size: 14))
+                .foregroundColor(Rewards.theme.secondaryTextColor)
+                .padding(.top, 16)
+            MoreAccounts(onAccountSelect: { acc in onAccountSelected(account: acc) })
+                .padding(.top, 24)
+            MoreDetails(showTerms: $showTerms, showSheet: $showSheet, showMoreSheet: $showMoreSheet, onDismiss: onDismiss, onLicenseAccepted: onLicenseAccepted, onLicenseDeclined: onLicenseDeclined)
+                .padding(.top, 30)
+        }.asScreen(title: "BACK", action: {showMoreSheet = false})
     }
 }

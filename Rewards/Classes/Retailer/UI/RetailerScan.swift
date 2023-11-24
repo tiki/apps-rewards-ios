@@ -13,7 +13,7 @@ struct RetailerScan: View {
         } label: {
             Text("Scan Receipt")
                 .foregroundColor(Rewards.theme.accentColor)
-                .font(SpaceGrotesk.medium(size: 20))
+                .font(Rewards.theme.fontMedium(size: 20))
                 .padding(.vertical, 14)
                 .lineLimit(1)
                 .frame(maxWidth: .infinity)

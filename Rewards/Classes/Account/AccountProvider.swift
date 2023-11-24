@@ -11,12 +11,14 @@ public enum AccountProvider: Hashable{
     case email(EmailEnum)
     
     func name() -> String{
+        var name = ""
         switch(self){
             case .email(let emailEnum) :
-                return emailEnum.rawValue.capitalized
+                name = emailEnum.rawValue
             case .retailer(let retailerEnum):
-                return retailerEnum.rawValue.capitalized
+                name = retailerEnum.rawValue
         }
+        return name.replacingOccurrences(of: "_", with: " ").capitalized
     }
     
     static func all() -> [AccountProvider] {

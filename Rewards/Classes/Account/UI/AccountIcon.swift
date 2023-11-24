@@ -14,7 +14,7 @@ public struct AccountIcon : View {
 
     public var body: some View {
         ZStack() {
-            TikiImages.from(provider.name().lowercased())
+            TikiImages.from(provider.name())
                 .resizable()
                 .frame(width: width, height: height)
                 .clipShape(RoundedRectangle(cornerRadius: 10))

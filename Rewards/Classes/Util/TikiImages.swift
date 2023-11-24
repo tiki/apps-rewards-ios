@@ -9,9 +9,9 @@ import SwiftUI
 public struct TikiImages{
     public static let google = Image(uiImage: icon(icon: "google"))
     public static let gmail = Image(uiImage: icon(icon: "Gmail"))
-    public static let UberEats = Image(uiImage: icon(icon: "UberEats"))
-    public static let DollarGeneral = Image(uiImage: icon(icon: "DollarGeneral"))
-    public static let TacoBell = Image(uiImage: icon(icon: "TacoBell"))
+    public static let UberEats = Image(uiImage: icon(icon: "Uber Eats"))
+    public static let DollarGeneral = Image(uiImage: icon(icon: "Dollar General"))
+    public static let TacoBell = Image(uiImage: icon(icon: "Taco Bell"))
     public static let Walmart = Image(uiImage: icon(icon: "Walmart"))
     public static let minus = Image(uiImage: icon(icon: "minus"))
     public static let arrow_right = Image(uiImage: icon(icon: "arrowRight"))

@@ -9,7 +9,7 @@ import SwiftUI
 public struct MoreAccounts: View {
     public let onAccountSelect: (Account) ->  Void
     public var gridItemLayout = Array(repeating: GridItem(.flexible(), spacing: 0), count: 3)
-    let accountList: [Account] = []
+    let accountList: [Account] = Rewards.account.accounts()
     
     public var body: some View {
         Text("Accounts").font(Rewards.theme.fontBold(size: 28))

@@ -51,7 +51,7 @@ public class AccountService{
         }
     }
 
-    func logout(username: String, provider: AccountProvider) throws {
+    func logout(username: String, provider: AccountProvider) throws -> Account {
         if(username.isEmpty){
             throw TikiError.error("Username should not be empty.")
         }else{
@@ -60,7 +60,9 @@ public class AccountService{
                 $0.provider == provider
             })
             if(index != nil) {
+                let account = _accounts[index!]
                 _accounts.remove(at: index!)
+                return account
             }else{
                 throw TikiError.error("Account not found.")
             }

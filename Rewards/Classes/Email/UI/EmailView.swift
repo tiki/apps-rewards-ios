@@ -29,7 +29,7 @@ public struct EmailView: View{
             }
             Text("Add Account").font(Rewards.theme.fontBold(size: 28)).padding(.top, 30)
             if(provider == .email(.GMAIL)){
-                EmailLoginOAuth().padding(.top, 24)
+                EmailLoginOAuth(accounts: $accounts).padding(.top, 24)
             }
             AccountLogin(provider: provider){ account in
                 accounts.append(account)

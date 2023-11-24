@@ -12,12 +12,14 @@ struct EmailAccounts: View {
     let onRemove:(Account) -> Void
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 0){
-            Text("Accounts").font(Rewards.theme.fontBold(size: 28))
-                .padding(.top, 24)
-            ForEach(accounts, id: \.hashValue){ acc in
-                AccountRow(acc: acc, onRemove: onRemove)
+        if(!accounts.isEmpty){
+            VStack(alignment: .leading, spacing: 0){
+                Text("Accounts").font(Rewards.theme.fontBold(size: 28))
                     .padding(.top, 24)
+                ForEach(accounts, id: \.hashValue){ acc in
+                    AccountRow(acc: acc, onRemove: onRemove)
+                        .padding(.top, 24)
+                }
             }
         }
     }

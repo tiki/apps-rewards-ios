@@ -9,7 +9,7 @@ import SwiftUI
 public struct MoreAccounts: View {
     public let onAccountSelect: (Account) ->  Void
     public var gridItemLayout = Array(repeating: GridItem(.flexible(), spacing: 0), count: 3)
-    let accountList: [Account] = Rewards.account.accounts()
+    let accountList: [Account]
     
     public var body: some View {
         if(!accountList.isEmpty){

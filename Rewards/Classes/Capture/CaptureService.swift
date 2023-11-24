@@ -16,8 +16,8 @@ public class CaptureService{
 
     func offers(provider: AccountProvider) -> [RetailerOffer] {
         return [
-            RetailerOffer(provider: provider, description: "4% cashback on electronics"),
-            RetailerOffer(provider: provider, description: "10% off on electronics")
+            RetailerOffer(provider: provider, description: "4% cashback on electronics", url: URL(string: "https://mytiki.com")!),
+            RetailerOffer(provider: provider, description: "10% off on electronics", url: URL(string: "https://mytiki.com")!)
         ]
     }
 

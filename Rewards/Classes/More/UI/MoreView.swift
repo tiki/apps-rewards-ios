@@ -13,7 +13,8 @@ public struct MoreView: View{
     @State var selectedAccount: Account? = nil
     @State var showTerms: Bool = false
     @State var showAccount: Bool = false
-
+    @State var accounts: [Account] = Rewards.account.accounts()
+    
     func onAccountSelected(account: Account) -> Void{
         self.selectedAccount = account
         self.showAccountSheet = true
@@ -31,7 +32,7 @@ public struct MoreView: View{
                     .font(Rewards.theme.fontMedium(size: 14))
                     .foregroundColor(Rewards.theme.secondaryTextColor)
                     .padding(.top, 16)
-                MoreAccounts(onAccountSelect: { acc in onAccountSelected(account: acc) })
+                MoreAccounts(onAccountSelect: { acc in onAccountSelected(account: acc) }, accountList: accounts)
                     .padding(.top, 24)
                 MoreDetails(showTerms: { showTerms = true }, onLicenseDeclined: { Rewards.license.decline() })
                     .padding(.top, 30)
@@ -40,6 +41,21 @@ public struct MoreView: View{
                 LicenseTerms(showTerms: $showTerms)
                     .transition(.navigate)
             }
+            if(showAccountSheet){
+                switch(selectedAccount?.provider){
+                case .email(let email):
+                    EmailView(provider: selectedAccount!.provider, showAccountSheet: $showAccountSheet, onAccount: { account in
+                        accounts.append(account)
+                    }).transition(.navigate)
+                case .retailer( let ret ):
+                    RetailerView(provider: selectedAccount!.provider, showAccountSheet: $showAccountSheet, onAccount: { account in
+                        accounts.append(account)
+                    }).transition(.navigate)
+                case .none:
+                    EmptyView()
+                }
+            }
         }
     }
 }
+    

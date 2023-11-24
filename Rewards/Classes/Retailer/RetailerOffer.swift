@@ -8,4 +8,5 @@ import Foundation
 struct RetailerOffer{
     let provider: AccountProvider
     let description: String
+    let url: URL
 }

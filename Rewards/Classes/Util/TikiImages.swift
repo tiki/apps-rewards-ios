@@ -29,13 +29,13 @@ public struct TikiImages{
     public static let sync = Image(uiImage: icon(icon: "sync"))
     
     public static func from(_ from: String) -> Image {
-        return  Image(uiImage: icon(icon: from))
+        return  Image(uiImage: icon(icon: from.lowercased().replacingOccurrences(of: " ", with: "-")))
     }
 }
 
 private func icon(icon: String) -> UIImage{
     let bundle = Bundle(for: Rewards.self)
     let resourceBundle = Bundle(url: bundle.url(forResource: "RewardsAssets", withExtension: "bundle")!)!
-    let icon = UIImage(named: "Assets/\(icon)", in: resourceBundle, compatibleWith: nil)
-    return icon ?? UIImage(named: "Assets/Walmart", in: resourceBundle, compatibleWith: nil)!
+    let icon = UIImage(named: "Assets/icons/\(icon)", in: resourceBundle, compatibleWith: nil)
+    return icon!
 }

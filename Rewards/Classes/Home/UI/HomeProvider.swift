@@ -13,13 +13,14 @@ struct HomeProvider: View {
     var body: some View {
         VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 0) {
             AccountIcon(provider: provider, status: status, width: iconSize, height: iconSize)
-        Text("Add")
+            Text("Add")
                 .font(Rewards.theme.fontMedium(size: 12))
-          .foregroundColor(Rewards.theme.secondaryTextColor)
-          .padding(.top, 10)
-        Text(provider.name())
-          .font(SpaceGrotesk.medium(size: 12))
-          .foregroundColor(Rewards.theme.secondaryTextColor)
+              .foregroundColor(Rewards.theme.secondaryTextColor)
+              .padding(.top, 10)
+            Text(provider.name())
+              .font(SpaceGrotesk.medium(size: 12))
+              .foregroundColor(Rewards.theme.secondaryTextColor)
+              .multilineTextAlignment(.center)
         }
     }
 }

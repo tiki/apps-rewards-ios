@@ -8,7 +8,7 @@ import SwiftUI
 struct OfferTerms: View {
     
     @Binding var showTerms: Bool
-    let onLicenseAccepted: () -> Void
+    var onLicenseAccepted: (() -> Void)? = nil
     
     var body: some View {
         VStack(spacing: 0){
@@ -22,7 +22,7 @@ struct OfferTerms: View {
                 .overlay(Rewards.theme.accentColor).padding(.horizontal, 15)
             if(!Rewards.isLicensed()) {
                 Button {
-                    onLicenseAccepted()
+                    onLicenseAccepted?()
                 } label: {
                     Text("I agree")
                         .foregroundColor(.white)

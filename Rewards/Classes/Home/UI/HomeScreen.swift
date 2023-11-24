@@ -16,11 +16,11 @@ struct HomeScreen: View {
             HomeView(onDismiss: onDismiss, onLicenseDeclined: {
                 Rewards.decline()
                 isLicensed = false
-            }, onLicenseAccepted: {Rewards.license()})
+            }, onLicenseAccepted: {Rewards.accept()})
         }
         if(!isLicensed){
             OfferView(onDismiss: onDismiss, onLicenseAccepted: {
-                Rewards.license()
+                Rewards.accept()
                 isLicensed = Rewards.isLicensed()
             })
         }

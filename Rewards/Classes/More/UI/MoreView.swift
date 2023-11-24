@@ -6,36 +6,39 @@
 import SwiftUI
 
 public struct MoreView: View{
-    let onDismiss: () -> Void
     @Binding var showMoreSheet: Bool
-    @Binding var showAccountSheet: Bool
-    @Binding var account: Account
-    @State var showTerms: Bool = false
-    @Binding var showSheet: Bool
-    let onLicenseAccepted: () -> Void
     let onLicenseDeclined: () -> Void
-
     
+    @State var showAccountSheet: Bool = false
+    @State var selectedAccount: Account? = nil
+    @State var showTerms: Bool = false
+
     func onAccountSelected(account: Account) -> Void{
-        self.account = account
+        self.selectedAccount = account
         self.showAccountSheet = true
     }
     
     public var body: some View {
-        VStack(alignment: .leading, spacing: 0){
-            Text("Monthly Estimate")
-                .font(Rewards.theme.fontBold(size: 28))
-                .padding(.top, 34)
-            MoreCard()
-                .padding(.top, 16)
-            Text("Estimate calculated based on your spending history and available offers from eligible retailers.")
-                .font(Rewards.theme.fontMedium(size: 14))
-                .foregroundColor(Rewards.theme.secondaryTextColor)
-                .padding(.top, 16)
-            MoreAccounts(onAccountSelect: { acc in onAccountSelected(account: acc) })
-                .padding(.top, 24)
-            MoreDetails(showTerms: $showTerms, showSheet: $showSheet, showMoreSheet: $showMoreSheet, onDismiss: onDismiss, onLicenseAccepted: onLicenseAccepted, onLicenseDeclined: onLicenseDeclined)
-                .padding(.top, 30)
-        }.asScreen(title: "BACK", action: {showMoreSheet = false})
+        ZStack{
+            VStack(alignment: .leading, spacing: 0){
+                Text("Monthly Estimate")
+                    .font(Rewards.theme.fontBold(size: 28))
+                    .padding(.top, 34)
+                MoreCard()
+                    .padding(.top, 16)
+                Text("Estimate calculated based on your showTermsspending history and available offers from eligible retailers.")
+                    .font(Rewards.theme.fontMedium(size: 14))
+                    .foregroundColor(Rewards.theme.secondaryTextColor)
+                    .padding(.top, 16)
+                MoreAccounts(onAccountSelect: { acc in onAccountSelected(account: acc) })
+                    .padding(.top, 24)
+                MoreDetails(showTerms: { showTerms = true }, onLicenseDeclined: { Rewards.decline() })
+                    .padding(.top, 30)
+            }.asScreen(title: "BACK", action: {showMoreSheet = false})
+            if(showTerms){
+                OfferTerms(showTerms: $showTerms)
+                    .transition(.navigate)
+            }
+        }
     }
 }

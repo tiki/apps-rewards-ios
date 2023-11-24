@@ -6,18 +6,19 @@
 import SwiftUI
 
 struct AccountItem: View {
-    let account: Account
+    let accountEnum: AccountEnum
+    let accountStatus: AccountStatus
     let iconSize: CGFloat = 80
     
     var body: some View {
         VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 0) {
-              AccountIcon(account: account, width: iconSize, height: iconSize)
+            AccountIcon(accountEnum: accountEnum, accountStatus: accountStatus, width: iconSize, height: iconSize)
         Text("Add")
                 .font(Rewards.theme.fontMedium(size: 12))
           .foregroundColor(Rewards.theme.secondaryTextColor)
           .padding(.top, 10)
-        Text(account.accountCommon.name.toString())
-          .font(Rewards.theme.fontMedium(size: 12))
+            Text(accountEnum.toString())
+          .font(SpaceGrotesk.medium(size: 12))
           .foregroundColor(Rewards.theme.secondaryTextColor)
         }
     }

@@ -11,7 +11,7 @@ struct AccountView: View {
     
     var body: some View {
         HStack(spacing: 0){
-            AccountIcon(account: acc, width: 56, height: 56)
+            AccountIcon(accountEnum: acc.accountCommon.name, accountStatus: acc.status, width: 56, height: 56)
                 .padding(.trailing, 24)
             VStack(alignment: .leading, spacing: 0){
                 Text(acc.accountCommon.name.toString())
@@ -24,7 +24,7 @@ struct AccountView: View {
                     .truncationMode(.tail)
             }
             Spacer()
-            Button(action: {print("TODO")}){
+            Button(action: {Rewards.login(account: acc)}){
                 TikiImages.minus
                     .resizable()
                     .frame(width: 36, height: 36)

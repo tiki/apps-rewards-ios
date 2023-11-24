@@ -10,7 +10,6 @@ struct RetailerScan: View {
     var body: some View {
         Button {
             logged.toggle()
-            print("TODO Scan Receipt")
         } label: {
             Text("Scan Receipt")
                 .foregroundColor(Rewards.theme.accentColor)

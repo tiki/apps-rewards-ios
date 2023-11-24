@@ -6,7 +6,7 @@
 import SwiftUI
 
 public struct RetailerView: View{
-    @State var logged: Bool = true
+    @State var logged: Bool = false
     public var cashbackPercentage: Int = 3
     public var account = Account(accountCommon: .init(name: .Walmart, type: .RETAILER), status: .verfied, username: "Username Walmart")
     @Binding var showAccountSheet: Bool
@@ -21,8 +21,8 @@ public struct RetailerView: View{
                 Spacer()
             }
             .padding(.vertical, 24)
-            if(!logged) {
-                AccountLogin()
+            if(logged) {
+                AccountLogin(provider: account.accountCommon.name)
             }else{
                 AccountView(acc: account)
             }

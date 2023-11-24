@@ -11,7 +11,7 @@ struct RetailerOfferTile: View {
     
     var body: some View {
         HStack(){
-            TikiImages.from(offer.provider.rawValue)
+            TikiImages.from(offer.provider.name())
                 .resizable()
                 .frame(width: 56, height: 56)
                 .clipShape(RoundedRectangle(cornerRadius: 10))

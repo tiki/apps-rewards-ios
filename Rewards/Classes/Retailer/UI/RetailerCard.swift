@@ -7,8 +7,8 @@ import SwiftUI
 
 struct RetailerCard: View {
     
-    let account: Account
-    let cashbackPercentage: Int
+    let provider: AccountProvider
+    let cashbackPercentage = 3
     
     var body: some View {
         VStack(spacing: 0){
@@ -18,12 +18,12 @@ struct RetailerCard: View {
                     .clipShape(RoundedRectangle(cornerRadius: 10))
                     .foregroundColor(.white)
                     .shadow(color: Rewards.theme.secondaryBackgroundColor, radius: 0, x: 4, y: 4)
-                TikiImages.from(account.accountCommon.name.rawValue)
+                TikiImages.from(provider.name())
                     .resizable()
                     .frame(width: 100, height: 100)
                     .clipShape(RoundedRectangle(cornerRadius: 10))
             }.frame(width: 100, height: 100).background(.white).padding(.top, 24)
-            Text(account.accountCommon.name.toString())
+            Text(provider.name())
                 .font(Rewards.theme.fontBold(size: 32))
                 .padding(.top, 16)
             Text("\(cashbackPercentage)% cashback on all purchases")

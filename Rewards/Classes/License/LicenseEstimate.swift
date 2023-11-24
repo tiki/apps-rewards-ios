@@ -3,8 +3,7 @@
  * MIT license. See LICENSE file in the root directory.
  */
 
-struct HomeEarnings{
-    let total: CGFloat
-    let rating: CGFloat
-    let bonus: CGFloat
+struct LicenseEstimate{
+    let min: Int
+    let max: Int
 }

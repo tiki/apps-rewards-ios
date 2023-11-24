@@ -5,7 +5,7 @@
 
 import SwiftUI
 
-struct OfferTerms: View {
+struct LicenseTerms: View {
     
     @Binding var showTerms: Bool
     var onLicenseAccepted: (() -> Void)? = nil
@@ -16,11 +16,11 @@ struct OfferTerms: View {
                 showTerms = false
             }).padding(.vertical, 30)
             ScrollView(.vertical){
-                Text(Rewards.terms()).font(Rewards.theme.fontRegular(size: 16)).padding(.horizontal, 15)
+                Text(Rewards.license.terms()).font(Rewards.theme.fontRegular(size: 16)).padding(.horizontal, 15)
             }
             Divider().frame(height: 1)
                 .overlay(Rewards.theme.accentColor).padding(.horizontal, 15)
-            if(!Rewards.isLicensed()) {
+            if(!Rewards.license.isLicensed()) {
                 Button {
                     onLicenseAccepted?()
                 } label: {
@@ -39,7 +39,7 @@ struct OfferTerms: View {
                     .padding(.top, 32)
             }
         }
-        .padding(.bottom, Rewards.isLicensed() ? 40 : 0)
+        .padding(.bottom, Rewards.license.isLicensed() ? 40 : 0)
         .background(.white)
     }
 }

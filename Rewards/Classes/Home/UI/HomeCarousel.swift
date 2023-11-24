@@ -8,27 +8,19 @@ import Foundation
 
 public struct HomeCarousel : View {
     
-    let accountsList: [AccountEnum];
-    let onAccountSelect: (AccountEnum) ->  Void
+    let providers: [AccountProvider]
+    let onProvider: (AccountProvider) ->  Void
 
     public var body: some View {
         ScrollView (.horizontal, showsIndicators: false){
             HStack(spacing: 20) {
-                ForEach(accountsList, id: \.rawValue){ acc in
-                    VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/) {
-                        AccountIcon(accountEnum: acc, accountStatus: .notLinked, width: 77, height: 77)
-                        Text("Add")
-                          .font(Rewards.theme.fontMedium(size: 12))
-                          .foregroundColor(Rewards.theme.secondaryTextColor)
-                        Text(acc.toString())
-                          .font(SpaceGrotesk.medium(size: 12))
-                          .foregroundColor(Rewards.theme.secondaryTextColor)
-                    }.onTapGesture {
-                        onAccountSelect(acc)
+                    ForEach(providers, id: \.hashValue){ provider in
+                        HomeProvider(provider: provider, status: .unlinked)
+                            .onTapGesture {
+                                onProvider(provider)
+                        }
                     }
-
                 }
-            }
         }.frame(width: 390, height: 120)
     }
 }

@@ -3,13 +3,11 @@
  * MIT license. See LICENSE file in the root directory.
  */
 
-
 import Foundation
 
-public enum AccountStatus : String {
-    case notLinked
-    case verfied
-    case unverify
+public enum AccountStatus{
+    case unlinked
+    case verified
+    case unverified
     case sync
-    
 }

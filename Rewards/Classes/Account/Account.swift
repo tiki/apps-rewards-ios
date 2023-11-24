@@ -6,42 +6,19 @@
 import Foundation
 import SwiftUI
 
-public class Account: Hashable {
+public struct Account: Hashable {
 
-    public var accountCommon: AccountCommon
-    public var status: AccountStatus
-    public var username: String?
-    public var password: String?
-    
-    public init(accountCommon: AccountCommon, status: AccountStatus, username: String? = nil, password: String? = nil) {
-        self.accountCommon = accountCommon
-        self.status = status
-        self.username = username
-        self.password = password
-    }
-    
-    public static func iconStatus(status: AccountStatus) -> Image? {
-        switch status {
-        case .notLinked:
-            return TikiImages.icAdd
-        case .verfied:
-            return nil
-        case .unverify:
-            return TikiImages.icAlert
-        case .sync:
-            return TikiImages.sync
-        }
-    }
+    public var username: String
+    public var provider: AccountProvider
+    public var status: AccountStatus = .unverified
     
     public func hash(into hasher: inout Hasher) {
       hasher.combine(username)
-      hasher.combine(accountCommon.name)
-      hasher.combine(accountCommon.type)
+      hasher.combine(provider)
     }
     
     public static func == (lhs: Account, rhs: Account) -> Bool {
         lhs.username == rhs.username &&
-        lhs.accountCommon.name == rhs.accountCommon.name &&
-        lhs.accountCommon.type == rhs.accountCommon.type
+        lhs.provider == rhs.provider
     }
 }

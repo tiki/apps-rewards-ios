@@ -6,10 +6,9 @@
 import SwiftUI
 
 struct RetailerScan: View {
-    @Binding var logged: Bool 
     var body: some View {
         Button {
-            logged.toggle()
+            Rewards.capture.scan()
         } label: {
             Text("Scan Receipt")
                 .foregroundColor(Rewards.theme.accentColor)

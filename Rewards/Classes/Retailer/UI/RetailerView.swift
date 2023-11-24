@@ -6,31 +6,35 @@
 import SwiftUI
 
 public struct RetailerView: View{
-    @State var logged: Bool = false
-    public var cashbackPercentage: Int = 3
-    public var account = Account(accountCommon: .init(name: .Walmart, type: .RETAILER), status: .verfied, username: "Username Walmart")
+    let provider: AccountProvider
+    var account: Account? = nil
     @Binding var showAccountSheet: Bool
-
     
+    init(provider: AccountProvider, account: Account? = nil, showAccountSheet: Binding<Bool>) {
+        self.provider = provider
+        self.account = account
+        self._showAccountSheet = showAccountSheet
+    }
+
     public var body: some View {
         VStack(alignment: .leading, spacing: 0){
-            RetailerCard(account: account, cashbackPercentage: 3)
+            RetailerCard(provider: provider)
                 .padding(.top, 28)
             HStack(){
                 Text("Account").font(Rewards.theme.fontBold(size: 28))
                 Spacer()
             }
             .padding(.vertical, 24)
-            if(logged) {
-                AccountLogin(provider: account.accountCommon.name)
+            if(account == nil) {
+                AccountLogin(provider: provider)
             }else{
-                AccountView(acc: account)
+                AccountView(acc: account!)
             }
-            RetailerScan(logged: $logged)
+            RetailerScan()
                 .padding(.top, 32)
-            RetailerOffers(account.accountCommon.name)
+            RetailerOffers(provider)
                 .padding(.top, 30)
-        }.asScreen(title: account.accountCommon.name.toString(), action: {showAccountSheet = false})
+        }.asScreen(title: provider.name(), action: {showAccountSheet = false})
     }
 }
 

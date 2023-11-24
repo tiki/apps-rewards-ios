@@ -11,20 +11,26 @@ struct AccountView: View {
     
     var body: some View {
         HStack(spacing: 0){
-            AccountIcon(accountEnum: acc.accountCommon.name, accountStatus: acc.status, width: 56, height: 56)
+            AccountIcon(provider: acc.provider, status: acc.status, width: 56, height: 56)
                 .padding(.trailing, 24)
             VStack(alignment: .leading, spacing: 0){
-                Text(acc.accountCommon.name.toString())
+                Text(acc.provider.name())
                     .font(Rewards.theme.fontBold(size: 24))
-                    .foregroundStyle(acc.status == .unverify ? Color.tikiRed : Rewards.theme.secondaryTextColor)
-                Text(acc.username ?? "username")
+                    .foregroundStyle(acc.status == .unverified ? Color.tikiRed : Rewards.theme.secondaryTextColor)
+                Text(acc.username)
                     .font(Rewards.theme.fontMedium(size: 20))
-                    .foregroundStyle(acc.status == .unverify ? Color.tikiRed : Rewards.theme.secondaryTextColor)
+                    .foregroundStyle(acc.status == .unverified ? Color.tikiRed : Rewards.theme.secondaryTextColor)
                     .lineLimit(1)
                     .truncationMode(.tail)
             }
             Spacer()
-            Button(action: {Rewards.login(account: acc)}){
+            Button(action: {
+                do{
+                    try Rewards.account.logout(username: acc.username, provider: acc.provider)
+                }catch{
+                    print("logout error")
+                }
+            }){
                 TikiImages.minus
                     .resizable()
                     .frame(width: 36, height: 36)

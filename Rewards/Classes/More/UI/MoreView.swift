@@ -32,11 +32,11 @@ public struct MoreView: View{
                     .padding(.top, 16)
                 MoreAccounts(onAccountSelect: { acc in onAccountSelected(account: acc) })
                     .padding(.top, 24)
-                MoreDetails(showTerms: { showTerms = true }, onLicenseDeclined: { Rewards.decline() })
+                MoreDetails(showTerms: { showTerms = true }, onLicenseDeclined: { Rewards.license.decline() })
                     .padding(.top, 30)
             }.asScreen(title: "BACK", action: {showMoreSheet = false})
             if(showTerms){
-                OfferTerms(showTerms: $showTerms)
+                LicenseTerms(showTerms: $showTerms)
                     .transition(.navigate)
             }
         }

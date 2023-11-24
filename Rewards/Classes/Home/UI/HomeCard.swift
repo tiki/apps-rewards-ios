@@ -11,7 +11,7 @@ public struct HomeCard: View {
     @Binding var showMoreSheet: Bool
     
     public var body: some View {
-      let earnings = Rewards.earnings()
+        let earnings = Rewards.license.earnings()
       let rating = String(format: "%.2f", earnings.rating)
       let bonus = String(format: "%.2f", earnings.bonus)
       let total = String(format: "%.2f", earnings.total)

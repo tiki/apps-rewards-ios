@@ -10,17 +10,16 @@ public struct HomeView: View {
     
     let onDismiss: () -> Void
     let onLicenseDeclined: () -> Void
-    let onLicenseAccepted: () -> Void
     @State var showSheet: Bool = true
     @State var showMoreSheet: Bool = false
     @State var showAccountSheet: Bool = false
     @State var offset: CGFloat = 0
-    @State var accounts: [Account] = initAccounts()
-    @State var accountEnum: AccountEnum? = nil
+    @State var providers: [AccountProvider] = Rewards.account.providers()
+    @State var provider: AccountProvider? = nil
     @State var isOpen: Bool = false
     
-    func onAccountSelected(account: AccountEnum) -> Void{
-        self.accountEnum = account
+    func onProvider(provider: AccountProvider) -> Void{
+        self.provider = provider
         self.showAccountSheet = true
     }
     
@@ -51,9 +50,9 @@ public struct HomeView: View {
                         .padding(.top, 48)
                         .padding(.bottom, 24)
                     if(isOpen){
-                        HomeAccountGrid(isOpen: $isOpen, accountsList: Rewards.availableAccounts(), onAccountSelect: onAccountSelected)
+                        HomeGrid(isOpen: $isOpen, providers: providers, onProvider: onProvider)
                     }else{
-                        HomeCarousel(accountsList: Rewards.availableAccounts(), onAccountSelect: onAccountSelected)
+                        HomeCarousel(providers: Rewards.account.providers(), onProvider: onProvider)
                     }
                 }
                 .padding(.bottom, isOpen ? 0 : 40)
@@ -96,23 +95,12 @@ public struct HomeView: View {
             }
             
             if(showAccountSheet){
-                if(accountEnum == .Gmail){
-                    EmailView(provider: accountEnum!, showAccountSheet: $showAccountSheet)
+                if(provider == .email(.GMAIL)){
+                    EmailView(provider: provider!, showAccountSheet: $showAccountSheet)
                 }else{
-                    //RetailerView(retailer: accountEnum!, showAccountSheet: $showAccountSheet)
+                    RetailerView(provider: provider!, showAccountSheet: $showAccountSheet)
                 }
             }
         }
     }
-}
-
-func initAccounts() -> [Account] {
-  var acc = [Account]()
-  for account in AccountEnum.allCases {
-      acc.append(
-        Account.init(accountCommon: 
-                .init(name: account, type: .EMAIL),
-          status:  .notLinked, username: "Username"))
-  }
-  return acc
 }

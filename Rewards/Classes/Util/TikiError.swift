@@ -3,7 +3,8 @@
  * MIT license. See LICENSE file in the root directory.
  */
 
-struct OfferEstimate{
-    let min: Int
-    let max: Int
+import Foundation
+
+enum TikiError: Error {
+    case error(String)
 }

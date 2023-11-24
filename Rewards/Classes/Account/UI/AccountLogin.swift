@@ -10,7 +10,8 @@ struct AccountLogin: View {
     @State public var showAlert: Bool = false
     @State var username: String = ""
     @State var password: String = ""
-    var provider: AccountEnum
+    @State var errorMessage: String = ""
+    var provider: AccountProvider
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0){
@@ -39,12 +40,7 @@ struct AccountLogin: View {
                 .overlay(RoundedRectangle(cornerRadius: 10)
                     .stroke())
                 .padding(.top, 8)
-            Button {
-                showAlert.toggle()
-                print("Login")
-                Rewards.login(account: Account(accountCommon: AccountCommon(name: provider, type: .EMAIL), status: .verfied))
-            } label: {
-                Text("Sign in")
+            Text("Sign in")
                     .foregroundColor(.white)
                     .font(Rewards.theme.fontMedium(size: 20))
                     .lineLimit(1)
@@ -52,15 +48,23 @@ struct AccountLogin: View {
                     .overlay(
                         RoundedRectangle(cornerRadius: 8)
                             .stroke(.gray.opacity(0.5), lineWidth: 1)
-                    )
-            }
+                    ).onTapGesture {
+                        Task{
+                            do{
+                                try Rewards.account.login(username: username, password: password, provider: provider)
+                            }catch TikiError.error(let message){
+                                showAlert = true
+                                errorMessage = message
+                            }
+                        }
+                    }
             .frame(maxWidth: .infinity)
             .background(Rewards.theme.accentColor)
                 .cornerRadius(8)
                 .padding(.top, 32)
                 .alert("Error", isPresented: $showAlert) {
                 } message: {
-                    Button("No account match with this credentials", role: .cancel) { }
+                    Button(errorMessage.isEmpty ? "Login Error." : errorMessage, role: .cancel) { }
                 }
         }
     }

@@ -5,9 +5,9 @@
 
 import SwiftUI
 
-public struct OfferCard: View{
+public struct LicenseCard: View{
     
-    var estimate = Rewards.estimate()
+    var estimate = Rewards.license.estimate()
     public var body: some View {
         VStack{
             Text("Earn monthly")

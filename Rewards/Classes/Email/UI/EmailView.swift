@@ -7,20 +7,20 @@ import SwiftUI
 
 public struct EmailView: View{
     
-    let provider: AccountEnum
+    let provider: AccountProvider
     @Binding var showAccountSheet: Bool
     
     public var body: some View {
         VStack(alignment: .leading, spacing: 0){
             EmailCard()
                 .padding(.top, 28)
-            EmailAccounts()
+            EmailAccounts(provider: provider)
             Text("Add Account").font(Rewards.theme.fontBold(size: 28)).padding(.top, 30)
-            if(provider == .Gmail){
+            if(provider == .email(.GMAIL)){
                 EmailLoginOAuth().padding(.top, 24)
             }
             AccountLogin(provider: provider).padding(.top, 32)
-        }.asScreen(title: provider.toString(), action: {showAccountSheet = false})
+        }.asScreen(title: provider.name(), action: {showAccountSheet = false})
     }
 }
 

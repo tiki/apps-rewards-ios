@@ -9,8 +9,8 @@ struct RetailerOffers: View {
     
     let offers: [RetailerOffer]
     
-    init(_ provider: AccountEnum){
-        self.offers = Rewards.offers(provider: provider)
+    init(_ provider: AccountProvider){
+        self.offers = Rewards.capture.offers(provider: provider)
     }
     
     var body: some View {

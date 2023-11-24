@@ -6,7 +6,7 @@
 import SwiftUI
 import Foundation
 
-public struct OfferView: View {
+public struct LicenseView: View {
     
     let onDismiss: () -> Void
     let onLicenseAccepted: () -> Void
@@ -27,7 +27,7 @@ public struct OfferView: View {
                         })
                     .padding(.horizontal, 24)
                     .padding(.top, 16)
-                    OfferCard()
+                    LicenseCard()
                         .padding(.horizontal, 15)
                         .padding(.top, 48)
                     Text("Estimate based on similar users spending habits and market price for shopping data.")
@@ -65,7 +65,7 @@ public struct OfferView: View {
                     }
                 )
                 if(showTerms){
-                    OfferTerms(showTerms: $showTerms, onLicenseAccepted: onLicenseAccepted)
+                    LicenseTerms(showTerms: $showTerms, onLicenseAccepted: onLicenseAccepted)
                         .transition(.navigate)
                 }
             }

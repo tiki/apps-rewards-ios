@@ -8,7 +8,7 @@ import SwiftUI
 
 public struct MoreCard: View {
     
-    let largestContributors: [MoreContributor] = Rewards.largestContributors()
+    let largestContributors: [MoreContributor] = Rewards.capture.largestContributors()
 
     public var body: some View {
         HStack(spacing: 0){

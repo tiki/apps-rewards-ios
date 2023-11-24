@@ -8,20 +8,20 @@ import SwiftUI
 struct HomeScreen: View {
     
     let onDismiss: () -> Void
-    @State var isLicensed: Bool = Rewards.isLicensed()
+    @State var isLicensed: Bool = Rewards.license.isLicensed()
     
     
     var body: some View {
         if(isLicensed){
             HomeView(onDismiss: onDismiss, onLicenseDeclined: {
-                Rewards.decline()
-                isLicensed = false
-            }, onLicenseAccepted: {Rewards.accept()})
+                Rewards.license.decline()
+                isLicensed = Rewards.license.isLicensed()
+            })
         }
         if(!isLicensed){
-            OfferView(onDismiss: onDismiss, onLicenseAccepted: {
-                Rewards.accept()
-                isLicensed = Rewards.isLicensed()
+            LicenseView(onDismiss: onDismiss, onLicenseAccepted: {
+                Rewards.license.accept()
+                isLicensed = Rewards.license.isLicensed()
             })
         }
 

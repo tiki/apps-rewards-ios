@@ -6,6 +6,6 @@
 import Foundation
 
 struct RetailerOffer{
-    let provider: AccountEnum
+    let provider: AccountProvider
     let description: String
 }

@@ -1,16 +1,16 @@
 PODS:
-  - Rewards (0.1.0)
+  - TikiRewards (0.1.0)
 
 DEPENDENCIES:
-  - Rewards (from `../`)
+  - TikiRewards (from `../`)
 
 EXTERNAL SOURCES:
-  Rewards:
+  TikiRewards:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Rewards: 432afd2c2e5e78c4aaf4d5f636eab79854696902
+  TikiRewards: 1e8013b4522d97f2fc9c5a50657ab9811677dd5a
 
-PODFILE CHECKSUM: e3258cdb4d160d79c1bd90e7efc4df563fe7fae8
+PODFILE CHECKSUM: b18af1773659742897898b1ba649f9206ab33c6a
 
 COCOAPODS: 1.12.1

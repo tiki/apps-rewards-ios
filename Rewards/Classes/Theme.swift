@@ -6,7 +6,7 @@
 import Foundation
 import SwiftUI
 
-/// Rewards Theme 
+/// # TikiRewards Theme 
 ///
 /// The pre-built UI styles are defined by a `Theme` object. To configure a theme, use the `theme` 
 /// parameter in `Rewards.start`. 

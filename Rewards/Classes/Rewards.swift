@@ -37,7 +37,7 @@ import SwiftUI
 ///     fontFamily: <Font Family>))
 /// ```
 ///
-class Rewards{
+public class Rewards{
     
     /// The current theme.
     public static var theme: Theme = Theme()

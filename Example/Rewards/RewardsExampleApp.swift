@@ -5,7 +5,7 @@
 
 
 import SwiftUI
-import Rewards
+import TikiRewards
 
 @main
 struct RewardsExampleApp: App {

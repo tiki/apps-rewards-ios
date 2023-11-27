@@ -27,8 +27,14 @@ public struct HomeView: View {
         ZStack(){
             if(showSheet){
                 VStack(alignment: .center, spacing: 0) {
-
-                    if(!isOpen){
+                  if(isOpen){
+                        ScreenHeader(title: "Increase Earnings", action: { isOpen = false })
+                            .padding(.top, isOpen ? 24 : 0)
+                            .font(SpaceGrotesk.medium(size: 16))
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .padding(.top, 48)
+                            .padding(.bottom, 24)
+                  }else{
                         BottomSheetHeader(
                             title: "CASHBACK CONNECTIONS",
                             subtitle: "Share data. Earn cash.",
@@ -41,14 +47,14 @@ public struct HomeView: View {
                         HomeCard(showMoreSheet: $showMoreSheet)
                             .padding(.top, 48)
                             .padding(.horizontal, 24)
+                        Text ("Increase Earnings")
+                          .padding(.top, isOpen ? 24 : 0)
+                          .font(SpaceGrotesk.medium(size: 16))
+                          .frame(maxWidth: .infinity, alignment: .leading)
+                          .padding(.horizontal, 24)
+                          .padding(.top, 48)
+                          .padding(.bottom, 24)
                     }
-                    Text ("Increase Earnings")
-                        .padding(.top, isOpen ? 24 : 0)
-                        .font(SpaceGrotesk.medium(size: 16))
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding(.horizontal, 24)
-                        .padding(.top, 48)
-                        .padding(.bottom, 24)
                     if(isOpen){
                         HomeGrid(isOpen: $isOpen, providers: providers, onProvider: onProvider)
                     }else{

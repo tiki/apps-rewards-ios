@@ -5,27 +5,31 @@
 
 import Foundation
 
+/// # AccountService
 ///
-/// # CaptureService
+/// The `AccountService` class manages user accounts, providing methods for retrieving account 
+/// information, handling logins, and managing sessions.
 ///
-/// The `CaptureService` class provides functionalities related to capturing and processing data, 
-/// such as scanning physical and digital receipts and retrieving offers and contributors.
+/// ## Overview
+///
+/// The `AccountService` class is responsible for maintaining a collection of 3rd party accounts, 
+/// allowing for account retrieval based on providers and performing login and logout operations.
 ///
 /// ## Example
 ///
-/// To use the `CaptureService` class, follow the example below:
+/// To use the `AccountService` class, follow the example below:
 ///
 /// ```swift
-/// let captureService = CaptureService()
+/// let accountService = AccountService()
 ///
-/// // Trigger receipt scanning
-/// captureService.scan()
+/// // Retrieve all accounts
+/// let allAccounts = accountService.accounts()
 ///
-/// // Retrieve offers for a specific account provider
-/// let providerOffers = captureService.offers(provider: .yourProvider)
+/// // Retrieve accounts for a specific provider
+/// let facebookAccounts = accountService.accounts(for: .facebook)
 ///
-/// // Retrieve the largest contributors
-/// let contributors = captureService.largestContributors()
+/// // Retrieve available account providers
+/// let availableProviders = accountService.providers()
 public class AccountService{
 // MARK: - Properties
 

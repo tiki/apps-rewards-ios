@@ -5,9 +5,30 @@
 
 import Foundation
 
+
+/// # CaptureService
+///
+/// The `CaptureService` class provides functionalities related to capturing and processing data, 
+/// such as scanning physical and digital receipts and retrieving offers and contributors.
+///
+/// ## Example
+///
+/// To use the `CaptureService` class, follow the example below:
+///
+/// ```swift
+/// let captureService = CaptureService()
+///
+/// // Trigger receipt scanning
+/// captureService.scan()
+///
+/// // Retrieve offers for a specific account provider
+/// let providerOffers = captureService.offers(provider: .yourProvider)
+///
+/// // Retrieve the largest contributors
+/// let contributors = captureService.largestContributors()
 public class CaptureService{
     // MARK: - Public Methods
-    
+
     /// Initiates the receipt scanning process.
     ///
     /// Displays an alert indicating that the functionality is not implemented in the demo app.

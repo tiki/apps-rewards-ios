@@ -38,37 +38,38 @@ import SwiftUI
 /// ```
 ///
 class Rewards{
-
-/// The current theme.
-public static var theme: Theme = Theme()
-
-/// An instance of `AccountService` for managing 3rd party accounts.
-public static let account = AccountService()
-
-/// An instance of `CaptureService` for handling data capture functionalities.
-public static let capture = CaptureService()
-
-/// An instance of `LicenseService` for managing data licenses.
-public static let license = LicenseService()
-
-/// Initializes the rewards system and presents the home screen.
-///
-/// - Parameters:
-///    - `theme`: An optional parameter to set a custom theme. If not provided, the default theme is used.
-///
-/// The home screen is presented modally with a cross-dissolve transition and a semi-transparent background.
-public static func start(_ theme: Theme? = nil) {
-    self.theme = theme ?? self.theme
     
-    DispatchQueue.main.async {
-        let viewController = UIApplication.shared.windows.first?.rootViewController
-        let vc = UIHostingController(
-            rootView: HomeScreen(onDismiss: { viewController?.dismiss(animated: true) })
-        )
-        vc.modalPresentationStyle = .overFullScreen
-        vc.modalTransitionStyle = .crossDissolve
-        vc.view.layer.backgroundColor = UIColor.black.withAlphaComponent(0.3).cgColor
-        viewController!.present(vc, animated: true, completion: nil)
+    /// The current theme.
+    public static var theme: Theme = Theme()
+    
+    /// An instance of `AccountService` for managing 3rd party accounts.
+    public static let account = AccountService()
+    
+    /// An instance of `CaptureService` for handling data capture functionalities.
+    public static let capture = CaptureService()
+    
+    /// An instance of `LicenseService` for managing data licenses.
+    public static let license = LicenseService()
+    
+    /// Initializes the rewards system and presents the home screen.
+    ///
+    /// - Parameters:
+    ///    - `theme`: An optional parameter to set a custom theme. If not provided, the default theme is used.
+    ///
+    /// The home screen is presented modally with a cross-dissolve transition and a semi-transparent background.
+    public static func start(_ theme: Theme? = nil) {
+        self.theme = theme ?? self.theme
+        
+        DispatchQueue.main.async {
+            let viewController = UIApplication.shared.windows.first?.rootViewController
+            let vc = UIHostingController(
+                rootView: HomeScreen(onDismiss: { viewController?.dismiss(animated: true) })
+            )
+            vc.modalPresentationStyle = .overFullScreen
+            vc.modalTransitionStyle = .crossDissolve
+            vc.view.layer.backgroundColor = UIColor.black.withAlphaComponent(0.3).cgColor
+            viewController!.present(vc, animated: true, completion: nil)
+        }
     }
+    
 }
-

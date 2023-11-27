@@ -6,6 +6,11 @@
 import Foundation
 
 public class CaptureService{
+    // MARK: - Public Methods
+    
+    /// Initiates the receipt scanning process.
+    ///
+    /// Displays an alert indicating that the functionality is not implemented in the demo app.
     func scan() {
         let viewController = UIApplication.shared.windows.first?.rootViewController
         let message = "Receipt scanning functionality not implemented in demo app."
@@ -14,6 +19,10 @@ public class CaptureService{
         viewController!.present(alertController, animated: true, completion: nil)
     }
 
+    /// Retrieves a list of retailer offers for a specific account provider.
+    ///
+    /// - Parameter provider: The account provider for which offers should be retrieved.
+    /// - Returns: An array of `RetailerOffer` objects containing offer details.
     func offers(provider: AccountProvider) -> [RetailerOffer] {
         return [
             RetailerOffer(provider: provider, description: "4% cashback on electronics", url: URL(string: "https://mytiki.com")!),
@@ -21,6 +30,9 @@ public class CaptureService{
         ]
     }
 
+    /// Retrieves a list of the largest contributors to the rewards program.
+    ///
+    /// - Returns: An array of `MoreContributor` objects containing contributor details.
     func largestContributors() -> [MoreContributor] {
         return [
             MoreContributor(name: "Walmart", percentage: 0.4),

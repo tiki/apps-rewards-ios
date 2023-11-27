@@ -12,7 +12,13 @@ struct RewardsExampleApp: App {
     var body: some Scene {
         WindowGroup {
             Button(action: {
-                Rewards.start()
+                Rewards.start(Theme(
+                    primaryTextColor: <#T##Color#>,
+                    secondaryTextColor: <#T##Color#>,
+                    primaryBackgroundColor: <#T##Color#>,
+                    secondaryBackgroundColor: <#T##Color#>,
+                    accentColor: <#T##Color#>,
+                    fontFamily: <#T##String#>))
             }) {
                 HStack (spacing: 5) {
                     Image(systemName: "hand.tap.fill")

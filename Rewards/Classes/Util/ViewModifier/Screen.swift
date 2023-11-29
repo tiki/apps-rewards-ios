@@ -20,7 +20,10 @@ public struct Screen: ViewModifier {
                 .padding(.horizontal, 21)
             }
             .padding(.bottom, 56)
-        }.background(.white)
+        }
+        .padding(.top, 1 )
+            .background(.white)
+        
     }
 }
 

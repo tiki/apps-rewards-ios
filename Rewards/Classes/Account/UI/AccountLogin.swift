@@ -11,8 +11,12 @@ struct AccountLogin: View {
     @State var username: String = ""
     @State var password: String = ""
     @State var errorMessage: String = ""
+    
     var provider: AccountProvider
     let onLogin: (Account) -> Void
+    
+    @FocusState private var usernameIsFocused: Bool
+    @FocusState private var passwordIsFocused: Bool
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0){
@@ -29,10 +33,12 @@ struct AccountLogin: View {
                 .font(Rewards.theme.fontBold(size: 20))
                 .overlay(RoundedRectangle(cornerRadius: 10).stroke())
                 .padding(.top, 8)
+                .focused($usernameIsFocused)
             Text("Password")
                 .font(Rewards.theme.fontBold(size: 16))
                 .foregroundColor(Rewards.theme.secondaryTextColor)
                 .padding(.top, 32)
+                .focused($passwordIsFocused)
             SecureField("", text: $password)
                 .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 6))
                 .foregroundColor(.black)
@@ -49,17 +55,7 @@ struct AccountLogin: View {
                     .overlay(
                         RoundedRectangle(cornerRadius: 8)
                             .stroke(.gray.opacity(0.5), lineWidth: 1)
-                    ).onTapGesture {
-                        Task{
-                            do{
-                                let account = try Rewards.account.login(username: username, password: password, provider: provider)
-                                onLogin(account)
-                            }catch TikiError.error(let message){
-                                showAlert = true
-                                errorMessage = message
-                            }
-                        }
-                    }
+                    )
             .frame(maxWidth: .infinity)
             .background(Rewards.theme.accentColor)
                 .cornerRadius(8)
@@ -67,6 +63,20 @@ struct AccountLogin: View {
                 .alert("Error", isPresented: $showAlert) {
                 } message: {
                     Button(errorMessage.isEmpty ? "Login Error." : errorMessage, role: .cancel) { }
+                }
+            .onTapGesture {
+                    Task{
+                        do{
+                            let account = try Rewards.account.login(username: username, password: password, provider: provider)
+                            username = ""
+                            password = ""
+                            UIApplication.shared.endEditing()
+                            onLogin(account)
+                        }catch TikiError.error(let message){
+                            showAlert = true
+                            errorMessage = message
+                        }
+                    }
                 }
         }
     }

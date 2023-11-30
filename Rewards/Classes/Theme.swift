@@ -6,7 +6,33 @@
 import Foundation
 import SwiftUI
 
-/// Controls the UI theming for TikiSdk.
+/// # TikiRewards Theme 
+///
+/// The pre-built UI styles are defined by a `Theme` object. To configure a theme, use the `theme` 
+/// parameter in `Rewards.start`. 
+///
+/// For example:
+///
+/// ```
+///   Rewards.start(Theme(
+///     primaryTextColor: <Color>,
+///     secondaryTextColor: <Color>,
+///     primaryBackgroundColor: <Color>,
+///     secondaryBackgroundColor: <Color>,
+///     accentColor: <Color>,
+///     fontFamily: <Font Family>))
+/// ```
+/// All properties are optional. The default values are used when the parameter is not provided:
+///
+/// primaryTextColor FF000000
+/// secondaryTextColor 99000000
+/// primaryBackgroundColor 15000000
+/// secondaryBackgroundColor FF00B272
+/// accentColor #FF00B272
+/// fontFamily = "SpaceGrotesk"
+/// Note: color values are in `AARRGGBB``
+/// 
+/// **Important: To configure fonts, first load the font into the project.**.
 public class Theme {
     var _primaryTextColor = Color.tikiBlack
     var _secondaryTextColor = Color.tikiDarkGray

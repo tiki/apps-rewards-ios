@@ -1,5 +1,5 @@
 import XCTest
-import Rewards
+import TikiRewards
 
 class Tests: XCTestCase {
    

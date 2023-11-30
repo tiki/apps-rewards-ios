@@ -9,6 +9,7 @@ struct LicenseTerms: View {
     
     @Binding var showTerms: Bool
     var onLicenseAccepted: (() -> Void)? = nil
+    let isLicensed: Bool = Rewards.license.isLicensed()
     
     var body: some View {
         VStack(spacing: 0){
@@ -20,7 +21,7 @@ struct LicenseTerms: View {
             }
             Divider().frame(height: 1)
                 .overlay(Rewards.theme.accentColor).padding(.horizontal, 15)
-            if(!Rewards.license.isLicensed()) {
+            if(!isLicensed) {
                 Button {
                     onLicenseAccepted?()
                 } label: {

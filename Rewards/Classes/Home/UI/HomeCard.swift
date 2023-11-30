@@ -37,6 +37,9 @@ public struct HomeCard: View {
                             .foregroundColor(Rewards.theme.accentColor)
                             .font(Rewards.theme.fontBold(size: 18))
                             .lineLimit(1)
+                        Image(systemName: "arrow.forward")
+                            .padding(.leading, 5)
+                            .foregroundColor(Rewards.theme.accentColor)
                     }
                 }
             }

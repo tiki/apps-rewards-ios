@@ -7,14 +7,9 @@ import SwiftUI
 
 public struct RetailerView: View{
     let provider: AccountProvider
-    var account: Account? = nil
+    @State var account: Account? = nil
     @Binding var showAccountSheet: Bool
-    
-    init(provider: AccountProvider, account: Account? = nil, showAccountSheet: Binding<Bool>) {
-        self.provider = provider
-        self.account = account
-        self._showAccountSheet = showAccountSheet
-    }
+    let onAccount: (Account) -> Void
 
     public var body: some View {
         VStack(alignment: .leading, spacing: 0){
@@ -26,9 +21,13 @@ public struct RetailerView: View{
             }
             .padding(.vertical, 24)
             if(account == nil) {
-                AccountLogin(provider: provider)
+                AccountLogin(provider: provider){ acc in
+                    account = acc
+                }
             }else{
-                AccountView(acc: account!)
+                AccountRow(acc: account!){ acc in
+                    account = nil
+                }
             }
             RetailerScan()
                 .padding(.top, 32)

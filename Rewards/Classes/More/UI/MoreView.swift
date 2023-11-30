@@ -12,7 +12,9 @@ public struct MoreView: View{
     @State var showAccountSheet: Bool = false
     @State var selectedAccount: Account? = nil
     @State var showTerms: Bool = false
-
+    @State var showAccount: Bool = false
+    @State var accounts: [Account] = Rewards.account.accounts()
+    
     func onAccountSelected(account: Account) -> Void{
         self.selectedAccount = account
         self.showAccountSheet = true
@@ -26,11 +28,11 @@ public struct MoreView: View{
                     .padding(.top, 34)
                 MoreCard()
                     .padding(.top, 16)
-                Text("Estimate calculated based on your showTermsspending history and available offers from eligible retailers.")
+                Text("Estimate calculated based on your spending history and available offers from eligible retailers.")
                     .font(Rewards.theme.fontMedium(size: 14))
                     .foregroundColor(Rewards.theme.secondaryTextColor)
                     .padding(.top, 16)
-                MoreAccounts(onAccountSelect: { acc in onAccountSelected(account: acc) })
+                MoreAccounts(onAccountSelect: { acc in onAccountSelected(account: acc) }, accountList: accounts)
                     .padding(.top, 24)
                 MoreDetails(showTerms: { showTerms = true }, onLicenseDeclined: { Rewards.license.decline() })
                     .padding(.top, 30)
@@ -39,6 +41,21 @@ public struct MoreView: View{
                 LicenseTerms(showTerms: $showTerms)
                     .transition(.navigate)
             }
+            if(showAccountSheet){
+                switch(selectedAccount?.provider){
+                case .email(let email):
+                    EmailView(provider: selectedAccount!.provider, showAccountSheet: $showAccountSheet, onAccount: { account in
+                        accounts.append(account)
+                    }).transition(.navigate)
+                case .retailer( let ret ):
+                    RetailerView(provider: selectedAccount!.provider, showAccountSheet: $showAccountSheet, onAccount: { account in
+                        accounts.append(account)
+                    }).transition(.navigate)
+                case .none:
+                    EmptyView()
+                }
+            }
         }
     }
 }
+    

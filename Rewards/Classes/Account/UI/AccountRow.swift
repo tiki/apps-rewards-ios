@@ -5,9 +5,10 @@
 
 import SwiftUI
 
-struct AccountView: View {
+struct AccountRow: View {
     
     let acc: Account
+    let onRemove: (Account) -> Void
     
     var body: some View {
         HStack(spacing: 0){
@@ -26,7 +27,8 @@ struct AccountView: View {
             Spacer()
             Button(action: {
                 do{
-                    try Rewards.account.logout(username: acc.username, provider: acc.provider)
+                    let account = try Rewards.account.logout(username: acc.username, provider: acc.provider)
+                    onRemove(account)
                 }catch{
                     print("logout error")
                 }

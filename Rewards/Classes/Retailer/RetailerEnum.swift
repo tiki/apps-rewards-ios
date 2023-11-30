@@ -11,9 +11,6 @@ public enum RetailerEnum: String, CaseIterable{
     case ACME_MARKETS
     case ALBERTSONS
     case AMAZON
-    case AMAZON_BETA
-    case AMAZON_CA
-    case AMAZON_UK
     case BED_BATH_AND_BEYOND
     case BESTBUY
     case BJS_WHOLESALE
@@ -66,7 +63,5 @@ public enum RetailerEnum: String, CaseIterable{
     case VONS
     case WALGREENS
     case WALMART
-    case WALMART_CA
     case WEGMANS
-    case POSTMATES
 }

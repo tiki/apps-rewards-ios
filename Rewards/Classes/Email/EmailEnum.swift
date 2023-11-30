@@ -9,5 +9,5 @@ public enum EmailEnum: String, CaseIterable {
     
     /// Represents the Gmail email provider.
     case GMAIL
-    
+
 }

@@ -27,8 +27,14 @@ public struct HomeView: View {
         ZStack(){
             if(showSheet){
                 VStack(alignment: .center, spacing: 0) {
-
-                    if(!isOpen){
+                  if(isOpen){
+                        ScreenHeader(title: "Increase Earnings", action: { isOpen = false })
+                            .padding(.top, isOpen ? 24 : 0)
+                            .font(SpaceGrotesk.medium(size: 16))
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .padding(.top, 48)
+                            .padding(.bottom, 24)
+                  }else{
                         BottomSheetHeader(
                             title: "CASHBACK CONNECTIONS",
                             subtitle: "Share data. Earn cash.",
@@ -41,14 +47,14 @@ public struct HomeView: View {
                         HomeCard(showMoreSheet: $showMoreSheet)
                             .padding(.top, 48)
                             .padding(.horizontal, 24)
+                        Text ("Increase Earnings")
+                          .padding(.top, isOpen ? 24 : 0)
+                          .font(SpaceGrotesk.medium(size: 16))
+                          .frame(maxWidth: .infinity, alignment: .leading)
+                          .padding(.horizontal, 24)
+                          .padding(.top, 48)
+                          .padding(.bottom, 24)
                     }
-                    Text ("Increase Earnings")
-                        .padding(.top, isOpen ? 24 : 0)
-                        .font(SpaceGrotesk.medium(size: 16))
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding(.horizontal, 24)
-                        .padding(.top, 48)
-                        .padding(.bottom, 24)
                     if(isOpen){
                         HomeGrid(isOpen: $isOpen, providers: providers, onProvider: onProvider)
                     }else{
@@ -95,12 +101,20 @@ public struct HomeView: View {
             }
             
             if(showAccountSheet){
-                if(provider == .email(.GMAIL)){
-                    EmailView(provider: provider!, showAccountSheet: $showAccountSheet)
-                }else{
-                    RetailerView(provider: provider!, showAccountSheet: $showAccountSheet)
+                switch(provider){
+                    case .email(let _):
+                        EmailView(provider: provider!, showAccountSheet: $showAccountSheet, onAccount: removeProvider)
+                    case .retailer(let _):
+                            RetailerView(provider: provider!, showAccountSheet: $showAccountSheet, onAccount: removeProvider)
+                    case .none:
+                        EmptyView()
                 }
             }
         }
+    }
+    
+    func removeProvider(_ account: Account){
+        let rmProvider = account.provider
+        providers.removeAll{ prov in prov == rmProvider}
     }
 }

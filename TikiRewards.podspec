@@ -15,6 +15,8 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '15.0'
 
   s.source_files = 'Rewards/Classes/**/*'
+
+  s.dependency 'CaptureReceipt'
   
   s.resource_bundles = {
     'RewardsAssets' => [

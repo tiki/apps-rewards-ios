@@ -5,6 +5,7 @@
 
 import Foundation
 import SwiftUI
+import CaptureReceipt
 
 /// # Rewards
 ///

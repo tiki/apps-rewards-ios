@@ -9,10 +9,15 @@ import TikiRewards
 
 @main
 struct RewardsExampleApp: App {
+    
+    init(){
+        Rewards.config(tikiPublishingID: "", microblinkLicenseKey: "", productIntelligenceKey: "", terms: "Test without an terms")
+    }
+    
     var body: some Scene {
         WindowGroup {
             Button(action: {
-                Rewards.start()
+                Rewards.start(userId: "")
             }) {
                 HStack (spacing: 5) {
                     Image(systemName: "hand.tap.fill")

@@ -1,16 +1,120 @@
 PODS:
-  - TikiRewards (0.1.0)
+  - AccountLinking (2.7.0)
+  - AppAuth (1.6.2):
+    - AppAuth/Core (= 1.6.2)
+    - AppAuth/ExternalUserAgent (= 1.6.2)
+  - AppAuth/Core (1.6.2)
+  - AppAuth/ExternalUserAgent (1.6.2):
+    - AppAuth/Core
+  - BlinkEReceipt (2.33.0):
+    - AccountLinking (~> 2.7.0)
+    - AppAuth (~> 1.3)
+    - BlinkReceipt (~> 1.41.0)
+    - BRMailCore (~> 0.1)
+    - BRMSGraphMSALAuthProvider (~> 1.0.0)
+    - GoogleAPIClientForREST/Gmail (~> 1.3)
+    - GoogleSignIn (~> 6.2.0)
+    - GTMAppAuth (~> 1.0)
+    - MSGraphClientModels (~> 1.3)
+  - BlinkReceipt (1.41.0)
+  - BRMailCore (0.1.0)
+  - BRMSGraphMSALAuthProvider (1.0.0):
+    - MSAL (~> 1.0)
+    - MSGraphClientSDK (~> 1.0.0)
+  - CaptureReceipt (0.1.0):
+    - BlinkEReceipt (~> 2.0)
+    - BlinkReceipt (~> 1.27)
+    - TikiSdkDebug (= 3.0.0)
+    - TikiSdkRelease (= 3.0.0)
+  - GoogleAPIClientForREST/Core (1.7.0):
+    - GTMSessionFetcher (< 2.0, >= 1.6.1)
+  - GoogleAPIClientForREST/Gmail (1.7.0):
+    - GoogleAPIClientForREST/Core
+    - GTMSessionFetcher (< 2.0, >= 1.6.1)
+  - GoogleSignIn (6.2.4):
+    - AppAuth (~> 1.5)
+    - GTMAppAuth (~> 1.3)
+    - GTMSessionFetcher/Core (< 3.0, >= 1.1)
+  - GTMAppAuth (1.3.1):
+    - AppAuth/Core (~> 1.6)
+    - GTMSessionFetcher/Core (< 3.0, >= 1.5)
+  - GTMSessionFetcher (1.7.2):
+    - GTMSessionFetcher/Full (= 1.7.2)
+  - GTMSessionFetcher/Core (1.7.2)
+  - GTMSessionFetcher/Full (1.7.2):
+    - GTMSessionFetcher/Core (= 1.7.2)
+  - MSAL (1.2.19):
+    - MSAL/app-lib (= 1.2.19)
+  - MSAL/app-lib (1.2.19)
+  - MSGraphClientModels (1.3.0)
+  - MSGraphClientSDK (1.0.0):
+    - MSGraphClientSDK/Authentication (= 1.0.0)
+    - MSGraphClientSDK/Common (= 1.0.0)
+  - MSGraphClientSDK/Authentication (1.0.0)
+  - MSGraphClientSDK/Common (1.0.0):
+    - MSGraphClientSDK/Authentication
+  - TikiRewards (0.1.0):
+    - CaptureReceipt
+  - TikiSdkDebug (3.0.0)
+  - TikiSdkRelease (3.0.0)
 
 DEPENDENCIES:
+  - BlinkEReceipt (~> 2.0)
+  - BlinkReceipt (~> 1.27)
+  - CaptureReceipt (from `https://github.com/tiki/capture-receipt-ios.git`)
   - TikiRewards (from `../`)
+  - TikiSdkDebug (= 3.0.0)
+  - TikiSdkRelease (= 3.0.0)
+
+SPEC REPOS:
+  https://github.com/BlinkReceipt/PodSpecRepo.git:
+    - AccountLinking
+    - BlinkEReceipt
+    - BlinkReceipt
+    - BRMailCore
+    - BRMSGraphMSALAuthProvider
+  trunk:
+    - AppAuth
+    - GoogleAPIClientForREST
+    - GoogleSignIn
+    - GTMAppAuth
+    - GTMSessionFetcher
+    - MSAL
+    - MSGraphClientModels
+    - MSGraphClientSDK
+    - TikiSdkDebug
+    - TikiSdkRelease
 
 EXTERNAL SOURCES:
+  CaptureReceipt:
+    :git: https://github.com/tiki/capture-receipt-ios.git
   TikiRewards:
     :path: "../"
 
-SPEC CHECKSUMS:
-  TikiRewards: 1e8013b4522d97f2fc9c5a50657ab9811677dd5a
+CHECKOUT OPTIONS:
+  CaptureReceipt:
+    :commit: 5ece586b57be9072c329639b2e56e24de617608b
+    :git: https://github.com/tiki/capture-receipt-ios.git
 
-PODFILE CHECKSUM: b18af1773659742897898b1ba649f9206ab33c6a
+SPEC CHECKSUMS:
+  AccountLinking: 47e4f20f96932998969fa5f6e6930d4db554942d
+  AppAuth: 3bb1d1cd9340bd09f5ed189fb00b1cc28e1e8570
+  BlinkEReceipt: d4a84fc9002a7205e528190eb17ad5f016f59eff
+  BlinkReceipt: 0a2ea9a480d9271b6d94e4f0d1191c5f02c44272
+  BRMailCore: 07a819fe3342388551361b95f003a5afc0642281
+  BRMSGraphMSALAuthProvider: 62676b8660c31a81e457e3bee0c7145d10601efd
+  CaptureReceipt: 07a30c44417796c935c846d2efe4faae82e60fde
+  GoogleAPIClientForREST: 2d4140915e2ec6d1bcb39c9df4a534c75706c595
+  GoogleSignIn: 5651ce3a61e56ca864160e79b484cd9ed3f49b7a
+  GTMAppAuth: 0ff230db599948a9ad7470ca667337803b3fc4dd
+  GTMSessionFetcher: 5595ec75acf5be50814f81e9189490412bad82ba
+  MSAL: bda5424a39c920c531af284b32edd2e341da677e
+  MSGraphClientModels: ffef6d0a1cdaa774e1689e38da35301cb74fc72a
+  MSGraphClientSDK: ffc07a58a838e0702c7bf2a856367035d4a335d7
+  TikiRewards: a71c87f33f11e047e642ea4cd5b9fba72f34af94
+  TikiSdkDebug: 85a41ce306804d45014345fb12ed4f34b83defe0
+  TikiSdkRelease: 5979b718bf1776d1d9e66fbd503aed531f9e4d0d
+
+PODFILE CHECKSUM: f60cd5813da6cfc5e0d5784244ef2e709783011e
 
 COCOAPODS: 1.12.1

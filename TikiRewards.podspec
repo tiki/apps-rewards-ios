@@ -17,10 +17,6 @@ Pod::Spec.new do |s|
   s.source_files = 'Rewards/Classes/**/*'
 
   s.dependency 'CaptureReceipt'
-  s.dependency 'BlinkReceipt'
-  s.dependency 'BlinkEReceipt'
-  s.dependency 'TikiSdkDebug'
-  s.dependency 'TikiSdkRelease'
 
   s.resource_bundles = {
     'RewardsAssets' => [

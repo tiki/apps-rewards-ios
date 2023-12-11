@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
   s.source_files = 'Rewards/Classes/**/*'
 
   s.dependency 'CaptureReceipt'
-  
+
   s.resource_bundles = {
     'RewardsAssets' => [
       'Rewards/Assets'

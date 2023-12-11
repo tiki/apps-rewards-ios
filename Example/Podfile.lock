@@ -61,7 +61,7 @@ PODS:
 DEPENDENCIES:
   - BlinkEReceipt (~> 2.0)
   - BlinkReceipt (~> 1.27)
-  - CaptureReceipt (from `../../capture-receipt-ios`)
+  - CaptureReceipt (from `https://github.com/tiki/capture-receipt-ios.git`)
   - TikiRewards (from `../`)
   - TikiSdkDebug (= 3.0.0)
   - TikiSdkRelease (= 3.0.0)
@@ -87,9 +87,14 @@ SPEC REPOS:
 
 EXTERNAL SOURCES:
   CaptureReceipt:
-    :path: "../../capture-receipt-ios"
+    :git: https://github.com/tiki/capture-receipt-ios.git
   TikiRewards:
     :path: "../"
+
+CHECKOUT OPTIONS:
+  CaptureReceipt:
+    :commit: 5ece586b57be9072c329639b2e56e24de617608b
+    :git: https://github.com/tiki/capture-receipt-ios.git
 
 SPEC CHECKSUMS:
   AccountLinking: 47e4f20f96932998969fa5f6e6930d4db554942d
@@ -110,6 +115,6 @@ SPEC CHECKSUMS:
   TikiSdkDebug: 85a41ce306804d45014345fb12ed4f34b83defe0
   TikiSdkRelease: 5979b718bf1776d1d9e66fbd503aed531f9e4d0d
 
-PODFILE CHECKSUM: 4ca3d62b616e2addb3c654a348c6b770f6daa737
+PODFILE CHECKSUM: f60cd5813da6cfc5e0d5784244ef2e709783011e
 
-COCOAPODS: 1.14.3
+COCOAPODS: 1.12.1

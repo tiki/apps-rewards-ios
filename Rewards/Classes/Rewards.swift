@@ -6,6 +6,7 @@
 import Foundation
 import SwiftUI
 import CaptureReceipt
+import TikiSdk
 
 /// # Rewards
 ///
@@ -47,7 +48,7 @@ public class Rewards{
     public static let account = AccountService()
     
     /// An instance of `CaptureService` for handling data capture functionalities.
-    public static var capture = CaptureService(userId: "")
+    public static var capture = CaptureService.init()
     
     /// An instance of `LicenseService` for managing data licenses.
     public static let license = LicenseService()
@@ -63,7 +64,7 @@ public class Rewards{
     /// The home screen is presented modally with a cross-dissolve transition and a semi-transparent background.
     public static func start(_ theme: Theme? = nil, userId: String) {
         self.theme = theme ?? self.theme
-        self.capture = CaptureService(userId: userId)
+        capture.initialize(userId: userId)
         DispatchQueue.main.async{
             let viewController = UIApplication.shared.windows.first?.rootViewController
             let vc = UIHostingController(

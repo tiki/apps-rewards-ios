@@ -1,13 +1,13 @@
 # TIKI Rewards App
 
-The TIKI Rewards App is a low code solution for integrating reward functionalities into your iOS applications in exchange of user data licensing and Card Linked Offer Cashback Connections.
+The TIKI Rewards App is a versatile solution for seamlessly integrating reward functionalities into your Android applications, offering users exclusive benefits in exchange for data licensing and Card Linked Offer Cashback Connections.
 
-This SDK provides easy-to-use classes and functions to enhance your app with features like theming, account management, data capture, and licensing.
+This SDK provides easy-to-use Kotlin classes and functions to elevate your app's capabilities, including theming, account management, data capture, licensing, Card Linked Offers, and Cashback Connections.
 
 ## Features
-- **Card Linked Offers** Exclusive offers from our partners to end users.
-- **Cashback Connections** Automatic activation of cashback eligible transactions.
-- **Receipt data extraction** Extraction of detailed anonymous receipt data, including SKU-level transaction data.
+- **Card Linked Offers:** Exclusive offers from our partners for end users.
+- **Cashback Connections:** Automatic activation of cashback eligible transactions.
+- **Receipt Data Extraction:** Detailed anonymous receipt data extraction, including SKU-level transaction data.
 - **Licensing:** Implement data licensing functionalities in the [TIKI Data Licensing Infrastructure](https://mytiki.com) with the `LicenseService` class.
 - **Theming:** Customize the visual appearance of the UIs to match your app.
 
@@ -21,8 +21,7 @@ Before getting started, ensure your iOS project meets the following requirements
 - Cocoapods
 
 **Project Dependencies**
-To handle receipt data scraping and data license, we use the [Capture Receipt]() SDK. This SDK uses the [Microblink]() libraries to scan physical and digital receipts and the [TIKI SDK]() to handle data licensing.
-
+To handle receipt data scraping and data licensing, we use the [Capture Receipt](#) SDK. This SDK utilizes the [Microblink](#) libraries to scan physical and digital receipts and the [TIKI SDK](#) to handle data licensing.
 
 ### 1. Add Microblink source in the top of your `Podfile`
 ```

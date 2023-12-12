@@ -110,6 +110,7 @@ The `Rewards.config` method can be used to simplify the declation of all config 
         gmailAPIKey: "YOUR GMAIL API KEY", // optional
         outlookAPIKey: "YOUR OUTLOOK API KEY" // optional
     )
+    Rewards.config(configuration)
 ```
 
 ## Usage

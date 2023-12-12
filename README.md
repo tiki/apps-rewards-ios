@@ -84,7 +84,7 @@ In order to use the camera in iOS, the app must provide the a message that tells
 
 It can be set in XCode too, with the `Privacy - Camera Usage Description` key in `info.plist` editor.
 
-#### 6. Optional - Use Gmail/Outlook APIs 
+### 6. Optional - Use Gmail/Outlook APIs 
 
 IMAP is the default method for email scraping. For an enhanced user experience and improved accuracy, we recommend the activation of OAuth through the [Gmail API](https://developers.google.com/gmail/api) and [Outlook API](https://docs.microsoft.com/en-us/outlook/rest/overview) for email scraping. The utilization of these APIs is optional, and you have the flexibility to choose either one, or both.
 
@@ -95,7 +95,17 @@ IMAP is the default method for email scraping. For an enhanced user experience a
   )
 ```
 
-### 7. Alternative - Use the Rewards.config method.
+### 7. Optional - Configure a custom Theme
+
+let customTheme = Theme(
+    primaryTextColor: .yourColor,
+    secondaryTextColor: .yourColor,
+    primaryBackgroundColor: .yourColor,
+    secondaryBackgroundColor: .yourColor,
+    accentColor: .yourColor,
+    fontFamily: "YourFontFamily"
+)
+### 8. Alternative - Use the Rewards.config method.
 The `Rewards.config` method can be used to simplify the declation of all config details in one call. It receives a `Configuration` object:
 
 ```swift
@@ -118,28 +128,25 @@ The `Rewards.config` method can be used to simplify the declation of all config 
 
 The Rewards class is the main API to interact with the TIKI Rewards program. It works as a singleton and initializes services for theming, data capture and licensing and rewards administration.
 
-The `start` method takes 2 parameters
-- a required `userId` that should be your user's unique identification.
-- an optional `theme` to customize the UI to match your branding.
+The `initialize` method takes a required `userId` as parameter, that should be your user's unique identification.
 
-**Initialize rewards system with default theme**
 ```swift
 let userId = "YOUR USER'S UNIQUE IDENTIFICATION"
 Rewards.initialize(userId)
 ```
 
-**Initialize rewards system with a custom theme**
+If you need to change the user, i.e. the current user logs out and another one logs in, call the `initialize` method again witha differetn userId.
+
 ```swift
-let userId = "YOUR USER'S UNIQUE IDENTIFICATION"
-let customTheme = Theme(
-    primaryTextColor: .yourColor,
-    secondaryTextColor: .yourColor,
-    primaryBackgroundColor: .yourColor,
-    secondaryBackgroundColor: .yourColor,
-    accentColor: .yourColor,
-    fontFamily: "YourFontFamily"
-)
-Rewards.initialize(userId, theme: customTheme)
+let userId = "USER123"
+Rewards.initialize(userId)
+
+// not required but recommended
+Rewards.logout()
+
+// initialize with another user
+let newUserId = "USER456"
+Rewards.initialize(newUserId)
 ```
 
 ### 2. Start the app
@@ -227,3 +234,22 @@ And that's it! The Rewards app will prompt the user will handle all the steps to
   )
 ```
 
+## Example
+
+While this README is helpful, it's always easier to just see it in action. In `/Example` there is simple demo app. On launch, it generates a new random user id, with a button called start. 
+
+- Check out `Example/Rewards/RewardsExampleApp.swift` to view an example configuration of the library.
+
+**Steps to run**
+1. cd Example
+2. pod install
+3. open `Example/Rewards.xcworkspace` in XCode.
+
+## Open Issues
+You can find active issues here in GitHub under [Issues](https://github.com/tiki/apps-rewards-ios/issues). If you run into a bug or have a question, just create a new Issue or reach out to a team member on 👾 [Discord](https://discord.gg/tiki).
+
+# Contributing
+
+- Use [GitHub Issues](https://github.com/tiki/apps-rewards-ios/issues) to report any bugs you find or to request enhancements.
+- If you'd like to get in touch with our team or other active contributors, pop in our 👾 [Discord](https://discord.gg/tiki).
+- Please use [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/) if you intend to add code to this project.

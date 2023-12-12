@@ -90,8 +90,8 @@ IMAP is the default method for email scraping. For an enhanced user experience a
 
 ```swift
   Rewards.oauth(
-    gmail: "YOUR TIKI PUBLISHING ID", // optional
-    outlook: "YOUR MICROBLINK ANDROID LICENSE KEY", // optional
+    gmailAPIKey: "YOUR GMAIL API KEY", // optional
+    outlookAPIKey: "YOUR OUTLOOK API KEY" // optional
   )
 ```
 

@@ -96,20 +96,24 @@ IMAP is the default method for email scraping. For an enhanced user experience a
 ```
 
 ### 7. Optional - Configure a custom Theme
+The app can be configured to use your brand colors and font.
 
-let customTheme = Theme(
+```swift
+  Rewards.theme(
     primaryTextColor: .yourColor,
     secondaryTextColor: .yourColor,
     primaryBackgroundColor: .yourColor,
     secondaryBackgroundColor: .yourColor,
     accentColor: .yourColor,
     fontFamily: "YourFontFamily"
-)
+  )
+```
+
 ### 8. Alternative - Use the Rewards.config method.
-The `Rewards.config` method can be used to simplify the declation of all config details in one call. It receives a `Configuration` object:
+The `Rewards.config` method can be used to simplify the declation of all config details in one call. 
 
 ```swift
-  let configuration =  Configuration(
+  Rewards.config(
         companyName: "Company Inc.",
         companyJurisdiction: "Tennessee, USA",
         privacy: "https://your-co.com/privacy",
@@ -119,8 +123,13 @@ The `Rewards.config` method can be used to simplify the declation of all config 
         productIntelligenceKey: "YOUR MICROBLINK IOS LICENSE KEY",
         gmailAPIKey: "YOUR GMAIL API KEY", // optional
         outlookAPIKey: "YOUR OUTLOOK API KEY" // optional
+        primaryTextColor: .yourColor, // optional
+        secondaryTextColor: .yourColor, // optional
+        primaryBackgroundColor: .yourColor, // optional
+        secondaryBackgroundColor: .yourColor, // optional
+        accentColor: .yourColor, // optional
+        fontFamily: "YourFontFamily" // optional
     )
-    Rewards.config(configuration)
 ```
 
 ## Usage

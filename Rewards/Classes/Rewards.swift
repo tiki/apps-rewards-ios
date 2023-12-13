@@ -6,6 +6,7 @@
 import Foundation
 import SwiftUI
 import CaptureReceipt
+import TikiSdk
 
 /// # Rewards
 ///
@@ -47,10 +48,13 @@ public class Rewards{
     public static let account = AccountService()
     
     /// An instance of `CaptureService` for handling data capture functionalities.
-    public static let capture = CaptureService()
+    public static var capture = CaptureService.init()
     
     /// An instance of `LicenseService` for managing data licenses.
     public static let license = LicenseService()
+    
+    public static var configuration: Configuration? = nil
+
     
     /// Initializes the rewards system and presents the home screen.
     ///
@@ -58,19 +62,54 @@ public class Rewards{
     ///    - `theme`: An optional parameter to set a custom theme. If not provided, the default theme is used.
     ///
     /// The home screen is presented modally with a cross-dissolve transition and a semi-transparent background.
-    public static func start(_ theme: Theme? = nil) {
+    public static func start(_ theme: Theme? = nil, userId: String) throws {
         self.theme = theme ?? self.theme
-        
-        DispatchQueue.main.async {
-            let viewController = UIApplication.shared.windows.first?.rootViewController
-            let vc = UIHostingController(
-                rootView: HomeScreen(onDismiss: { viewController?.dismiss(animated: true) })
-            )
-            vc.modalPresentationStyle = .overFullScreen
-            vc.modalTransitionStyle = .crossDissolve
-            vc.view.layer.backgroundColor = UIColor.black.withAlphaComponent(0.3).cgColor
-            viewController!.present(vc, animated: true, completion: nil)
+        if(configuration == nil){
+            throw NSError()
         }
+        Task(priority: .high){
+            try await CaptureReceipt.initialize(userId: userId, config: configuration)
+            capture.initialize(userId: userId)
+            DispatchQueue.main.async{
+                let viewController = UIApplication.shared.windows.first?.rootViewController
+                let vc = UIHostingController(
+                    rootView: HomeScreen(onDismiss: { viewController?.dismiss(animated: true) })
+                )
+                vc.modalPresentationStyle = .overFullScreen
+                vc.modalTransitionStyle = .crossDissolve
+                vc.view.layer.backgroundColor = UIColor.black.withAlphaComponent(0.3).cgColor
+                viewController!.present(vc, animated: true, completion: nil)
+            }
+        }
+    }
+    
+    
+    /// Configures the Capture Receipt SDK with the necessary parameters.
+    ///
+    /// - Parameters:
+    ///   - tikiPublishingID: The TIKI publishing ID.
+    ///   - microblinkLicenseKey: The Microblink license key.
+    ///   - productIntelligenceKey: The product intelligence key.
+    ///   - terms: The terms associated with the license.
+    ///   - gmailAPIKey: The API key for Gmail (optional).
+    ///   - outlookAPIKey: The API key for Outlook (optional).
+    public static func config(
+        tikiPublishingID: String,
+        microblinkLicenseKey: String,
+        productIntelligenceKey: String,
+        terms: String,
+        gmailAPIKey: String? = nil,
+        outlookAPIKey: String? = nil
+    ){
+        self.configuration = Configuration(
+            tikiPublishingID: tikiPublishingID,
+            microblinkLicenseKey: microblinkLicenseKey,
+            productIntelligenceKey: productIntelligenceKey,
+            terms: terms,
+            gmailAPIKey: gmailAPIKey,
+            outlookAPIKey: outlookAPIKey
+        )
+        TikiRewards.LicenseService.setTerms(terms: terms)
     }
     
 }

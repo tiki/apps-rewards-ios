@@ -5,6 +5,7 @@
 
 
 import SwiftUI
+import CaptureReceipt
 
 struct EmailAccounts: View {
     

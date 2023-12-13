@@ -4,6 +4,7 @@
  */
 
 import SwiftUI
+import CaptureReceipt
 
 struct AccountLogin: View {
     
@@ -60,10 +61,10 @@ struct AccountLogin: View {
             .background(Rewards.theme.accentColor)
                 .cornerRadius(8)
                 .padding(.top, 32)
-                .alert("Error", isPresented: $showAlert) {
-                } message: {
-                    Button(errorMessage.isEmpty ? "Login Error." : errorMessage, role: .cancel) { }
-                }
+//                .alert("Error", isPresented: $showAlert) {
+//                } message: {
+//                    Button(errorMessage.isEmpty ? "Login Error." : errorMessage, role: .cancel) { }
+//                }
             .onTapGesture {
                     Task{
                         do{

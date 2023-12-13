@@ -4,6 +4,7 @@
  */
 
 import SwiftUI
+import CaptureReceipt
 
 public struct MoreView: View{
     @Binding var showMoreSheet: Bool

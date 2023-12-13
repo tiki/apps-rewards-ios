@@ -5,6 +5,7 @@
 
 
 import SwiftUI
+import CaptureReceipt
 
 public struct MoreAccounts: View {
     public let onAccountSelect: (Account) ->  Void

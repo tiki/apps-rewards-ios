@@ -4,6 +4,7 @@
  */
 
 import Foundation
+import CaptureReceipt
 
 /// # AccountService
 ///
@@ -93,7 +94,14 @@ func login(username: String, password: String, provider: AccountProvider) throws
             throw TikiError.error("Account already linked.")
         } else {
             let account = Account(username: username, provider: provider, status: .verified)
-            _accounts.append(account)
+            switch(provider){
+            case .retailer(let retailerEnum):
+                CaptureReceipt.login(username: username, password: password, accountType: .retailer(retailerEnum), onSuccess: {_ in print("done")}, onError: {error in print(error)})
+                break
+            case .email(let emailEnum):
+                CaptureReceipt.login(username: username, password: password, accountType: .email(emailEnum), onSuccess: {_ in print("done")}, onError: {error in print(error)})
+                break
+            }
             return account
         }
     }
@@ -106,21 +114,33 @@ func login(username: String, password: String, provider: AccountProvider) throws
 ///   - provider: The account provider of the account to be logged out.
 /// - Returns: The logged-out user account.
 /// - Throws: An error indicating issues with the logout process, such as an empty username or an account not found.
-func logout(username: String, provider: AccountProvider) throws -> Account {
-    if username.isEmpty {
-        throw TikiError.error("Username should not be empty.")
-    } else {
-        let index = _accounts.firstIndex(where: {
-            $0.username == username &&
+    func logout(username: String, provider: AccountProvider) async throws  -> Account {
+        return try await withCheckedThrowingContinuation{ continuation in
+            if (username.isEmpty) {
+                continuation.resume(throwing: TikiError.error("Username should not be empty."))
+            }
+            let index = _accounts.firstIndex(where: {
+                $0.username == username &&
                 $0.provider == provider
-        })
-        if index != nil {
+            })
+            if (index == nil) {
+                continuation.resume(throwing: TikiError.error("Account not found."))
+            }
             let account = _accounts[index!]
+            let result = { continuation.resume(returning: account) }
+            let error = { error in continuation.resume(throwing: error)}
+            var accountType: AccountType?
             _accounts.remove(at: index!)
-            return account
-        } else {
-            throw TikiError.error("Account not found.")
+            switch(provider){
+            case .retailer(let retailerEnum):
+                accountType = .retailer(retailerEnum)
+                break
+            case .email(let emailEnum):
+                accountType = .email(emailEnum)
+                break
+            }
+            CaptureReceipt.logout(onSuccess: result, onError: {error in print(error)})
         }
+        
     }
-}
 }

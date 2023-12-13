@@ -4,8 +4,11 @@
  */
 
 import Foundation
+import CaptureReceipt
 
 public enum AccountProvider: Hashable{
+
+    
 
     case retailer(RetailerEnum)
     case email(EmailEnum)

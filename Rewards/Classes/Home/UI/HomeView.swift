@@ -5,6 +5,7 @@
 
 import SwiftUI
 import Foundation
+import CaptureReceipt
 
 public struct HomeView: View {
     

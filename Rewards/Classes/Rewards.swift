@@ -54,6 +54,9 @@ public class Rewards{
     public static let license = LicenseService()
     
     public static var configuration: Configuration? = nil
+    
+    public static var rootViewController: UIViewController? = nil
+    
 
     
     /// Initializes the rewards system and presents the home screen.
@@ -68,23 +71,27 @@ public class Rewards{
             throw NSError()
         }
         Task(priority: .high){
-            CaptureReceipt.config(
+            try await CaptureReceipt.config(
                 tikiPublishingID: configuration!.tikiPublishingID,
                 microblinkLicenseKey: configuration!.microblinkLicenseKey,
                 productIntelligenceKey: configuration!.productIntelligenceKey,
                 terms: configuration!.terms
             )
-            try await CaptureReceipt.initialize(userId: userId)
+            try await CaptureReceipt.initialize(userId: userId, config: Configuration(
+                tikiPublishingID: "4a03c7fc-1533-48f4-b0e7-c34e49af91cf",
+                microblinkLicenseKey: "sRwAAAEaY29tLm15dGlraS5jYXB0dXJlLnJlY2VpcHRuGv//0KdCFBQgFSNOuVduGfcqT3S6jLuPoAoP5bngYkX32/19dPBW2zVYisI6sB8SjLy9dgepoVdIs6sCZZPy7uWIcGKfdSGx8vgrEzd/phAThD+5mfJ6DTn/0eDRoFDn1/siDikIwWpsxJSRkjGBQysdOKmlhTtWHUHeNGwvAVrl6T64+Q==",
+                productIntelligenceKey: "wSNX3mu+YGc/2I1DDd0NmrYHS6zS1BQt2geMUH7DDowER43JGeJRUErOHVwU2tz6xHDXia8BuvXQI3j37I0uYw==",
+                terms: "terms for testing"))
             capture.initialize(userId: userId)
             DispatchQueue.main.async{
-                let viewController = UIApplication.shared.windows.first?.rootViewController
+                rootViewController = UIApplication.shared.windows.first?.rootViewController
                 let vc = UIHostingController(
-                    rootView: HomeScreen(onDismiss: { viewController?.dismiss(animated: true) })
+                    rootView: HomeScreen(onDismiss: { rootViewController?.dismiss(animated: true) })
                 )
                 vc.modalPresentationStyle = .overFullScreen
                 vc.modalTransitionStyle = .crossDissolve
                 vc.view.layer.backgroundColor = UIColor.black.withAlphaComponent(0.3).cgColor
-                viewController!.present(vc, animated: true, completion: nil)
+                rootViewController!.present(vc, animated: true, completion: nil)
             }
         }
     }

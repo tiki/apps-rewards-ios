@@ -68,7 +68,13 @@ public class Rewards{
             throw NSError()
         }
         Task(priority: .high){
-            try await CaptureReceipt.initialize(userId: userId, config: configuration)
+            CaptureReceipt.config(
+                tikiPublishingID: configuration!.tikiPublishingID,
+                microblinkLicenseKey: configuration!.microblinkLicenseKey,
+                productIntelligenceKey: configuration!.productIntelligenceKey,
+                terms: configuration!.terms
+            )
+            try await CaptureReceipt.initialize(userId: userId)
             capture.initialize(userId: userId)
             DispatchQueue.main.async{
                 let viewController = UIApplication.shared.windows.first?.rootViewController

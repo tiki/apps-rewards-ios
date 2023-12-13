@@ -4,6 +4,7 @@
  */
 
 import Foundation
+import CaptureReceipt
 
 
 /// # CaptureService
@@ -29,6 +30,12 @@ import Foundation
 public class CaptureService{
     // MARK: - Public Methods
 
+    public func initialize(userId: String) {
+        Task(priority: .high){
+            try await CaptureReceipt.initialize(userId: userId)
+        }
+    }
+    
     /// Initiates the receipt scanning process.
     ///
     /// Displays an alert indicating that the functionality is not implemented in the demo app.

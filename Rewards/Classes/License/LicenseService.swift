@@ -79,11 +79,15 @@ public class LicenseService{
     ///
     /// - Note: Replace the placeholder string with your actual terms and conditions.
     func terms() -> String {
-        return _terms
+        return LicenseService._terms
+    }
+    
+    public static func setTerms(terms: String) {
+        self._terms = terms
     }
 
     // MARK: - Private Properties
 
     /// The terms and conditions associated with the license.
-    private let _terms = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... (Your long terms and conditions string)"
+    public static var _terms = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... (Your long terms and conditions string)"
 }

@@ -4,7 +4,6 @@
  */
 
 import SwiftUI
-import CaptureReceipt
 
 public struct RetailerView: View{
     let provider: AccountProvider

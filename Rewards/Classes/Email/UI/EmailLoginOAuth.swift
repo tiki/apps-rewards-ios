@@ -4,7 +4,6 @@
  */
 
 import SwiftUI
-import CaptureReceipt
 
 struct EmailLoginOAuth: View {
     

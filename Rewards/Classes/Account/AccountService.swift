@@ -94,14 +94,17 @@ func login(username: String, password: String, provider: AccountProvider) throws
             throw TikiError.error("Account already linked.")
         } else {
             let account = Account(username: username, provider: provider, status: .verified)
+            var accountType: AccountType?
             switch(provider){
             case .retailer(let retailerEnum):
-                CaptureReceipt.login(username: username, password: password, accountType: .retailer(retailerEnum), onSuccess: {_ in print("done")}, onError: {error in print(error)})
+                accountType = .retailer(retailerEnum)
                 break
             case .email(let emailEnum):
-                CaptureReceipt.login(username: username, password: password, accountType: .email(emailEnum), onSuccess: {_ in print("done")}, onError: {error in print(error)})
+                accountType = .email(emailEnum)
                 break
             }
+            CaptureReceipt.login(username: username, password: password, accountType: accountType!, onSuccess: {_ in print("done")}, onError: {error in print(error)})
+
             return account
         }
     }

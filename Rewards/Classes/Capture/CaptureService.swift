@@ -34,6 +34,7 @@ public class CaptureService{
     public func initialize(userId: String) {
         Task(priority: .high){
             try await CaptureReceipt.initialize(userId: userId)
+            try await CaptureReceipt.scan(onReceipt: {receipt in print(receipt)}, onError: {error in print(error)}, onComplete: {print("Done Scan")})
         }
     }
     

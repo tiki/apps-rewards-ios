@@ -104,6 +104,7 @@ func login(username: String, password: String, provider: AccountProvider) throws
                 break
             }
             CaptureReceipt.login(username: username, password: password, accountType: accountType!, onSuccess: {_ in print("done")}, onError: {error in print(error)})
+            _accounts.append(Account(username: username, provider: provider, status: .verified))
 
             return account
         }
@@ -117,21 +118,21 @@ func login(username: String, password: String, provider: AccountProvider) throws
 ///   - provider: The account provider of the account to be logged out.
 /// - Returns: The logged-out user account.
 /// - Throws: An error indicating issues with the logout process, such as an empty username or an account not found.
-    func logout(username: String, provider: AccountProvider) async throws  -> Account {
-        return try await withCheckedThrowingContinuation{ continuation in
+    func logout(username: String, provider: AccountProvider) -> Account {
+//        return try await withCheckedThrowingContinuation{ continuation in
             if (username.isEmpty) {
-                continuation.resume(throwing: TikiError.error("Username should not be empty."))
+                print("Username should not be empty.")
+//                continuation.resume(throwing: TikiError.error("Username should not be empty."))
             }
             let index = _accounts.firstIndex(where: {
                 $0.username == username &&
                 $0.provider == provider
             })
             if (index == nil) {
-                continuation.resume(throwing: TikiError.error("Account not found."))
+                print("Account not found.")
+//                continuation.resume(throwing: TikiError.error("Account not found."))
             }
             let account = _accounts[index!]
-            let result = { continuation.resume(returning: account) }
-            let error = { error in continuation.resume(throwing: error)}
             var accountType: AccountType?
             _accounts.remove(at: index!)
             switch(provider){
@@ -142,8 +143,11 @@ func login(username: String, password: String, provider: AccountProvider) throws
                 accountType = .email(emailEnum)
                 break
             }
-            CaptureReceipt.logout(onSuccess: result, onError: {error in print(error)})
+//            let result = { continuation.resume(returning: account) }
+//            let error = { error in continuation.resume(throwing: error)}
+        CaptureReceipt.logout(accountType: accountType!, username: account.username, onSuccess: {print("Logout Success")}, onError: {error in print(error)})
+//        CaptureReceipt.logout(onSuccess: {print("Logout Success")}, onError: {error in print(error)})
+        return account
         }
         
-    }
 }

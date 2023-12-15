@@ -4,7 +4,6 @@
  */
 
 import SwiftUI
-
 public struct MoreView: View{
     @Binding var showMoreSheet: Bool
     let onLicenseDeclined: () -> Void

@@ -27,6 +27,9 @@ public struct TikiImages{
     public static let icAdd = Image(uiImage: icon(icon: "ic_add"))
     public static let icAlert = Image(uiImage: icon(icon: "ic_alert"))
     public static let sync = Image(uiImage: icon(icon: "sync"))
+    public static let none = Image(uiImage: icon(icon: "gmail"))
+    
+    
     
     public static func from(_ from: String) -> Image {
         return  Image(uiImage: icon(icon: from.lowercased().replacingOccurrences(of: " ", with: "-")))
@@ -34,8 +37,13 @@ public struct TikiImages{
 }
 
 private func icon(icon: String) -> UIImage{
+
     let bundle = Bundle(for: Rewards.self)
     let resourceBundle = Bundle(url: bundle.url(forResource: "RewardsAssets", withExtension: "bundle")!)!
-    let icon = UIImage(named: "Assets/icons/\(icon)", in: resourceBundle, compatibleWith: nil)
-    return icon!
+    if(icon == "none" || icon == "custom"){
+        return UIImage(named: "Assets/icons/\("gmail")", in: resourceBundle, compatibleWith: nil)!
+    }else{
+        let icon = UIImage(named: "Assets/icons/\(icon)", in: resourceBundle, compatibleWith: nil)
+        return icon!
+    }
 }

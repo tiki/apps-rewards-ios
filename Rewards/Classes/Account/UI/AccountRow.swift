@@ -27,8 +27,10 @@ struct AccountRow: View {
             Spacer()
             Button(action: {
                 do{
-                    let account = try Rewards.account.logout(username: acc.username, provider: acc.provider)
-                    onRemove(account)
+                    Task(){
+                        let account = try await Rewards.account.logout(username: acc.username, provider: acc.provider)
+                        onRemove(account)
+                    }
                 }catch{
                     print("logout error")
                 }

@@ -6,6 +6,7 @@
 
 import SwiftUI
 
+
 public struct MoreAccounts: View {
     public let onAccountSelect: (Account) ->  Void
     public var gridItemLayout = Array(repeating: GridItem(.flexible(), spacing: 0), count: 3)

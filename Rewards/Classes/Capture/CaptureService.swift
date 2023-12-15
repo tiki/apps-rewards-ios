@@ -5,6 +5,7 @@
 
 import Foundation
 import CaptureReceipt
+import TikiSdk
 
 
 /// # CaptureService
@@ -40,11 +41,15 @@ public class CaptureService{
     ///
     /// Displays an alert indicating that the functionality is not implemented in the demo app.
     func scan() {
-        let viewController = UIApplication.shared.windows.first?.rootViewController
-        let message = "Receipt scanning functionality not implemented in demo app."
-        let alertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        viewController!.present(alertController, animated: true, completion: nil)
+        Task(priority: .high){
+            await CaptureReceipt.scan(onReceipt: {receipt in print(receipt)}, onError: {error in print(error)}, onComplete: {print("Done Scan")})
+        }
+//        CaptureReceipt.scan(onReceipt: <#T##(Receipt) -> Void#>, onError: <#T##(Error) -> Void#>, onComplete: <#T##() -> Void#>)
+//        let viewController = UIApplication.shared.windows.first?.rootViewController
+//        let message = "Receipt scanning functionality not implemented in demo app."
+//        let alertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+//        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+//        viewController!.present(alertController, animated: true, completion: nil)
     }
 
     /// Retrieves a list of retailer offers for a specific account provider.

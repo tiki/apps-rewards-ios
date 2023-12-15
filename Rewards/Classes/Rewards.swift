@@ -54,6 +54,9 @@ public class Rewards{
     public static let license = LicenseService()
     
     public static var configuration: Configuration? = nil
+    
+    public static var rootViewController: UIViewController? = nil
+    
 
     
     /// Initializes the rewards system and presents the home screen.
@@ -68,7 +71,7 @@ public class Rewards{
             throw NSError()
         }
         Task(priority: .high){
-            CaptureReceipt.config(
+            try await CaptureReceipt.config(
                 tikiPublishingID: configuration!.tikiPublishingID,
                 microblinkLicenseKey: configuration!.microblinkLicenseKey,
                 productIntelligenceKey: configuration!.productIntelligenceKey,
@@ -77,14 +80,14 @@ public class Rewards{
             try await CaptureReceipt.initialize(userId: userId)
             capture.initialize(userId: userId)
             DispatchQueue.main.async{
-                let viewController = UIApplication.shared.windows.first?.rootViewController
+                rootViewController = UIApplication.shared.windows.first?.rootViewController
                 let vc = UIHostingController(
-                    rootView: HomeScreen(onDismiss: { viewController?.dismiss(animated: true) })
+                    rootView: HomeScreen(onDismiss: { rootViewController?.dismiss(animated: true) })
                 )
                 vc.modalPresentationStyle = .overFullScreen
                 vc.modalTransitionStyle = .crossDissolve
                 vc.view.layer.backgroundColor = UIColor.black.withAlphaComponent(0.3).cgColor
-                viewController!.present(vc, animated: true, completion: nil)
+                rootViewController!.present(vc, animated: true, completion: nil)
             }
         }
     }

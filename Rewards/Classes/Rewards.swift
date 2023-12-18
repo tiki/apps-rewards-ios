@@ -55,6 +55,8 @@ public class Rewards{
     
     public static var configuration: Configuration? = nil
     
+    public static var company: Company? = nil
+    
     public static var rootViewController: UIViewController? = nil
     
 
@@ -119,6 +121,11 @@ public class Rewards{
             outlookAPIKey: outlookAPIKey
         )
         TikiRewards.LicenseService.setTerms(terms: terms)
+    }
+    
+    public static func company(name: String, jurisdiction: String, privacy: String, terms: String) {
+        company = Company(name: name, jurisdiction: jurisdiction, privacy: privacy, terms: terms)
+        TikiRewards.LicenseService.setTerms(terms: name+jurisdiction+privacy+terms)
     }
     
 }

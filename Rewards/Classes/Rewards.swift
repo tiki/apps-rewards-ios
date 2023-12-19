@@ -150,4 +150,14 @@ public class Rewards{
 
         }
     }
+    
+    public static func theme(primaryTextColor: Color,
+                                secondaryTextColor: Color,
+                                primaryBackgroundColor: Color,
+                                secondaryBackgroundColor: Color,
+                                accentColor: Color,
+                                fontFamily: String){
+        self.theme = Theme(primaryTextColor: primaryTextColor, secondaryTextColor: secondaryTextColor, primaryBackgroundColor: primaryBackgroundColor, secondaryBackgroundColor: secondaryBackgroundColor, accentColor: accentColor, fontFamily: fontFamily)
+        
+    }
 }

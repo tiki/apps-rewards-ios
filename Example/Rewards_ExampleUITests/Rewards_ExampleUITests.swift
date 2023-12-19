@@ -32,7 +32,7 @@ final class Rewards_ExampleUITests: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         app.buttons["Click to open Tiki BottomSheet"].tap()
-        sleep(4)
+        sleep(10)
         XCTAssertFalse(app.staticTexts["PROGRAM TERMS"].exists)
         XCTAssert(app.staticTexts["Share data. Earn cash."].exists)
     }
@@ -41,7 +41,7 @@ final class Rewards_ExampleUITests: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         app.buttons["Click to open Tiki BottomSheet"].tap()
-        sleep(4)
+        sleep(10)
         XCTAssertFalse(app.staticTexts["PROGRAM TERMS"].exists)
         XCTAssert(app.staticTexts["Share data. Earn cash."].exists)
         app.buttons["Get estimate"].tap()

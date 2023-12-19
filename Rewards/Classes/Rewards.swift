@@ -54,12 +54,16 @@ public class Rewards{
     public static let license = LicenseService()
     
     public static var configuration: Configuration? = nil
-    
+
     public static var company: Company? = nil
     
     public static var rootViewController: UIViewController? = nil
     
+    public static var tikiPublishingID: String = "YOUR TIKI PUBLISHING ID"
 
+    public static var microblinkLicenseKey: String = "YOUR MICROBLINK ANDROID LICENSE KEY"
+    
+    public static var productIntelligenceKey: String = "YOUR MICROBLINK IOS LICENSE KEY"
     
     /// Initializes the rewards system and presents the home screen.
     ///
@@ -129,6 +133,9 @@ public class Rewards{
     }
     
     public static func licenses(tikiPublishingID: String, microblinkLicenseKey: String, productIntelligenceKey: String) {
-        
+        self.tikiPublishingID = tikiPublishingID
+        self.microblinkLicenseKey = microblinkLicenseKey
+        self.productIntelligenceKey = productIntelligenceKey
     }
+    
 }

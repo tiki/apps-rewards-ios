@@ -37,6 +37,7 @@ import Foundation
 public class LicenseService{
     // MARK: - Properties
 
+    public var license = License()
     /// The current license status.
     var _isLicensed: Bool = false
 
@@ -84,6 +85,12 @@ public class LicenseService{
     
     public static func setTerms(terms: String) {
         self._terms = terms
+    }
+    
+    public func setLicense(tikiPublishingID: String, microblinkLicenseKey: String, productIntelligenceKey: String){
+        self.license.tikiPublishingID = tikiPublishingID
+        self.license.microblinkLicenseKey = microblinkLicenseKey
+        self.license.productIntelligenceKey = productIntelligenceKey
     }
 
     // MARK: - Private Properties

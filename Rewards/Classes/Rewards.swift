@@ -128,4 +128,7 @@ public class Rewards{
         TikiRewards.LicenseService.setTerms(terms: name+jurisdiction+privacy+terms)
     }
     
+    public static func licenses(tikiPublishingID: String, microblinkLicenseKey: String, productIntelligenceKey: String) {
+        
+    }
 }

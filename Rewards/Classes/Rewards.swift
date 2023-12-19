@@ -138,4 +138,16 @@ public class Rewards{
         self.productIntelligenceKey = productIntelligenceKey
     }
     
+    public static func oauth(gmailAPIKey: String?, outlookAPIKey: String?, userId: String){
+        if(gmailAPIKey != nil){
+            self.configuration?.gmailAPIKey = gmailAPIKey
+        }
+        if(outlookAPIKey != nil){
+            self.configuration?.outlookAPIKey = outlookAPIKey
+        }
+        Task(){
+            try start(userId: userId)
+
+        }
+    }
 }

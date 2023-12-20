@@ -54,7 +54,7 @@ public class Rewards{
     public static let license = LicenseService()
     
     public static var configuration: Configuration? = nil
-    
+
     public static var company: Company? = nil
     
     public static var rootViewController: UIViewController? = nil
@@ -105,12 +105,21 @@ public class Rewards{
     ///   - gmailAPIKey: The API key for Gmail (optional).
     ///   - outlookAPIKey: The API key for Outlook (optional).
     public static func config(
+        companyName: String,
+        companyJurisdiction: String,
+        privacy: String,
+        terms: String,
         tikiPublishingID: String,
         microblinkLicenseKey: String,
         productIntelligenceKey: String,
-        terms: String,
         gmailAPIKey: String? = nil,
-        outlookAPIKey: String? = nil
+        outlookAPIKey: String? = nil,        
+        primaryTextColor: Color? = nil,
+        secondaryTextColor: Color? = nil,
+        primaryBackgroundColor: Color? = nil,
+        secondaryBackgroundColor: Color? = nil,
+        accentColor: Color? = nil,
+        fontFamily: String? = nil
     ){
         self.configuration = Configuration(
             tikiPublishingID: tikiPublishingID,
@@ -120,6 +129,11 @@ public class Rewards{
             gmailAPIKey: gmailAPIKey,
             outlookAPIKey: outlookAPIKey
         )
+        company(name: companyName, jurisdiction: companyJurisdiction, privacy: privacy, terms: terms)
+        license.setLicense(tikiPublishingID: tikiPublishingID, microblinkLicenseKey: microblinkLicenseKey, productIntelligenceKey: productIntelligenceKey)
+        if(primaryTextColor != nil && secondaryTextColor != nil && primaryTextColor != nil && secondaryTextColor != nil && accentColor != nil && fontFamily != nil){
+            theme(primaryTextColor: primaryTextColor!, secondaryTextColor: secondaryTextColor!, primaryBackgroundColor: primaryBackgroundColor!, secondaryBackgroundColor: secondaryBackgroundColor!, accentColor: accentColor!, fontFamily: fontFamily!)
+        }
         TikiRewards.LicenseService.setTerms(terms: terms)
     }
     
@@ -128,4 +142,30 @@ public class Rewards{
         TikiRewards.LicenseService.setTerms(terms: name+jurisdiction+privacy+terms)
     }
     
+    public static func licenses(tikiPublishingID: String, microblinkLicenseKey: String, productIntelligenceKey: String) {
+        license.setLicense(tikiPublishingID: tikiPublishingID, microblinkLicenseKey: microblinkLicenseKey, productIntelligenceKey: productIntelligenceKey)
+    }
+    
+    public static func oauth(gmailAPIKey: String?, outlookAPIKey: String?, userId: String){
+        if(gmailAPIKey != nil){
+            self.configuration?.gmailAPIKey = gmailAPIKey
+        }
+        if(outlookAPIKey != nil){
+            self.configuration?.outlookAPIKey = outlookAPIKey
+        }
+        Task(){
+            try start(userId: userId)
+
+        }
+    }
+    
+    public static func theme(primaryTextColor: Color,
+                                secondaryTextColor: Color,
+                                primaryBackgroundColor: Color,
+                                secondaryBackgroundColor: Color,
+                                accentColor: Color,
+                                fontFamily: String){
+        self.theme = Theme(primaryTextColor: primaryTextColor, secondaryTextColor: secondaryTextColor, primaryBackgroundColor: primaryBackgroundColor, secondaryBackgroundColor: secondaryBackgroundColor, accentColor: accentColor, fontFamily: fontFamily)
+        
+    }
 }

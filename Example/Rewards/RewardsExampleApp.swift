@@ -21,7 +21,7 @@ struct RewardsExampleApp: App {
     var body: some Scene {
         WindowGroup {
             Button(action: {
-                try? Rewards.start(userId: "")
+                try? Rewards.show(userId: "")
             }) {
                 HStack (spacing: 5) {
                     Image(systemName: "hand.tap.fill")

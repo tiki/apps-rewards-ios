@@ -7,7 +7,7 @@ import Foundation
 import SwiftUI
 import CaptureReceipt
 import TikiSdk
-import Card
+import AppAuth
 
 /// # Rewards
 ///
@@ -66,7 +66,8 @@ public class Rewards{
     
     public static var productIntelligenceKey: String = "YOUR MICROBLINK IOS LICENSE KEY"
     
-    public static var cards: [Card] = []
+    
+    public static var cards: [CreditCard] = []
     
     /// Initializes the rewards system and presents the home screen.
     ///
@@ -74,7 +75,7 @@ public class Rewards{
     ///    - `theme`: An optional parameter to set a custom theme. If not provided, the default theme is used.
     ///
     /// The home screen is presented modally with a cross-dissolve transition and a semi-transparent background.
-    public static func start(_ theme: Theme? = nil, userId: String) throws {
+    public static func show(_ theme: Theme? = nil, userId: String) throws {
         self.theme = theme ?? self.theme
         if(configuration == nil){
             throw NSError()
@@ -162,7 +163,7 @@ public class Rewards{
             self.configuration?.outlookAPIKey = outlookAPIKey
         }
         Task(){
-            try start(userId: userId)
+            try show(userId: userId)
 
         }
     }
@@ -177,25 +178,25 @@ public class Rewards{
         
     }
     
-    public static func card(card: Card...){
+    public static func card(card: CreditCard){
         self.cards.append(card)
     }
-    public static func cards(cards: [Card]){
+    public static func cards(cards: [CreditCard]){
         for card in cards {
             self.cards.append(card)
         }
     }
-    public static func getCards() -> [Card] {
+    public static func getCards() -> [CreditCard] {
         return self.cards
     }
-    public static func removeCard(cardToRemove: Card){
+    public static func removeCard(cardToRemove: CreditCard){
         var idx = 0
         for card in self.cards {
-            if(Card.equal(card1: card, card2: cardToRemove)){
+            if(CreditCard.equal(card1: card, card2: cardToRemove)){
                 cards.remove(at: idx)
                 break
             }
-            idx++
+            idx+=1
         }
         
         

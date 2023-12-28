@@ -4,7 +4,7 @@
  */
 import Foundation
 
-public enum CardNetwork {
+public enum CreditCardNetwork {
     case AMERICAN
     case MASTERCARD
     case VISA

@@ -7,6 +7,7 @@ import Foundation
 import SwiftUI
 import CaptureReceipt
 import TikiSdk
+import Card
 
 /// # Rewards
 ///
@@ -64,6 +65,8 @@ public class Rewards{
     public static var microblinkLicenseKey: String = "YOUR MICROBLINK ANDROID LICENSE KEY"
     
     public static var productIntelligenceKey: String = "YOUR MICROBLINK IOS LICENSE KEY"
+    
+    public static var cards: [Card] = []
     
     /// Initializes the rewards system and presents the home screen.
     ///
@@ -171,6 +174,30 @@ public class Rewards{
                                 accentColor: Color,
                                 fontFamily: String){
         self.theme = Theme(primaryTextColor: primaryTextColor, secondaryTextColor: secondaryTextColor, primaryBackgroundColor: primaryBackgroundColor, secondaryBackgroundColor: secondaryBackgroundColor, accentColor: accentColor, fontFamily: fontFamily)
+        
+    }
+    
+    public static func card(card: Card...){
+        self.cards.append(card)
+    }
+    public static func cards(cards: [Card]){
+        for card in cards {
+            self.cards.append(card)
+        }
+    }
+    public static func getCards() -> [Card] {
+        return self.cards
+    }
+    public static func removeCard(cardToRemove: Card){
+        var idx = 0
+        for card in self.cards {
+            if(Card.equal(card1: card, card2: cardToRemove)){
+                cards.remove(at: idx)
+                break
+            }
+            idx++
+        }
+        
         
     }
 }

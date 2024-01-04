@@ -5,7 +5,9 @@
 
 import Foundation
 
-public class CreditCard {
+public struct CreditCard: Hashable, Encodable {
+    
+    
     public var last4: String
     public var bin: String
     public var issuer: String
@@ -24,5 +26,12 @@ public class CreditCard {
         }else{
             return false
         }
+    }
+    
+    public static func == (lhs: CreditCard, rhs: CreditCard) -> Bool {
+        return lhs.last4 == rhs.last4 &&
+            lhs.bin == rhs.bin &&
+            lhs.issuer == rhs.issuer &&
+            lhs.network == rhs.network
     }
 }

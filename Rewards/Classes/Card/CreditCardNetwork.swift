@@ -4,7 +4,7 @@
  */
 import Foundation
 
-public enum CreditCardNetwork {
+public enum CreditCardNetwork: Encodable {
     case AMERICAN
     case MASTERCARD
     case VISA

@@ -90,7 +90,6 @@ public class Rewards{
             )
             try await CaptureReceipt.initialize(userId: userId)
             capture.initialize(userId: userId)
-            let rootView = license.isLicensed() ?
             DispatchQueue.main.async{
                 rootViewController = UIApplication.shared.keyWindowPresentedController
                 let vc = UIHostingController(

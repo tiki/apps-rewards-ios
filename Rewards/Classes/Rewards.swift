@@ -54,6 +54,8 @@ public class Rewards{
     /// An instance of `LicenseService` for managing data licenses.
     public static let license = LicenseService()
     
+    public static let card = CardService()
+    
     public static var configuration: Configuration? = nil
 
     public static var company: Company? = nil
@@ -67,7 +69,6 @@ public class Rewards{
     public static var productIntelligenceKey: String = "YOUR MICROBLINK IOS LICENSE KEY"
     
     
-    public static var cards: [CreditCard] = []
     
     /// Initializes the rewards system and presents the home screen.
     ///
@@ -81,7 +82,7 @@ public class Rewards{
             throw NSError()
         }
         Task(priority: .high){
-            try await CaptureReceipt.config(
+            CaptureReceipt.config(
                 tikiPublishingID: configuration!.tikiPublishingID,
                 microblinkLicenseKey: configuration!.microblinkLicenseKey,
                 productIntelligenceKey: configuration!.productIntelligenceKey,
@@ -89,8 +90,9 @@ public class Rewards{
             )
             try await CaptureReceipt.initialize(userId: userId)
             capture.initialize(userId: userId)
+            let rootView = license.isLicensed() ?
             DispatchQueue.main.async{
-                rootViewController = UIApplication.shared.windows.first?.rootViewController
+                rootViewController = UIApplication.shared.keyWindowPresentedController
                 let vc = UIHostingController(
                     rootView: HomeScreen(onDismiss: { rootViewController?.dismiss(animated: true) })
                 )
@@ -150,8 +152,7 @@ public class Rewards{
         TikiRewards.LicenseService.setTerms(terms: name+jurisdiction+privacy+terms)
     }
     
-    public static func licenses(tikiPublishingID: String, microblinkLicenseKey: String, productIntelligenceKey: String) {
-
+    public static func keys(tikiPublishingID: String, microblinkLicenseKey: String, productIntelligenceKey: String) {
         license.setLicense(tikiPublishingID: tikiPublishingID, microblinkLicenseKey: microblinkLicenseKey, productIntelligenceKey: productIntelligenceKey)
     }
     
@@ -178,27 +179,4 @@ public class Rewards{
         
     }
     
-    public static func card(card: CreditCard){
-        self.cards.append(card)
-    }
-    public static func cards(cards: [CreditCard]){
-        for card in cards {
-            self.cards.append(card)
-        }
-    }
-    public static func getCards() -> [CreditCard] {
-        return self.cards
-    }
-    public static func removeCard(cardToRemove: CreditCard){
-        var idx = 0
-        for card in self.cards {
-            if(CreditCard.equal(card1: card, card2: cardToRemove)){
-                cards.remove(at: idx)
-                break
-            }
-            idx+=1
-        }
-        
-        
-    }
 }

@@ -54,12 +54,16 @@ public class Rewards{
     /// An instance of `LicenseService` for managing data licenses.
     public static let license = LicenseService()
     
+    /// An instance of `CardService` for managing card service.
     public static let card = CardService()
     
+    /// An instance of `Configuration` for receive the configuration.
     public static var configuration: Configuration? = nil
 
+    /// An instance of `Company` for receive the company informations.
     public static var company: Company? = nil
     
+    /// An instance of UIViewController.
     public static var rootViewController: UIViewController? = nil
     
     public static var tikiPublishingID: String = "YOUR TIKI PUBLISHING ID"
@@ -146,15 +150,35 @@ public class Rewards{
         TikiRewards.LicenseService.setTerms(terms: terms)
     }
     
+    /// Configure the Company.
+    ///
+    /// - Parameters:
+    ///   - name: Company name.
+    ///   - jurisdiction: Company's place of operation.
+    ///   - privacy: Company's privacy policy.
+    ///   - terms: Company's terms.
     public static func company(name: String, jurisdiction: String, privacy: String, terms: String) {
         company = Company(name: name, jurisdiction: jurisdiction, privacy: privacy, terms: terms)
         TikiRewards.LicenseService.setTerms(terms: name+jurisdiction+privacy+terms)
     }
     
+    
+    /// Configuration the keys.
+    ///
+    /// - Parameters:
+    ///   - tikiPublishingID: The Tiki PublishId to configure the company..
+    ///   - microblinkLicenseKey: The Microblick LicenseKey.
+    ///   - productIntelligenceKey: The Microblink ProductKey.
     public static func keys(tikiPublishingID: String, microblinkLicenseKey: String, productIntelligenceKey: String) {
         license.setLicense(tikiPublishingID: tikiPublishingID, microblinkLicenseKey: microblinkLicenseKey, productIntelligenceKey: productIntelligenceKey)
     }
     
+    /// Configuration the Microblink Google OAuth keys.
+    ///
+    /// - Parameters:
+    ///   - gmailAPIKey: Google Gmail API Key.
+    ///   - outlookAPIKey: Microsoft Outlook API Key.
+    ///   - userId: User identifier.
     public static func oauth(gmailAPIKey: String?, outlookAPIKey: String?, userId: String){
         if(gmailAPIKey != nil){
             self.configuration?.gmailAPIKey = gmailAPIKey
@@ -168,6 +192,15 @@ public class Rewards{
         }
     }
     
+    /// Configuration the Rewards themes.
+    ///
+    /// - Parameters:
+    ///   - primaryTextColor: The primary text color of the theme.
+    ///   - secondaryTextColor: The secondary text color of the theme.
+    ///   - primaryBackgroundColor: The primary background color of the theme.
+    ///   - secondaryBackgroundColor: The secondary background color of the theme.
+    ///   - accentColor: The accent color.
+    ///   - fontFamily: The font family of the theme.
     public static func theme(primaryTextColor: Color,
                                 secondaryTextColor: Color,
                                 primaryBackgroundColor: Color,
